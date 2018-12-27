@@ -17,8 +17,6 @@
 
     .logo h1 {
       color: @white;
-      font-family: 'proxima-nova', "Proxima Nova","Open Sans","Gill Sans MT","Gill Sans",Corbel,Arial,sans-serif;
-      font-size: 2em;
       font-weight: 200;
       line-height: 1em;
       margin: 18px 0 20px 30px;
@@ -27,9 +25,9 @@
 
     nav {
       position: absolute;
-      right: 15px;
+      right: @baseSpacing;
       text-align: right;
-      top: 22px;
+      top: @baseSpacing;
 
       ul {
         margin: 0;
@@ -39,14 +37,13 @@
 
           a {
             display: inline-block;
-            font-family: 'proxima-nova', "Proxima Nova","Open Sans","Gill Sans MT","Gill Sans",Corbel,Arial,sans-serif;
             font-weight: 300;
             padding: 5px 15px;
             text-transform: uppercase;
 
             &:hover,
             &.active {
-              color: #E41A5C;
+              color: @brand-color;
             }
           }
         }

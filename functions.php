@@ -62,6 +62,16 @@ add_action( 'after_setup_theme', 'woocommerce_support' );
  */
 add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
 
+function custom_woocommerce_product_add_to_cart_text( $text ) {
+    if( 'Read more' == $text ) {
+      $text = __( 'More Info', 'woocommerce' );
+    }
+
+    return $text;
+}
+add_filter( 'woocommerce_product_add_to_cart_text' , 'custom_woocommerce_product_add_to_cart_text' );
+
+
 function is_realy_woocommerce_page () {
 if(  function_exists ( "is_woocommerce" ) && is_woocommerce()){
         return true;

@@ -15,9 +15,18 @@ html body.woocommerce {
 	ul.products {
 		.make-col(12, @baseSpacing * 2);
 
-		li.product a img {
-			.hover-fade();
-			border-radius: @borderRadius;
+		li.product {
+			text-align: center;
+
+			a img {
+				.hover-fade();
+				border-radius: @borderRadius;
+				margin-bottom: 0;
+			}
+
+			.woocommerce-loop-product__title {
+				line-height: 2rem;
+			}
 		}
 	}
 
@@ -39,9 +48,20 @@ html body.woocommerce {
 			}	
 		}
 
-		div.images img {
-			max-width: 500px;
-			width: auto;
+		div.images {
+			.wc-dzsap-wrapper.go-to-thumboverlay {
+				// background-color: @white;
+			}
+
+			.woocommerce-product-gallery__wrapper {
+				float: left;
+
+				img {
+					margin-bottom: @baseSpacing / 2;
+					max-width: 500px;
+					width: auto;
+				}
+			}
 		}
 	}
 }
