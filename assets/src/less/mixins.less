@@ -1,0 +1,110 @@
+// Utility
+.clearfix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.flex-wrap(@padding:(@baseSpacing)) {
+  display: flex;
+  flex-flow: row;
+  overflow: hidden;
+  padding: @padding;
+}
+
+// Grid Mixins
+.row(@padding:@baseSpacing) {
+  .clearfix();
+  padding-left: @padding;
+  padding-right: @padding;
+  width: 100%;
+}
+
+.make-col(@columns; @padding:@baseSpacing) {
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: @padding;
+  width: 100%*(@columns / @baseColumnCount);
+}
+
+.push(@columns) {
+  margin-left: 100%*(@columns / @baseColumnCount);
+}
+
+// Type Mixins
+.make-title(@font-family:@font-family-title) {
+  color: @teal;
+  display: inline-block;
+  font-family: @font-family-title;
+  font-size: @font-size-title;
+  font-weight: @font-weight-heavy;
+  letter-spacing: @letter-spacing-title;
+  line-height: @line-height-title;
+  margin-bottom: @baseSpacing;
+  margin-top: @baseSpacing;
+  text-transform: uppercase;  
+  width: 100%;
+}
+
+.make-heading() {
+  font-family: @font-family-title;
+  font-size: @font-size-md;
+  font-weight: @font-weight-light;
+  letter-spacing: @letter-spacing-heading;
+  line-height: @line-height-heading;
+  margin: (@baseSpacing / 2) 0;
+  text-transform: uppercase;
+}
+
+.button(@color:@white) {
+  background-color: @teal;
+  border: 2px solid @teal;
+  border-radius: 30px;
+  color: @color;
+  cursor: pointer;
+  display: inline-block;
+  font: @font-size-button @font-family-button;
+  font-weight: @font-weight-light;
+  letter-spacing: @letter-spacing-title;
+  line-height: @line-height-btn;
+  margin: @baseSpacing (@baseSpacing / 2);
+  padding: (@baseSpacing / 3) @baseSpacing;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background-color @transition-speed, border-color @transition-speed;
+
+  &:hover,
+  &:active {
+    background-color: @blue-dark;
+    border-color: @blue-dark;
+    color: @white;
+  }
+}
+
+// Effects
+.transition(@property; @speed:@transition-speed) {
+  transition: @property @speed ease-in;
+  will-change: @property;
+}
+
+.fade-in() {
+	.transition(opacity);
+	opacity: 0;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.hover-fade() {
+  .transition(opacity);
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,63 @@
+/* Footer */
+html body footer {
+  background-color: #000;
+  bottom: 0;
+  color: @grey-light;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  z-index: @z-index-footer;
+
+  .container {
+    padding: @baseSpacing (@baseSpacing * 2);
+    
+    span {
+      font-size: 0.7em;
+      font-weight: 400;
+      line-height: 1.3em;
+      text-transform: uppercase;
+
+      a {
+        color: @white;
+      }
+    }
+  }
+}
+
+footer .widget {
+  float: left;
+
+  h4 {
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    margin-bottom: 15px;
+  }
+}
+
+footer .widget ul li a {
+  padding: 10px 0;
+}
+
+footer .widget.widget_nav_menu ul li {
+  display: inline;
+  margin: 15px;
+}
+
+footer .fa {
+	border-color: @white;
+  color: @white;
+}
+
+footer .fa a,
+footer .fa::before {
+	border-radius: 50%;
+}
+
+footer .fa:hover,
+footer .fa:hover::before {
+  border-color: @white;
+  background-color: @white;
+  color: #111;
+}

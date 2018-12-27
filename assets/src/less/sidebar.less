@@ -1,0 +1,19 @@
+html body.sidebar .container#primary {
+  .flex-wrap();
+  padding-left: 0;
+  padding-right: 0;
+
+  #main {	
+  	.make-col(8, 0 (@baseSpacing * 2));
+	}
+
+	.sidebar {
+    .make-col(3, 0 (@baseSpacing * 2));
+		border-left: 1px solid @grey-light;
+    padding-top: 0;
+
+  	.widget {
+  		margin-bottom: @baseSpacing;
+  	}
+  }
+}

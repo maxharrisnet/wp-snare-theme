@@ -1,0 +1,93 @@
+/* Forms */
+
+input[type=text], input[type=email], input[type=tel], select, textarea {
+	border: 0 solid;
+  box-sizing: border-box;
+  clear: both;
+  color: #111;
+  float: left;
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto; 
+  margin-top: 6px;
+  max-width: 600px;
+  padding: 5px;
+  transition: border-color 0.2s ease-in, color 0.2s ease-in;
+  width: 100%;
+  will-change: border-color, color;
+}
+
+textarea {
+  height: 200px;
+  width: 100%;
+}
+
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder { /* Chrome/Opera/Safari */
+  font-size: 1.2em;
+}
+
+input[type=submit] {
+  background-color: #111;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0px 6px -1px #333;
+  clear: both;
+  color: @white;
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  padding: 12px 20px;
+  text-transform: uppercase;
+}
+
+/* Placeholders */
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #fff !important;
+  opacity: 1;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #fff !important;
+  opacity: 1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #fff !important;
+  opacity: 1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #fff !important;
+  opacity: 1;
+}
+
+/* MailChimp */
+
+.mc4wp-form {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 0;
+  padding-right: 175px;
+  position: relative;
+  width: 100%;
+}
+
+.mc4wp-form input[type=submit] {
+  background-color: transparent;
+  border: 1px solid @white;
+  height: 55px;
+  position: absolute;
+  right: 0px;
+  top: 6px;
+  transition: border-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+.mc4wp-form input[type=submit]:hover {
+  color: #E41A5C;
+  border-color: #E41A5C;
+}

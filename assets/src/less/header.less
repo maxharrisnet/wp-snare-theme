@@ -1,0 +1,64 @@
+/* Header */
+
+#header {
+  background-color: @white;
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+  z-index: 900;
+
+  .container {
+    padding: @baseSpacing (@baseSpacing * 3);
+
+    .custom-logo-link img {
+      height: 80px;
+      width: auto;
+    }
+
+    .logo h1 {
+      color: @white;
+      font-family: 'proxima-nova', "Proxima Nova","Open Sans","Gill Sans MT","Gill Sans",Corbel,Arial,sans-serif;
+      font-size: 2em;
+      font-weight: 200;
+      line-height: 1em;
+      margin: 18px 0 20px 30px;
+      text-shadow: 0px 0px 1px #000;
+    }
+
+    nav {
+      position: absolute;
+      right: 15px;
+      text-align: right;
+      top: 22px;
+
+      ul {
+        margin: 0;
+
+        li {
+          display: inline-block;
+
+          a {
+            display: inline-block;
+            font-family: 'proxima-nova', "Proxima Nova","Open Sans","Gill Sans MT","Gill Sans",Corbel,Arial,sans-serif;
+            font-weight: 300;
+            padding: 5px 15px;
+            text-transform: uppercase;
+
+            &:hover,
+            &.active {
+              color: #E41A5C;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#header .menu-toggle {
+  display: none;
+}
+
+.woocommerce .woocommerce-breadcrumb {
+  margin-bottom: @baseSpacing;
+}

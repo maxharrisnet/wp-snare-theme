@@ -1,0 +1,80 @@
+// Media Sizes
+@maxDesktopLg: ~"only screen and (min-width: 1800px)";
+@minDesktop: ~"only screen and (min-width: 1200px)";
+@minTablet: ~"only screen and (min-width: 900px)";
+@minPhone: ~"only screen and (min-width: 600px)";
+
+@maxDesktop: ~"only screen and (max-width: 1799px)";
+@maxTablet: ~"only screen and (max-width: 1199px)";
+@maxPhone: ~"only screen and (max-width: 899px)";
+@maxPhoneSm: ~"only screen and (max-width: 599px)";
+
+// Grid
+@container-width: 1600px;
+@baseColumnCount: 12;
+@baseSpacing: 20px;
+
+// Colors
+@black: darken(@grey, 80%);
+@grey: #AAAAAA;
+@grey-light: #EAEAEA;
+@grey-dark: #393939;
+@white: #FFFFFF;
+
+@blue-light: lighten(#406DAC, 20%);
+@yellow: #D3A700;
+
+@brand-color: @yellow;
+@text-color: @black;
+
+@hover-opacity: 0.8;
+
+// Text Base
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,900,900i');
+@font-family-title:  "Roboto", "Franklin Gothic Medium", Tahoma, sans-serif;
+@font-family-sans: "Roboto", "Franklin Gothic Medium", Tahoma, sans-serif;
+
+@font-size-base: 16px;
+
+@font-size-xxl: 56px;
+@font-size-xl: 36px;
+@font-size-lg: 30px;
+@font-size-md: @font-size-base;
+@font-size-sm: 13px;
+@font-size-xs: 11px;
+
+// Buttons
+@font-size-title: @font-size-xxl;
+@font-size-icon: 36px;
+@font-size-button: @font-size-sm;
+
+@font-weight-regular: 400;
+@font-weight-heavy: 600;
+
+// Text Styles
+@font-family-body: @font-family-sans;
+@font-family-button: @font-family-sans;
+
+@letter-spacing-body: 0.046rem;
+@letter-spacing-heading: 0.12rem;
+@letter-spacing-title: 0.14rem;
+
+@line-height-title: 3rem;
+@line-height-heading: 1.86rem;
+@line-height-body: 1.6rem;
+@line-height-sm: 1.14rem;
+
+@line-height-btn: @line-height-body;
+
+// Borders
+@borderRadius: 5px;
+
+// Transitions
+@transition-speed: 0.3s;
+
+@box-shadow: 0 0 6px -1px @grey;
+@box-shadow-vertical: 0px 5px 20px -10px @grey;
+
+// Z-Indexes
+@z-index-header: 600;
+@z-index-footer: 600;

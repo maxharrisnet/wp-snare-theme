@@ -1,0 +1,33 @@
+html body {
+	background-color: @white;
+  color: @text-color;
+  font-family: @font-family-sans;
+  font-size: @font-size-base;
+  font-weight: @font-weight-regular;
+  letter-spacing: @letter-spacing-body;
+  overflow: auto;
+  position: relative;
+
+  .container#primary {
+  	background-color: @white;
+  	height: 83vh;
+  	padding: @baseSpacing (@baseSpacing * 3);
+
+  	#main {
+  		.make-col(12, @baseSpacing * 2)
+  	}
+  }
+}
+
+/* Tablet */
+
+@media @maxTablet {
+	html body .container#primary {
+		flex-flow: column-reverse;
+
+		#main,
+		.sidebar {
+			.make-col(12, 0);
+		}
+	}
+}
