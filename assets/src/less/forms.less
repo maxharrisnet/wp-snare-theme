@@ -1,25 +1,22 @@
 /* Forms */
 
 input[type=text], input[type=email], input[type=tel], select, textarea {
-	border: 0 solid;
+	border: @border;
   box-sizing: border-box;
   clear: both;
-  color: #111;
+  color: @black;
   float: left;
   font-size: 1.2em;
-  margin-bottom: 25px;
+  margin-bottom: @baseSpacing;
   margin-left: auto;
   margin-right: auto; 
-  margin-top: 6px;
+  margin-top: @baseSpacing / 2;
   max-width: 600px;
   padding: 5px;
-  transition: border-color 0.2s ease-in, color 0.2s ease-in;
-  width: 100%;
-  will-change: border-color, color;
 }
 
 textarea {
-  height: 200px;
+  min-height: 200px;
   width: 100%;
 }
 
@@ -31,9 +28,9 @@ textarea {
 }
 
 input[type=submit] {
-  background-color: #111;
+  background-color: @black;
   border: none;
-  border-radius: 3px;
+  border-radius: @borderRadius;
   box-shadow: 0 0px 6px -1px #333;
   clear: both;
   color: @white;
@@ -79,7 +76,7 @@ input[type=submit] {
 
 .mc4wp-form input[type=submit] {
   background-color: transparent;
-  border: 1px solid @white;
+  border: @border;
   height: 55px;
   position: absolute;
   right: 0px;

@@ -11,8 +11,8 @@ add_theme_support('editor-styles');
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'align-wide' );
 add_theme_support( 'custom-logo', array(
-  'height'      => 300,
-  'width'       => 300,
+  'height'      => 200,
+  'width'       => 200,
   'flex-height' => true,
   'header-text' => array( 'site-title', 'site-description' ),
 ) );
@@ -62,6 +62,7 @@ add_action( 'after_setup_theme', 'woocommerce_support' );
  */
 add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
 
+// Add to Cart Text
 function custom_woocommerce_product_add_to_cart_text( $text ) {
     if( 'Read more' == $text ) {
       $text = __( 'More Info', 'woocommerce' );
@@ -70,6 +71,40 @@ function custom_woocommerce_product_add_to_cart_text( $text ) {
     return $text;
 }
 add_filter( 'woocommerce_product_add_to_cart_text' , 'custom_woocommerce_product_add_to_cart_text' );
+
+
+/**
+ * Add a custom product data tab
+ */
+add_filter( 'woocommerce_product_tabs', 'snare_product_tabs' );
+function snare_product_tabs( $tabs ) {
+    
+  $tabs['test_tab'] = array(
+    'title'   => __( 'Related Tracks', 'woocommerce' ),
+    'priority'  => 1,
+    'callback'  => 'woo_new_product_tab_content'
+  );
+
+  return $tabs;
+}
+
+function woo_new_product_tab_content() {
+  woocommerce_output_related_products();
+}
+
+/**
+ * Remove product data tabs
+ */
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+
+    // unset( $tabs['description'] );        // Remove the description tab
+    // unset( $tabs['reviews'] );      // Remove the reviews tab
+    unset( $tabs['additional_information'] );   // Remove the additional information tab
+
+    return $tabs;
+}
 
 
 function is_realy_woocommerce_page () {

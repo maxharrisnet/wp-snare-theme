@@ -1,43 +1,50 @@
 /* Header */
 
 #header {
-  background-color: @white;
+  background-color: @grey-dark;
   overflow: hidden;
   text-align: left;
   width: 100%;
   z-index: 900;
 
   .container {
-    padding: @baseSpacing (@baseSpacing * 3);
+    padding: 0 (@baseSpacing);
 
-    .custom-logo-link img {
-      height: 80px;
-      width: auto;
+    .logo-wrap {
+      .make-col(2, (@baseSpacing / 2));
+
+      .custom-logo-link img {
+        height: 80px;
+        width: auto;
+      }
+
+      .logo h1 {
+        color: @white;
+        font-weight: 200;
+        line-height: 1em;
+        margin: 18px 0 20px 30px;
+        text-shadow: 0px 0px 1px #000;
+      }
     }
 
-    .logo h1 {
-      color: @white;
-      font-weight: 200;
-      line-height: 1em;
-      margin: 18px 0 20px 30px;
-      text-shadow: 0px 0px 1px #000;
+    .search-wrap {
+      .make-col(4, (@baseSpacing / 2));
+      .push(2);
     }
 
-    nav {
-      position: absolute;
-      right: @baseSpacing;
-      text-align: right;
-      top: @baseSpacing;
+    .nav-wrap {
+      .make-col(4, (@baseSpacing / 2));
 
       ul {
         margin: 0;
+        text-align: right;
 
         li {
           display: inline-block;
 
           a {
+            color: @grey-light;
             display: inline-block;
-            font-weight: 300;
             padding: 5px 15px;
             text-transform: uppercase;
 

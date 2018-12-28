@@ -54,12 +54,16 @@
 
 <header id="header">
 	<div class="container">
-			<?php
-				if ( function_exists( 'the_custom_logo' ) ) {
-				  the_custom_logo();
-				}
-		 	?>
-		<nav class="main-nav">
+
+		<div class="logo-wrap">
+			<?php if ( function_exists( 'the_custom_logo' )) { the_custom_logo(); } ?>
+		</div>
+
+		<div class="search-wrap">
+			<?php get_search_form(); ?>
+		</div>
+
+		<nav class="nav-wrap">
 			<?php wp_nav_menu( array(
 				'menu' => 'header_menu',
 	      'theme_location' => 'header_menu',
