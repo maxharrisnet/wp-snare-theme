@@ -15,7 +15,7 @@
 @baseSpacing: 20px;
 
 // Colors
-@black: darken(@grey, 80%);
+@black: #000;
 @grey: #AAAAAA;
 @grey-light: #D3CED2;
 @grey-dark: darken(@grey, 52%);
@@ -26,6 +26,8 @@
 
 @brand-color: @yellow;
 @text-color: @black;
+@link-color: @black;
+@hover-color: @brand-color;
 
 @hover-opacity: 0.8;
 
@@ -48,7 +50,7 @@
 @font-size-icon: 36px;
 @font-size-button: @font-size-sm;
 
-@font-weight-regular: 400;
+@font-weight-medium: 400;
 @font-weight-heavy: 600;
 
 // Text Styles
@@ -69,9 +71,11 @@
 // Borders
 @border: 1px solid @grey-light;
 @borderRadius: 5px;
+@border-radius-small: 30%;
 
 // Transitions
 @transition-speed: 0.3s;
+@transition-speed-fast: 0.2s;
 
 @box-shadow: 0 0 6px -1px @grey;
 @box-shadow-vertical: 0px 5px 20px -10px @grey;

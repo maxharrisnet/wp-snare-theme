@@ -7,13 +7,21 @@ html body {
 		}
 	}
 
-	.dzsap-sticktobottom-for-skin-wave {
+	.wc-dzsap-wrapper {
 		background-color: @white;
 		color: @grey-dark;
-		padding: @baseSpacing;
+		padding: @baseSpacing 0;
 
 		.player-but .the-icon-bg {
 			border-color: @grey-light;
 		}
+
+		.extra-html {
+			margin-bottom: @baseSpacing / 2;
+		}
+	}
+
+	&.single-product .audioplayer.skin-wave .audioplayer-inner .the-thumb-con {
+		display: none;
 	}
 }

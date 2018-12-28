@@ -1,12 +1,14 @@
 // Product Lists
 html body.woocommerce .product ul.products { 
 	li.product {
+		.make-col(12,0);
 		text-align: center;
 
 		a img {
 			.hover-fade();
 			border-radius: @borderRadius;
 			margin-bottom: 0;
+			width: auto;
 		}
 
 		.woocommerce-loop-product__title {
@@ -35,7 +37,7 @@ html body.single-product {
 	div.product {
 		display: flex;
 		flex-flow: row wrap;
-		margin: 0 auto;
+		margin: @baseSpacing auto;
 
 		form.cart {
 			.button {
@@ -49,24 +51,23 @@ html body.single-product {
 			}	
 		}
 
-		div.images {
-			.make-col(2,0);
-			padding-right: @baseSpacing;
+		> .summary {
+			.make-col(10);
+			.push(1);
 
-
-			.woocommerce-product-gallery__wrapper {
-				float: left;
+			div.images {
+				.make-col(2,0);
+				padding-right: @baseSpacing;
 
 				img {
 					border-radius: @borderRadius;
 					margin-bottom: @baseSpacing / 2;
 				}
 			}
-		}
 
-		> .summary {
-			.make-col(10);
-			.push(1);
+			.product-info-wrap {
+				.make-col(10, 0);
+			}
 		}
 
 		> .woocommerce-tabs {

@@ -1,0 +1,19 @@
+// Categories and Tags
+.taxonomy-list {
+	.make-col(6, (@baseSpacing / 2) 0);
+
+	li {
+		background-color: transparent;
+		border: @border;
+		border-radius: @borderRadius;
+		display: inline;
+		font-size: @font-size-sm;
+		margin-right: @baseSpacing / 2;
+		padding: (@baseSpacing / 3) (@baseSpacing / 2);
+
+		&:hover {
+    	.transition(color, @transition-speed-fast);
+			color: @hover-color;
+		}
+	}
+}

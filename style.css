@@ -3,15 +3,11 @@
 Theme Name: Snare
 Author: Max Harris
 Author URI: http://maxharris.net/
-Description: Custom EdTech Theme
+Description: Custom E-Commerce Theme for Audio
 Version: 0.1
 Text Domain: fiveable
 
 This theme, like WordPress, is licensed under the GPL.
-*/
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
 */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -146,22 +142,6 @@ img,
 iframe {
   max-width: 100%;
 }
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
-* html .clearfix {
-  zoom: 1;
-}
-/* IE6 */
-*:first-child + html .clearfix {
-  zoom: 1;
-}
-/* IE7 */
 html body .container {
   margin: 0 auto;
   max-width: 100%;
@@ -341,101 +321,76 @@ html body .col-12 {
   }
 }
 /* Text */
-p {
+html body p {
   font-weight: 400;
   line-height: 1.6em;
 }
-strong {
-  font-weight: 700;
+html body strong {
+  font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-time {
-  color: #999;
+html body time {
+  color: #aaaaaa;
   display: block;
   font-size: 0.8em;
   margin: 10px auto;
 }
-a {
-  color: #111;
+html body a {
+  transition: color 0.2s ease-in;
+  will-change: color;
+  color: #000000;
   text-decoration: none;
   transition: color 0.2s, background-color 0.2s;
 }
-a:active,
-a:hover {
-  color: #E41A5C;
+html body a:active,
+html body a:hover {
+  color: #d3a700;
 }
-a.btn {
-  background-color: #990100;
-  border-radius: 3px;
-  color: #ffffff;
-  display: inline-block;
-  font-size: 1.2em;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  margin: 30px auto 0;
-  max-width: 420px;
-  padding: 20px 30px;
-  text-transform: uppercase;
-}
-a.btn:hover,
-a.btn:focus {
-  background-color: #333;
-  color: #111;
-}
-.btn:focus {
-  outline: none;
-}
-.btn-alt,
-a.btn-alt {
-  background-color: #000;
-  color: #ffffff;
-}
-h1,
-h2,
-h3,
-h4 {
+html body h1,
+html body h2,
+html body h3,
+html body h4 {
   color: #000000;
   font-family: "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
   font-weight: 400;
 }
-h1 {
+html body h1 {
   font-size: 2.2rem;
   font-weight: 600;
   letter-spacing: 0.14rem;
   margin: 0 0 10px;
   text-transform: uppercase;
 }
-h2 {
+html body h2 {
   font-size: 2.2rem;
   font-weight: 200;
   line-height: 3em;
   max-width: 100%;
 }
-h3 {
+html body h3 {
   font-size: 1.5rem;
   letter-spacing: 0.01rem;
   line-height: 1.1rem;
   margin: 20px auto;
 }
-ul li {
+html body ul li {
   line-height: 1.4em;
   list-style-type: none;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
-ul li h4 {
+html body ul li h4 {
   line-height: 1.2em;
   text-transform: none;
 }
-li:hover time {
-  opacity: 1;
-}
-label {
+html body label {
   clear: both;
-  font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   width: 100%;
+}
+html body .fa::before {
+  color: #d3ced2;
 }
 /* Forms */
 input[type=text],
@@ -479,7 +434,6 @@ input[type=submit] {
   font-size: 1em;
   font-weight: 600;
   letter-spacing: 0.2em;
-  padding: 12px 20px;
   text-transform: uppercase;
 }
 /* Placeholders */
@@ -525,6 +479,79 @@ input[type=submit] {
   color: #E41A5C;
   border-color: #E41A5C;
 }
+.searchform {
+  margin: 20px 0;
+  position: relative;
+}
+.searchform input[type=text] {
+  background-color: transparent;
+  border: 1px solid #d3ced2;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+}
+.searchform .icon-button {
+  display: flex;
+  margin-top: 4px;
+  padding: 10px;
+  position: absolute;
+  right: 6.66666667px;
+  top: 0;
+}
+.searchform .icon-button input[type=submit] {
+  background-color: transparent;
+  position: absolute;
+}
+.taxonomy-list {
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 10px 0;
+  width: 50%;
+}
+.taxonomy-list li {
+  background-color: transparent;
+  border: 1px solid #d3ced2;
+  border-radius: 5px;
+  display: inline;
+  font-size: 13px;
+  margin-right: 10px;
+  padding: 6.66666667px 10px;
+}
+.taxonomy-list li:hover {
+  transition: color 0.2s ease-in;
+  will-change: color;
+  color: #d3a700;
+}
+html body .button {
+  background-color: #990100;
+  border-radius: 3px;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin: 30px auto 0;
+  max-width: 420px;
+  padding: 20px 30px;
+  text-transform: uppercase;
+}
+html body .button:hover,
+html body .button:focus {
+  background-color: #333;
+  color: #111;
+}
+html body .button:focus {
+  outline: none;
+}
+html body .button-alt,
+html body a.button-alt {
+  background-color: #000000;
+  color: #ffffff;
+}
+html body .icon-button {
+  position: relative;
+}
 /* Header */
 #header {
   background-color: #252525;
@@ -561,6 +588,9 @@ input[type=submit] {
   padding: 10px;
   width: 33.33333333%;
   margin-left: 16.66666667%;
+}
+#header .container .search-wrap .searchform input[type=text] {
+  color: #d3ced2;
 }
 #header .container .nav-wrap {
   float: left;
@@ -679,11 +709,10 @@ html body {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.046rem;
-  overflow: auto;
+  line-height: 1.6rem;
   position: relative;
 }
 html body .container#primary {
-  min-height: 83vh;
   padding: 20px 60px;
 }
 html body .container#primary #main {
@@ -708,6 +737,11 @@ html body .container#primary #main {
   }
 }
 html body.woocommerce .product ul.products li.product {
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
   text-align: center;
 }
 html body.woocommerce .product ul.products li.product a img {
@@ -716,6 +750,7 @@ html body.woocommerce .product ul.products li.product a img {
   opacity: 1;
   border-radius: 5px;
   margin-bottom: 0;
+  width: auto;
 }
 html body.woocommerce .product ul.products li.product a img:hover {
   opacity: 0.8;
@@ -740,7 +775,7 @@ html body.post-type-archive-product .woocommerce-products-header .woocommerce-or
 html body.single-product div.product {
   display: flex;
   flex-flow: row wrap;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 html body.single-product div.product form.cart .button {
   clear: both;
@@ -750,21 +785,6 @@ html body.single-product div.product form.cart table td {
   clear: both;
   float: left;
 }
-html body.single-product div.product div.images {
-  float: left;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 0;
-  width: 16.66666667%;
-  padding-right: 20px;
-}
-html body.single-product div.product div.images .woocommerce-product-gallery__wrapper {
-  float: left;
-}
-html body.single-product div.product div.images .woocommerce-product-gallery__wrapper img {
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
 html body.single-product div.product > .summary {
   float: left;
   min-height: 1px;
@@ -772,6 +792,25 @@ html body.single-product div.product > .summary {
   padding: 20px;
   width: 83.33333333%;
   margin-left: 8.33333333%;
+}
+html body.single-product div.product > .summary div.images {
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0;
+  width: 16.66666667%;
+  padding-right: 20px;
+}
+html body.single-product div.product > .summary div.images img {
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+html body.single-product div.product > .summary .product-info-wrap {
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0;
+  width: 83.33333333%;
 }
 html body.single-product div.product > .woocommerce-tabs {
   float: left;
@@ -802,21 +841,22 @@ html body.single-product div.product > .related {
 html body.single-product div.product > .related ul.products {
   padding: 0;
 }
-.searchform input[type=text] {
-  background-color: transparent;
-  border: 1px solid #d3ced2;
-  width: 100%;
-}
 /* Audio Player */
 html body .audiogallery .nav-main {
   height: auto !important;
   max-height: 80vh;
 }
-html body .dzsap-sticktobottom-for-skin-wave {
+html body .wc-dzsap-wrapper {
   background-color: #ffffff;
   color: #252525;
-  padding: 20px;
+  padding: 20px 0;
 }
-html body .dzsap-sticktobottom-for-skin-wave .player-but .the-icon-bg {
+html body .wc-dzsap-wrapper .player-but .the-icon-bg {
   border-color: #d3ced2;
+}
+html body .wc-dzsap-wrapper .extra-html {
+  margin-bottom: 10px;
+}
+html body.single-product .audioplayer.skin-wave .audioplayer-inner .the-thumb-con {
+  display: none;
 }

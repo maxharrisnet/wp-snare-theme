@@ -2,34 +2,38 @@
 Theme Name: Snare
 Author: Max Harris
 Author URI: http://maxharris.net/
-Description: Custom EdTech Theme
+Description: Custom E-Commerce Theme for Audio
 Version: 0.1
 Text Domain: fiveable
 
 This theme, like WordPress, is licensed under the GPL.
 */
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
+// Utility
 @import "reset";
 @import "variables";
 @import "mixins";
-@import "utility";
 @import "grid";
 
+// Atoms
 @import "text";
-@import "forms";
+@import "icons";
 
+// Molecules
+@import "forms";
+@import "search";
+@import "taxonomies";
+@import "elements";
+
+// Organisms
 @import "header";
 @import "footer";
 @import "sidebar";
 
+// Templates
 @import "page";
 @import "home";
 @import "product";
-@import "search";
-
 @import "audio-player";
+
+// Pages

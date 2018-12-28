@@ -4,7 +4,6 @@ define("THEME_DIR", get_template_directory_uri());
 /*--- REMOVE GENERATOR META TAG ---*/
 remove_action('wp_head', 'wp_generator');
 
-
 //  Theme Supports
 add_theme_support('editor-styles');
 
@@ -17,8 +16,10 @@ add_theme_support( 'custom-logo', array(
   'header-text' => array( 'site-title', 'site-description' ),
 ) );
 
-// REGISTER MENUS
+// Image Sizes
+add_image_size('playlist-thumbnail', 50, 50, true);
 
+// REGISTER MENUS
 function register_menus() {
     register_nav_menus( array(
       'header_menu' => 'Header Menu',
@@ -92,6 +93,22 @@ function woo_new_product_tab_content() {
   woocommerce_output_related_products();
 }
 
+// * @hooked woocommerce_template_single_title - 5
+// * @hooked woocommerce_template_single_rating - 10
+// * @hooked woocommerce_template_single_price - 10
+// * @hooked woocommerce_template_single_excerpt - 20
+// * @hooked woocommerce_template_single_add_to_cart - 30
+// * @hooked woocommerce_template_single_meta - 40
+// * @hooked woocommerce_template_single_sharing - 50
+// * @hooked WC_Structured_Data::generate_product_data() - 60
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 11 );
+
 /**
  * Remove product data tabs
  */
@@ -111,7 +128,7 @@ function is_realy_woocommerce_page () {
 if(  function_exists ( "is_woocommerce" ) && is_woocommerce()){
         return true;
   }
-  $woocommerce_keys   =   array ( "woocommerce_shop_page_id" ,
+  $woocommerce_keys = array ( "woocommerce_shop_page_id" ,
                                   "woocommerce_terms_page_id" ,
                                   "woocommerce_cart_page_id" ,
                                   "woocommerce_checkout_page_id" ,
@@ -176,6 +193,7 @@ function woocommerce_quantity_input_min_callback( $min, $product ) {
   return $min;
 }
 add_filter( 'woocommerce_quantity_input_min', 'woocommerce_quantity_input_min_callback', 10, 2 );
+
 /*
 * Changing the maximum quantity to 5 for all the WooCommerce products
 */
@@ -231,7 +249,6 @@ function avf_change_which_archive($output)
 
 // FONT MENU
 
-add_filter( 'storm_social_icons_networks', 'storm_social_icons_networks');
 function storm_social_icons_networks( $networks ) {
  
     $extra_icons = array (
@@ -299,9 +316,8 @@ function storm_social_icons_networks( $networks ) {
  
     $extra_icons = array_merge( $networks, $extra_icons );
     return $extra_icons;
- 
 }
-
+add_filter( 'storm_social_icons_networks', 'storm_social_icons_networks');
 
 // ENQUEUE STYLES
 function enqueue_styles() {   

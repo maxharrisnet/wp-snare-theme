@@ -35,7 +35,7 @@ if ( $related_products ) : ?>
 
 					setup_postdata( $GLOBALS['post'] =& $post_object );
 
-					wc_get_template_part( 'content', 'product' ); ?>
+					wc_get_template_part( 'content', 'playlist-product' ); ?>
 
 			<?php endforeach; ?>
 
