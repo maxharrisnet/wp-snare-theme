@@ -107,7 +107,7 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 11 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 10 );
 
 /**
  * Remove product data tabs

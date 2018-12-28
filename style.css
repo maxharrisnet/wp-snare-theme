@@ -554,7 +554,7 @@ html body .icon-button {
 }
 /* Header */
 #header {
-  background-color: #252525;
+  background-color: rgba(0, 0, 0, 0.8);
   overflow: hidden;
   text-align: left;
   width: 100%;
@@ -590,6 +590,7 @@ html body .icon-button {
   margin-left: 16.66666667%;
 }
 #header .container .search-wrap .searchform input[type=text] {
+  border-radius: 30px;
   color: #d3ced2;
 }
 #header .container .nav-wrap {
@@ -739,16 +740,19 @@ html body .container#primary #main {
 html body.woocommerce .product ul.products li.product {
   float: left;
   min-height: 1px;
-  overflow: hidden;
   padding: 0;
   width: 100%;
+  display: flex;
+  flex-flow: row;
+  overflow: hidden;
+  padding: 10px;
+  border-bottom: 1px solid #d3ced2;
   text-align: center;
 }
 html body.woocommerce .product ul.products li.product a img {
   transition: opacity 0.3s ease-in;
   will-change: opacity;
   opacity: 1;
-  border-radius: 5px;
   margin-bottom: 0;
   width: auto;
 }
@@ -757,6 +761,12 @@ html body.woocommerce .product ul.products li.product a img:hover {
 }
 html body.woocommerce .product ul.products li.product .woocommerce-loop-product__title {
   line-height: 2rem;
+}
+html body.woocommerce .product ul.products li.product .button {
+  margin-top: 0;
+}
+html body.woocommerce .product ul.products li.product:last-of-type {
+  border-bottom: none;
 }
 html body.post-type-archive-product .woocommerce-products-header {
   float: left;
@@ -803,7 +813,6 @@ html body.single-product div.product > .summary div.images {
 }
 html body.single-product div.product > .summary div.images img {
   border-radius: 5px;
-  margin-bottom: 10px;
 }
 html body.single-product div.product > .summary .product-info-wrap {
   float: left;
@@ -812,21 +821,25 @@ html body.single-product div.product > .summary .product-info-wrap {
   padding: 0;
   width: 83.33333333%;
 }
-html body.single-product div.product > .woocommerce-tabs {
+html body.single-product div.product > .summary .product-info-wrap .product_meta {
+  overflow: hidden;
+}
+html body.single-product div.product .woocommerce-tabs {
   float: left;
   min-height: 1px;
   overflow: hidden;
   padding: 20px;
   width: 100%;
 }
-html body.single-product div.product > .woocommerce-tabs ul.tabs {
+html body.single-product div.product .woocommerce-tabs ul.tabs {
   margin-bottom: 0;
+  text-align: center;
 }
-html body.single-product div.product > .woocommerce-tabs .panel {
+html body.single-product div.product .woocommerce-tabs .panel {
   float: left;
   min-height: 1px;
   overflow: hidden;
-  padding: 0 40px;
+  padding: 40px;
   width: 100%;
   border: 1px solid #d3ced2;
   border-top: none;
@@ -847,15 +860,16 @@ html body .audiogallery .nav-main {
   max-height: 80vh;
 }
 html body .wc-dzsap-wrapper {
-  background-color: #ffffff;
-  color: #252525;
-  padding: 20px 0;
+  background-color: transparent;
+}
+html body .wc-dzsap-wrapper .audioplayer-inner {
+  margin-top: 20px;
+}
+html body .wc-dzsap-wrapper .extra-btns-con {
+  margin-top: 10px;
 }
 html body .wc-dzsap-wrapper .player-but .the-icon-bg {
   border-color: #d3ced2;
-}
-html body .wc-dzsap-wrapper .extra-html {
-  margin-bottom: 10px;
 }
 html body.single-product .audioplayer.skin-wave .audioplayer-inner .the-thumb-con {
   display: none;
