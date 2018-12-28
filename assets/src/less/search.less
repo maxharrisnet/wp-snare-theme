@@ -1,7 +1,8 @@
 // Search Form
-.searchform {
-	margin: @baseSpacing 0;
+html body .searchform {
+	overflow: hidden;
 	position: relative;
+	width: 100%;
 
 	input[type=text] {
 		background-color: transparent;
@@ -13,7 +14,7 @@
 
 	.icon-button {
 		display: flex;
-		margin-top: @baseSpacing / 5;
+		margin-top: -1px;
 		padding: @baseSpacing / 2;
 		position: absolute;
 		right: @baseSpacing / 3;
@@ -25,5 +26,6 @@
 		}
 	}
 }
+
 
 // Search Results

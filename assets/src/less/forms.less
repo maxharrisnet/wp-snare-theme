@@ -5,16 +5,16 @@ input[type=text], input[type=email], input[type=tel], select, textarea {
   clear: both;
   color: @black;
   float: left;
-  font-size: 1.2em;
   margin-bottom: @baseSpacing;
   margin-left: auto;
   margin-right: auto; 
   margin-top: @baseSpacing / 2;
   max-width: 600px;
-  padding: 5px;
+  padding: @baseSpacing / 2;
 }
 
 textarea {
+  display: block;
   min-height: 200px;
   width: 100%;
 }
@@ -23,7 +23,7 @@ textarea {
 ::-moz-placeholder,
 :-ms-input-placeholder,
 :-moz-placeholder { /* Chrome/Opera/Safari */
-  font-size: 1.2em;
+  // font-size: 1.2em;
 }
 
 input[type=submit] {
@@ -34,10 +34,9 @@ input[type=submit] {
   clear: both;
   color: @white;
   cursor: pointer;
-  display: block;
+  float: left;
   font-size: 1em;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-weight: @font-weight-heavy;
   text-transform: uppercase;
 }
 

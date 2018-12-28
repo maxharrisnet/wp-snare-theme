@@ -28,7 +28,7 @@ global $product;
 
 		<?php echo wc_get_product_category_list( $product->get_id(), '</li><li>#', '<ul class="taxonomy-list"><li>#', '</li></ul>' ); ?>
 
-		<?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<ul class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . ' ', '</ul>' ); ?>
+		<?php echo wc_get_product_tag_list( $product->get_id(), '</li><li>#', '<ul class="taxonomy-list"><li>#', '</li></ul>' ); ?>
 
 	<?php do_action( 'woocommerce_product_meta_end' ); ?>
 

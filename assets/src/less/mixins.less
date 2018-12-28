@@ -1,4 +1,4 @@
-// Utility
+// Grid
 .clearfix() {
   &:after {
     content: "";
@@ -7,14 +7,6 @@
   }
 }
 
-.flex-wrap(@padding:(@baseSpacing)) {
-  display: flex;
-  flex-flow: row;
-  overflow: hidden;
-  padding: @padding;
-}
-
-// Grid Mixins
 .row(@padding:@baseSpacing) {
   .clearfix();
   padding-left: @padding;
@@ -34,7 +26,14 @@
   margin-left: 100%*(@columns / @baseColumnCount);
 }
 
-// Type Mixins
+.flex-wrap(@padding:(@baseSpacing)) {
+  display: flex;
+  flex-flow: row;
+  overflow: hidden;
+  padding: @padding;
+}
+
+// Typography
 .make-title(@font-family:@font-family-title) {
   color: @teal;
   display: inline-block;

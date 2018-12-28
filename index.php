@@ -13,7 +13,7 @@
       wp_reset_query(); //resetting the page query
     ?>
   </main>
-  <?php include_once("sidebar.php") ?>
+  <?php // include_once("sidebar.php") ?>
 </div>
 
 <?php include_once("footer.php") ?>

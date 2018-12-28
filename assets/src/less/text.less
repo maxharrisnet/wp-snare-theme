@@ -14,15 +14,14 @@ html body {
   time {
     color: @grey;
     display: block;
-    font-size: 0.8em;
-    margin: 10px auto;
+    font-size: @font-size-sm;
+    margin: @baseSpacing auto;
   }
 
   a {
     .transition(color, @transition-speed-fast);
     color: @link-color;
     text-decoration: none;
-    transition: color 0.2s, background-color 0.2s;
   }
 
   a:active,
@@ -33,12 +32,11 @@ html body {
   h1, h2, h3, h4 {
   	color: @black;
     font-family: @font-family-title;
-    font-weight: 400;
+    font-weight: @font-weight-heavy;
   }
 
   h1 {
   	font-size: 2.2rem;
-  	font-weight: 600;
     letter-spacing: @letter-spacing-title;
   	margin: 0 0 (@baseSpacing / 2);
     text-transform: uppercase;
@@ -46,9 +44,8 @@ html body {
 
   h2 {
     font-size: 2.2rem;
-    font-weight: 200;
     line-height: 3em;
-    max-width: 100%;
+    text-transform: uppercase;
   }
     
   h3 {
@@ -70,9 +67,6 @@ html body {
   }
 
   label {
-    clear: both;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    width: 100%;
+    display: block;
   }
 }
