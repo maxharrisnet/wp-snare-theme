@@ -1,7 +1,7 @@
 html body {
 	// Buttons
   .button {
-    background-color: #990100;
+    background-color: @button-background-color;
     border-radius: 3px;
     color: @white;
     display: inline-block;
@@ -32,9 +32,13 @@ html body {
 
   .icon-button {
   	position: relative;
+  }
+}
 
-  	.fa {
-
-  	}
+// WooCommerce Buttons
+html body.woocommerce {
+  a.button {
+    background-color: @button-background-color;
+    color: @text-color;
   }
 }

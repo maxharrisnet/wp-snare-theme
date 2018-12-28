@@ -9,12 +9,20 @@ html body .taxonomy-list {
 		color: @black;
 		display: inline-block;
 		font-size: @font-size-sm;
-		font-weight: @font-weight-heavy;
 		margin: @baseSpacing / 4;
-		padding: (@baseSpacing / 3) (@baseSpacing / 2);
+
+		a {
+			color: @text-color;
+			display: inline-block;
+			font-weight: @font-weight-heavy;
+			line-height: 1;
+			margin: 0;
+			padding: (@baseSpacing / 2);
+		}
 
 		&:hover {
     	.transition(color, @transition-speed-fast);
+    	border-color: @hover-color;
 			color: @hover-color;
 
 			a {

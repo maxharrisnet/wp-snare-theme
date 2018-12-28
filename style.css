@@ -513,20 +513,27 @@ html body .taxonomy-list li {
   color: #000000;
   display: inline-block;
   font-size: 13px;
-  font-weight: 600;
   margin: 5px;
-  padding: 6.66666667px 10px;
+}
+html body .taxonomy-list li a {
+  color: #000000;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+  padding: 10px;
 }
 html body .taxonomy-list li:hover {
   transition: color 0.1s ease-in;
   will-change: color;
+  border-color: #d3a700;
   color: #d3a700;
 }
 html body .taxonomy-list li:hover a {
   color: #d3a700;
 }
 html body .button {
-  background-color: #990100;
+  background-color: #d3a700;
   border-radius: 3px;
   color: #ffffff;
   display: inline-block;
@@ -553,6 +560,10 @@ html body a.button-alt {
 }
 html body .icon-button {
   position: relative;
+}
+html body.woocommerce a.button {
+  background-color: #d3a700;
+  color: #000000;
 }
 /* Header */
 #header {
@@ -798,9 +809,6 @@ html body.woocommerce .product ul.products li.product > div.button-cell {
 }
 html body.woocommerce .product ul.products li.product > div.button-cell .button {
   float: right;
-}
-html body.woocommerce .product ul.products li.product a {
-  color: #000000;
 }
 html body.woocommerce .product ul.products li.product a img {
   transition: opacity 0.3s ease-in;
