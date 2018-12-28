@@ -34,7 +34,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		// do_action( 'woocommerce_before_shop_loop_item' );
 	?>
 
-	<div>
+	<div class="image-cell">
 
 		<?php
 			/**
@@ -50,7 +50,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		?>
 
 	</div>
-	<div>
+	<div class="title-cell">
 
 		<?php
 			/**
@@ -64,7 +64,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		?>
 
 	</div>
-	<div>
+	<div class="price-cell">
 
 		<?php
 			/**
@@ -77,14 +77,14 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		?>
 
 	</div>
-	<div>
+	<div class="tax-cell">
 
 		<?php
 			woocommerce_template_single_meta();
 		?>
 		
 	</div>
-	<div>
+	<div class="button-cell">
 
 	<?php
 		/**

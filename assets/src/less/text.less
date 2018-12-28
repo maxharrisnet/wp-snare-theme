@@ -1,5 +1,12 @@
 /* Text */
 html body { 
+  color: @text-color;
+  font-family: @font-family-sans;
+  font-size: @font-size-base;
+  font-weight: @font-weight-medium;
+  letter-spacing: @letter-spacing-body;
+  line-height: @line-height-body;
+
   p {
     font-weight: @font-weight-medium;
     line-height: 1.6em; 
@@ -30,12 +37,12 @@ html body {
   }
 
   h1, h2, h3, h4 {
-  	color: @black;
     font-family: @font-family-title;
     font-weight: @font-weight-heavy;
   }
 
   h1 {
+    color: @white;
   	font-size: 2.2rem;
     letter-spacing: @letter-spacing-title;
   	margin: 0 0 (@baseSpacing / 2);

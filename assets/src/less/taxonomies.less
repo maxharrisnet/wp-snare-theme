@@ -1,20 +1,25 @@
 // Categories and Tags
 html body .taxonomy-list {
-	margin: (@baseSpacing / 2) 0;
 	padding: @baseSpacing 0;
 
 	li {
 		background-color: @white;
 		border: @border;
 		border-radius: @borderRadius;
+		color: @black;
 		display: inline-block;
 		font-size: @font-size-sm;
+		font-weight: @font-weight-heavy;
 		margin: @baseSpacing / 4;
 		padding: (@baseSpacing / 3) (@baseSpacing / 2);
 
 		&:hover {
     	.transition(color, @transition-speed-fast);
 			color: @hover-color;
+
+			a {
+				color: @hover-color;
+			}
 		}
 	}
 }

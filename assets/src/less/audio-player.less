@@ -1,6 +1,8 @@
 /* Audio Player */
 html body {
 	.audiogallery {
+		background-color: transparent;
+		
 		.nav-main {
 			height: auto !important;
 			max-height: 80vh;
@@ -23,7 +25,11 @@ html body {
 		}
 	}
 
-	&.single-product .audioplayer.skin-wave .audioplayer-inner .the-thumb-con {
-		display: none;
+	&.single-product .audioplayer.skin-wave {
+		color: @white;
+		
+		.audioplayer-inner .the-thumb-con {
+			display: none;
+		}
 	}
 }

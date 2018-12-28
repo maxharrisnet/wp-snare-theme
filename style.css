@@ -321,6 +321,14 @@ html body .col-12 {
   }
 }
 /* Text */
+html body {
+  color: #000000;
+  font-family: "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.046rem;
+  line-height: 1.6rem;
+}
 html body p {
   font-weight: 400;
   line-height: 1.6em;
@@ -337,7 +345,7 @@ html body time {
   margin: 20px auto;
 }
 html body a {
-  transition: color 0.2s ease-in;
+  transition: color 0.1s ease-in;
   will-change: color;
   color: #000000;
   text-decoration: none;
@@ -350,11 +358,11 @@ html body h1,
 html body h2,
 html body h3,
 html body h4 {
-  color: #000000;
   font-family: "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
   font-weight: 600;
 }
 html body h1 {
+  color: #ffffff;
   font-size: 2.2rem;
   letter-spacing: 0.14rem;
   margin: 0 0 10px;
@@ -392,7 +400,7 @@ input[type=email],
 input[type=tel],
 select,
 textarea {
-  border: 1px solid #d3ced2;
+  border: 1px solid #252525;
   box-sizing: border-box;
   clear: both;
   color: #000000;
@@ -460,7 +468,7 @@ input[type=submit] {
 }
 .mc4wp-form input[type=submit] {
   background-color: transparent;
-  border: 1px solid #d3ced2;
+  border: 1px solid #252525;
   height: 55px;
   position: absolute;
   right: 0px;
@@ -478,7 +486,7 @@ html body .searchform {
 }
 html body .searchform input[type=text] {
   background-color: transparent;
-  border: 1px solid #d3ced2;
+  border: 1px solid #252525;
   margin: 0;
   padding: 10px;
   width: 100%;
@@ -496,21 +504,25 @@ html body .searchform .icon-button input[type=submit] {
   position: absolute;
 }
 html body .taxonomy-list {
-  margin: 10px 0;
   padding: 20px 0;
 }
 html body .taxonomy-list li {
   background-color: #ffffff;
-  border: 1px solid #d3ced2;
+  border: 1px solid #252525;
   border-radius: 5px;
+  color: #000000;
   display: inline-block;
   font-size: 13px;
+  font-weight: 600;
   margin: 5px;
   padding: 6.66666667px 10px;
 }
 html body .taxonomy-list li:hover {
-  transition: color 0.2s ease-in;
+  transition: color 0.1s ease-in;
   will-change: color;
+  color: #d3a700;
+}
+html body .taxonomy-list li:hover a {
   color: #d3a700;
 }
 html body .button {
@@ -550,11 +562,12 @@ html body .icon-button {
   padding: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 900;
+  border-bottom: 1px solid #252525;
+  z-index: 700;
 }
 #header .container {
-  height: 100px;
-  padding: 0 20px;
+  height: 120px;
+  padding: 10px;
 }
 #header .container .logo-wrap {
   float: left;
@@ -700,13 +713,7 @@ html body.sidebar .container#primary .sidebar .widget {
   margin-bottom: 20px;
 }
 html body {
-  background-color: #ffffff;
-  color: #000000;
-  font-family: "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.046rem;
-  line-height: 1.6rem;
+  background-color: #252525;
   position: relative;
 }
 html body .container#primary {
@@ -750,12 +757,56 @@ html body.woocommerce .product ul.products li.product {
   margin: 0;
   text-align: center;
 }
+html body.woocommerce .product ul.products li.product > div {
+  text-align: left;
+}
+html body.woocommerce .product ul.products li.product > div.image-cell {
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0;
+  width: 8.33333333%;
+}
+html body.woocommerce .product ul.products li.product > div.title-cell {
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0 20px;
+  width: 16.66666667%;
+}
+html body.woocommerce .product ul.products li.product > div.price-cell {
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0 20px;
+  width: 16.66666667%;
+}
+html body.woocommerce .product ul.products li.product > div.tax-cell {
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0 20px;
+  width: 33.33333333%;
+}
+html body.woocommerce .product ul.products li.product > div.button-cell {
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0;
+  width: 25%;
+  text-align: center;
+}
+html body.woocommerce .product ul.products li.product > div.button-cell .button {
+  float: right;
+}
+html body.woocommerce .product ul.products li.product a {
+  color: #000000;
+}
 html body.woocommerce .product ul.products li.product a img {
   transition: opacity 0.3s ease-in;
   will-change: opacity;
   opacity: 1;
-  margin-bottom: 0;
-  width: auto;
+  margin: 0;
 }
 html body.woocommerce .product ul.products li.product a img:hover {
   opacity: 0.8;
@@ -849,6 +900,7 @@ html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li {
 }
 html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li.active {
   border-color: red;
+  color: #ffffff;
 }
 html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li::before,
 html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li::after {
@@ -871,15 +923,22 @@ html body.woocommerce.single-product .related {
   padding: 20px;
   width: 100%;
 }
-html body.woocommerce.single-product .related ul.products {
-  padding: 0;
-}
-html body.woocommerce.single-product .related ul.products li.product .product_meta .taxonomy-list {
-  font-size: 10px;
+html body.woocommerce .product-playlist ul.products {
   margin-bottom: 0;
   padding: 0;
 }
+html body.woocommerce .product-playlist ul.products li.product .product_meta .taxonomy-list {
+  margin-bottom: 0;
+  padding: 0;
+}
+html body.woocommerce .product-playlist ul.products li.product .product_meta .taxonomy-list li {
+  font-size: 10px;
+  font-weight: 600;
+}
 /* Audio Player */
+html body .audiogallery {
+  background-color: transparent;
+}
 html body .audiogallery .nav-main {
   height: auto !important;
   max-height: 80vh;
@@ -895,6 +954,9 @@ html body .wc-dzsap-wrapper .extra-btns-con {
 }
 html body .wc-dzsap-wrapper .player-but .the-icon-bg {
   border-color: #d3ced2;
+}
+html body.single-product .audioplayer.skin-wave {
+  color: #ffffff;
 }
 html body.single-product .audioplayer.skin-wave .audioplayer-inner .the-thumb-con {
   display: none;
