@@ -365,12 +365,13 @@ html body h1 {
   color: #ffffff;
   font-size: 2.2rem;
   letter-spacing: 0.14rem;
+  line-height: 2.3rem;
   margin: 0 0 10px;
   text-transform: uppercase;
 }
 html body h2 {
   font-size: 2.2rem;
-  line-height: 3em;
+  line-height: 2.3em;
   text-transform: uppercase;
 }
 html body h3 {
@@ -589,11 +590,13 @@ html body.woocommerce a.button {
   padding: 10px;
 }
 #header .container .logo-wrap {
+  padding: 10px;
+  width: 16.66666667%;
   float: left;
   min-height: 1px;
   overflow: hidden;
-  padding: 10px;
-  width: 16.66666667%;
+  padding: 20px;
+  width: 33.33333333%;
 }
 #header .container .logo-wrap .custom-logo-link img {
   display: block;
@@ -653,6 +656,11 @@ html body.woocommerce a.button {
 }
 .woocommerce .woocommerce-breadcrumb {
   margin-bottom: 20px;
+}
+@media only screen and (max-width: 1199px) {
+  html body #header .container .search-wrap {
+    position: fixed;
+  }
 }
 /* Footer */
 html body footer {
@@ -748,7 +756,7 @@ html body .container#primary #main {
 /* Tablet */
 @media only screen and (max-width: 1199px) {
   html body .container#primary {
-    flex-flow: column-reverse;
+    padding: 10px;
   }
   html body .container#primary #main,
   html body .container#primary .sidebar {
@@ -801,6 +809,7 @@ html body.woocommerce .product-playlist ul.products li.product > div.image-cell 
   width: 8.33333333%;
 }
 html body.woocommerce .product-playlist ul.products li.product > div.image-cell img {
+  border-radius: 5px;
   margin-bottom: 0;
 }
 html body.woocommerce .product-playlist ul.products li.product > div.title-cell {
@@ -912,6 +921,7 @@ html body.woocommerce.single-product div.product .woocommerce-tabs a {
 }
 html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs {
   margin-bottom: 0;
+  padding-left: 0;
   text-align: center;
 }
 html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs:before {
@@ -981,6 +991,39 @@ html body.post-type-archive-product .woocommerce-products-header {
 html body.post-type-archive-product .woocommerce-products-header .woocommerce-ordering,
 html body.post-type-archive-product .woocommerce-products-header .woocommerce-ordering select {
   margin: 0;
+}
+@media only screen and (max-width: 1199px) {
+  html body.woocommerce .product-playlist ul.products li.product {
+    align-items: flex-start;
+    flex-flow: row wrap;
+    padding: 10px;
+  }
+  html body.woocommerce .product-playlist ul.products li.product > div.image-cell,
+  html body.woocommerce .product-playlist ul.products li.product > div.title-cell {
+    width: 50%;
+  }
+  html body.woocommerce .product-playlist ul.products li.product > div.price-cell,
+  html body.woocommerce .product-playlist ul.products li.product > div.tax-cell,
+  html body.woocommerce .product-playlist ul.products li.product > div.button-cell {
+    width: 100%;
+  }
+  html body.woocommerce .product-playlist ul.products li.product > div.tax-cell {
+    padding: 0;
+  }
+  html body.woocommerce.single-product div.product > .summary {
+    margin-bottom: 40px;
+    padding: 10px;
+  }
+  html body.woocommerce.single-product div.product > .summary div.images {
+    float: left;
+    width: 150px;
+  }
+  html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li {
+    width: 100%;
+  }
+  html body.woocommerce.single-product div.product .woocommerce-tabs .panel {
+    padding: 10px;
+  }
 }
 /* Audio Player */
 html body .audiogallery {

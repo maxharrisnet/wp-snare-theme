@@ -33,6 +33,7 @@ html body.woocommerce .product-playlist {
 					.make-col(1,0);
 
 					img {
+						border-radius: @border-radius-small;
 						margin-bottom: 0;
 					}
 				}
@@ -155,6 +156,7 @@ html body.woocommerce.single-product {
 
 			ul.tabs {
 				margin-bottom: 0;
+				padding-left: 0;
 				text-align: center;
 
 				&:before {
@@ -232,6 +234,54 @@ html body.post-type-archive-product {
 		.woocommerce-ordering,
 		.woocommerce-ordering select {
 			margin: 0;
+		}
+	}
+}
+
+@media @maxTablet {
+	html body.woocommerce .product-playlist ul.products li.product {
+		align-items: flex-start;
+		flex-flow: row wrap;
+		padding: @baseSpacing / 2;
+
+		> div {
+			&.image-cell,
+			&.title-cell {
+				width: 50%;
+			}
+			
+			&.price-cell,
+			&.tax-cell,
+			&.button-cell {
+				width: 100%;
+			}
+
+			&.tax-cell {
+				padding: 0;
+			}
+		}
+	}
+	
+	// PDP Tab Panel
+	html body.woocommerce.single-product div.product {
+		> .summary {
+			margin-bottom: @baseSpacing * 2;
+			padding: @baseSpacing / 2;
+
+			div.images {
+				float: left;
+				width: 150px;
+			}
+		}
+
+		.woocommerce-tabs {
+			ul.tabs li {
+				width: 100%;
+			}
+
+			.panel {
+				padding: @baseSpacing / 2;
+			}
 		}
 	}
 }

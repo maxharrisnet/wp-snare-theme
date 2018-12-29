@@ -12,7 +12,7 @@
 
     .logo-wrap {
       .make-col(2, (@baseSpacing / 2));
-
+      .make-col-sm(4);
       .custom-logo-link img {
         display: block;
         height: 80px;
@@ -76,4 +76,10 @@
 
 .woocommerce .woocommerce-breadcrumb {
   margin-bottom: @baseSpacing;
+}
+
+@media @maxTablet {
+  html body #header .container .search-wrap {
+    position: fixed;
+  }
 }
