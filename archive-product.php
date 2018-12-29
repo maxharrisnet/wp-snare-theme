@@ -45,43 +45,48 @@ get_header( 'shop' ); ?>
 			do_action( 'woocommerce_before_shop_loop' );
 		} ?>
 	</header>
-	<?php
-	if ( woocommerce_product_loop() ) {
+	<section class="product-playlist">
 
-		woocommerce_product_loop_start();
+		<?php
+		if ( woocommerce_product_loop() ) {
 
-		if ( wc_get_loop_prop( 'total' ) ) {
-			while ( have_posts() ) {
-				the_post();
+			woocommerce_product_loop_start();
 
-				/**
-				 * Hook: woocommerce_shop_loop.
-				 *
-				 * @hooked WC_Structured_Data::generate_product_data() - 10
-				 */
-				do_action( 'woocommerce_shop_loop' );
+			if ( wc_get_loop_prop( 'total' ) ) {
+				while ( have_posts() ) {
+					the_post();
 
-				wc_get_template_part( 'content', 'playlist-product' );
+					/**
+					 * Hook: woocommerce_shop_loop.
+					 *
+					 * @hooked WC_Structured_Data::generate_product_data() - 10
+					 */
+					do_action( 'woocommerce_shop_loop' );
+
+					wc_get_template_part( 'content', 'playlist-product' );
+		
+				}
 			}
+
+			woocommerce_product_loop_end();
+
+			/**
+			 * Hook: woocommerce_after_shop_loop.
+			 *
+			 * @hooked woocommerce_pagination - 10
+			 */
+			do_action( 'woocommerce_after_shop_loop' );
+		} else {
+			/**
+			 * Hook: woocommerce_no_products_found.
+			 *
+			 * @hooked wc_no_products_found - 10
+			 */
+			do_action( 'woocommerce_no_products_found' );
 		}
-
-		woocommerce_product_loop_end();
-
-		/**
-		 * Hook: woocommerce_after_shop_loop.
-		 *
-		 * @hooked woocommerce_pagination - 10
-		 */
-		do_action( 'woocommerce_after_shop_loop' );
-	} else {
-		/**
-		 * Hook: woocommerce_no_products_found.
-		 *
-		 * @hooked wc_no_products_found - 10
-		 */
-		do_action( 'woocommerce_no_products_found' );
-	}
-	?>
+		?>
+		
+	</section>
 
 	<?php 
 	/**

@@ -44,8 +44,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			 * @hooked woocommerce_template_loop_product_thumbnail - 10
 			 */
 			// do_action( 'woocommerce_before_shop_loop_item_title' );
+
+			$thumbnail_size = 'playlist-thumbnail';
+
 			woocommerce_template_loop_product_link_open();
-			echo woocommerce_get_product_thumbnail( 'playlist-thumbnail', true );
+			echo woocommerce_get_product_thumbnail( $thumbnail_size, true );
 			woocommerce_template_loop_product_link_close();
 		?>
 
@@ -86,15 +89,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	</div>
 	<div class="button-cell">
 
-	<?php
-		/**
-		 * Hook: woocommerce_after_shop_loop_item.
-		 *
-		 * @hooked woocommerce_template_loop_product_link_close - 5
-		 * @hooked woocommerce_template_loop_add_to_cart - 10
-		 */
-		// do_action( 'woocommerce_after_shop_loop_item' );
-		woocommerce_template_loop_add_to_cart();
-	?>
+	<a class="button buy" href="<?php the_permalink(); ?>">
+		<i class="fa fa-shopping-bag"></i>
+	</a>
 
 </li>

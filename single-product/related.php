@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( $related_products ) : ?>
 
-	<section class="related products product-playlist">
+	<div class="related products product-playlist">
 
 		<?php woocommerce_product_loop_start(); ?>
 
@@ -39,7 +39,7 @@ if ( $related_products ) : ?>
 
 		<?php woocommerce_product_loop_end(); ?>
 
-	</section>
+	</div>
 
 <?php endif;
 

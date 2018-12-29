@@ -1,23 +1,28 @@
 // Categories and Tags
 html body .taxonomy-list {
-	padding: @baseSpacing 0;
+	display: inline-block;
+	padding: (@baseSpacing / 2) 0 0;
 
 	li {
-		background-color: @white;
-		border: @border;
-		border-radius: @borderRadius;
-		color: @black;
 		display: inline-block;
-		font-size: @font-size-sm;
-		margin: @baseSpacing / 4;
+		margin: 0 (@baseSpacing / 2) (@baseSpacing / 2) 0;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
 
 		a {
-			color: @text-color;
+			background-color: @grey-lighter;
+			border: @border;
+			border-radius: @borderRadius;
+			color: @black;
 			display: inline-block;
+			font-size: @font-size-sm;
 			font-weight: @font-weight-heavy;
-			line-height: 1;
+			line-height: 1.1;
 			margin: 0;
 			padding: (@baseSpacing / 2);
+			text-transform: uppercase;
 		}
 
 		&:hover {

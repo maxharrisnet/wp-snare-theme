@@ -3,7 +3,7 @@ html body {
   .button {
     background-color: @button-background-color;
     border-radius: 3px;
-    color: @white;
+    color: @button-text-color;
     display: inline-block;
     font-size: 1.2em;
     font-weight: @font-weight-heavy;
@@ -12,6 +12,14 @@ html body {
     max-width: 420px;
     padding: 20px 30px;
     text-transform: uppercase;
+
+    i {
+      &,
+      &:before,
+      &:after {
+        color: @button-text-color;
+      }
+    }
   }
 
   .button:hover,
@@ -39,6 +47,6 @@ html body {
 html body.woocommerce {
   a.button {
     background-color: @button-background-color;
-    color: @text-color;
+    color: @button-text-color;
   }
 }

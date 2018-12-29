@@ -17,7 +17,7 @@ add_theme_support( 'custom-logo', array(
 ) );
 
 // Image Sizes
-add_image_size('playlist-thumbnail', 70, 70, true);
+add_image_size('playlist-thumbnail', 90, 90, true);
 
 // REGISTER MENUS
 function register_menus() {

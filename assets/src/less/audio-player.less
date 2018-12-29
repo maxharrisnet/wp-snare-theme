@@ -4,17 +4,14 @@ html body {
 		background-color: transparent;
 		
 		.nav-main {
+			background-color: @white;
 			height: auto !important;
-			max-height: 80vh;
+			padding: @baseSpacing;
 		}
 	}
 
 	.wc-dzsap-wrapper {
-		background-color: transparent;
-
-		.audioplayer-inner {
-			margin-top: @baseSpacing;
-		}
+		.make-col(12,0);
 
 		.extra-btns-con {
 			margin-top: @baseSpacing / 2;
@@ -26,10 +23,57 @@ html body {
 	}
 
 	&.single-product .audioplayer.skin-wave {
+		display: flex;
+		flex-flow: column-reverse;
 		color: @white;
+
+		.extra-html {
+			margin-top: 0;
+		}
 		
 		.audioplayer-inner .the-thumb-con {
 			display: none;
 		}
+	}
+
+	body .audioplayer.skin-aria .ap-controls .ap-controls-left{
+	background-color:  #ff0000;
+	}
+
+	body .audioplayer.skin-aria .ap-controls .ap-controls-right .meta-artist-con, body .audioplayer.skin-aria .ap-controls .ap-controls-right .total-time{
+	color: #ff0000;
+
+	}
+
+	body .audioplayer.skin-aria .ap-controls .ap-controls-right{
+
+	background-color: #ca2020;
+
+	}
+
+	body .audioplayer.skin-aria .ap-controls .scrubbar .scrub-bg{
+
+	background-color: #da2134;
+
+	}
+
+	body .audioplayer.skin-aria .ap-controls .ap-controls-right .scrubbar>.scrub-prog{
+
+	background-color: #ff0000;
+
+	}
+
+	body .audioplayer.skin-aria .ap-controls .ap-controls-left .con-playpause
+
+	{
+
+	background-color: #ff0000;
+
+	}
+
+	body .audioplayer.skin-aria .ap-controls .ap-controls-left .con-playpause .playbtn path,body .audioplayer.skin-aria .ap-controls .ap-controls-left .con-playpause .pausebtn path{
+
+	background-color: #00ff00;
+
 	}
 }

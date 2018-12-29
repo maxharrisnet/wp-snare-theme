@@ -5,6 +5,7 @@ input[type=text], input[type=email], input[type=tel], select, textarea {
   clear: both;
   color: @black;
   float: left;
+  font-size: @font-size-md;
   margin-bottom: @baseSpacing;
   margin-left: auto;
   margin-right: auto; 
@@ -14,6 +15,7 @@ input[type=text], input[type=email], input[type=tel], select, textarea {
 }
 
 textarea {
+  background-color: @grey-light;
   display: block;
   min-height: 200px;
   width: 100%;
@@ -27,15 +29,12 @@ textarea {
 }
 
 input[type=submit] {
-  background-color: @black;
+  background-color: @button-background-color;
   border: none;
   border-radius: @borderRadius;
-  box-shadow: 0 0px 6px -1px #333;
-  clear: both;
-  color: @white;
+  color: @button-text-color;
   cursor: pointer;
   float: left;
-  font-size: 1em;
   font-weight: @font-weight-heavy;
   text-transform: uppercase;
 }
