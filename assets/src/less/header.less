@@ -2,7 +2,7 @@
 
 #header {
   .make-col(12,0);
-  background-color: @semi-transparent-color;
+  background: @brand-color;
   border-bottom: @border;
   z-index: @z-index-header;
 
@@ -11,8 +11,11 @@
     padding: @baseSpacing / 2;
 
     .logo-wrap {
-      .make-col(2, (@baseSpacing / 2));
-      .make-col-sm(4);
+      .make-col(1, (@baseSpacing / 2));
+      .make-col-sm(3,0);
+      background-color: @yellow;
+      z-index: @z-index-logo;
+
       .custom-logo-link img {
         display: block;
         height: 80px;
@@ -28,21 +31,37 @@
     }
 
     .search-wrap {
-      .make-col(4, (@baseSpacing / 2));
-      .push(2);
+      .make-col(2, (@baseSpacing / 2));
+      .push(1);
       align-items: center;
       display: flex;
       height: 100%;
       justify-content: center;
 
-      .searchform input[type=text] {
-        border-radius: @border-radius-large;
-        color: @grey-light;
+      .searchform {
+
+        input[type=text] {
+          background-color: transparent;
+          border: none;
+          border-bottom: 3px solid @black;
+          color: @black;
+          padding-left: @baseSpacing / 2;
+        }
+
+        .fa::before {
+          color: @text-color;
+        }
       }
     }
 
     .nav-wrap {
-      .make-col(4, (@baseSpacing / 2));
+      .make-col(6, (@baseSpacing / 2));
+      .make-col-sm(12);
+      .push(2);
+      align-items: center;
+      display: flex;
+      height : 100%;
+      justify-content: center;
 
       ul {
         margin: 0;
@@ -50,18 +69,18 @@
 
         li {
           display: inline-block;
+          margin-bottom: 0;
 
           a {
-            color: @grey-light;
+            color: @black;
             display: inline-block;
-            font-size: @font-size-sm;
-            font-weight: @font-weight-medium;
+            font-weight: @font-weight-heavy;
             padding: 0 (@baseSpacing / 2);
             text-transform: uppercase;
 
             &:hover,
             &.active {
-              color: @brand-color;
+              color: @grey-dark;
             }
           }
         }
@@ -70,16 +89,20 @@
   }
 }
 
-#header .menu-toggle {
-  display: none;
-}
-
-.woocommerce .woocommerce-breadcrumb {
-  margin-bottom: @baseSpacing;
+@media @minDesktop {
+  #header .menu-toggle {
+    display: none;
+  }
 }
 
 @media @maxTablet {
-  html body #header .container .search-wrap {
-    position: fixed;
+  html body #header .container {
+    .logo-wrap .custom-logo-link img {
+      height: auto; //
+    }
+
+    .search-wrap {
+      position: fixed;
+    }
   }
 }

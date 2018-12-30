@@ -35,7 +35,7 @@
 <body 
 	<?php 
 		if (is_front_page()) {
-			body_class('sidebar sidebar-right');
+			// body_class('sidebar sidebar-right');
 		}
 		else {
 			body_class();
@@ -59,16 +59,17 @@
 			<?php if ( function_exists( 'the_custom_logo' )) { the_custom_logo(); } ?>
 		</div>
 
-		<div class="search-wrap">
-			<?php get_search_form(); ?>
-		</div>
-
 		<nav class="nav-wrap">
 			<?php wp_nav_menu( array(
 				'menu' => 'header_menu',
 	      'theme_location' => 'header_menu',
 			)); ?>
 		</nav>
+		
+		<div class="search-wrap">
+			<?php get_search_form(); ?>
+		</div>
+
 		<button class="menu-toggle">
 			<div class="bars">
 				<span></span>

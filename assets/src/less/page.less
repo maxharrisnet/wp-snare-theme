@@ -3,16 +3,19 @@ html body {
   position: relative;
 
   .container#primary {
-  	padding: (@baseSpacing * 2) (@baseSpacing * 3);
+  	padding: @baseSpacing * 2;
 
   	#main {
-  		.make-col(12, @baseSpacing * 2)
+  		.make-col(12, @baseSpacing);
+
+  		.entry-content-page {
+        .make-col(12, @baseSpacing, section);
+  		}
   	}
   }
 }
 
 /* Tablet */
-
 @media @maxTablet {
 	html body .container#primary {
 		padding: @baseSpacing / 2;

@@ -1,0 +1,143 @@
+// Product Lists
+html body.woocommerce .product-playlist {
+	.make-col(12, @baseSpacing, section);
+	margin: 0;
+
+	ul.products {
+		margin: @baseSpacing auto;
+		padding: 0 @baseSpacing;
+
+		li.product {
+			.make-col(12,0);
+			.flex-wrap(0);
+			align-items: center;
+			border-bottom: @border-dark;
+			justify-content: space-between;
+			margin: 0;
+			text-align: center;
+			
+			// Inner Cells
+			> div {
+				text-align: left;
+
+				&.image-cell {
+					.make-col(1,0);
+
+					img {
+						border-radius: 0;
+						margin-bottom: 0;
+					}
+				}
+
+				&.title-cell {
+					.make-col(3,0 @baseSpacing);
+					h2 {
+						color: @grey;
+					}
+				}
+
+				&.price-cell {
+					.make-col(2,0 (@baseSpacing / 2));
+					text-align: center;
+
+					.price {
+						color: @green;
+						margin-bottom: 0;
+					}
+				}
+
+				&.tax-cell {
+					.make-col(4, 0 (@baseSpacing / 2));
+					.product_meta .taxonomy-list {
+						margin-bottom: 0;
+						padding: 0;
+						
+						li {
+							margin: @baseSpacing / 5;
+
+							a {
+								font-size: @font-size-xs;
+								font-weight: @font-weight-heavy;
+							}
+						}
+					}
+				}
+
+				&.button-cell {
+					.make-col(3, 0);
+					text-align: center;
+
+					.button {
+						float: right;
+						margin: 0;
+					}
+				}
+			}
+
+			&:first-of-type {
+				border-top: @border;
+			}
+		}
+	}
+
+	.woocommerce-loop-product__title {
+		line-height: 2rem;
+	}
+
+	.price {
+		margin-bottom: 0;
+	}
+
+	.button {
+		margin-top: 0;
+	}
+}
+
+
+//  Responsive
+@media @maxTablet {
+	html body.woocommerce .product-playlist {
+		padding: @baseSpacing / 2;
+
+		ul.products li.product {
+			align-items: flex-start;
+			flex-flow: row wrap;
+			padding: @baseSpacing / 2;
+
+			> div {
+				&.image-cell {
+					width: 30%;
+				}
+
+				&.title-cell {
+					padding: 0 (@baseSpacing / 2);
+					width: 70%;
+
+					h2 {
+						padding: 0;
+					}
+				}
+
+				&.price-cell {
+					display: inline;
+					float: left;
+					width: 70%;
+
+					.price {
+						display: inline;
+					}
+				}
+
+				&.tax-cell,
+				&.button-cell {
+					width: 100%;
+				}
+
+				&.tax-cell {
+					order: 99;
+					padding: 0;
+				}
+			}
+		}
+	}
+}

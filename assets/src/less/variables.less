@@ -1,5 +1,5 @@
 // Media Sizes
-@maxDesktopLg: ~"only screen and (min-width: 1800px)";
+@minDesktopLg: ~"only screen and (min-width: 1800px)";
 @minDesktop: ~"only screen and (min-width: 1200px)";
 @minTablet: ~"only screen and (min-width: 900px)";
 @minPhone: ~"only screen and (min-width: 600px)";
@@ -30,9 +30,11 @@
 @yellow-light: #FACC1E;
 
 @brand-color: @yellow;
-@text-color: @grey-light;
+@text-color: @black;
+@text-color-alt: @white;
 @link-color: @brand-color;
-@button-text-color: @black;
+@link-color-alt: @purple;
+@button-text-color: @text-color;
 @button-background-color: @yellow-light;
 
 @hover-color: @brand-color;
@@ -93,5 +95,8 @@
 @box-shadow-vertical: 0px 5px 20px -10px @grey;
 
 // Z-Indexes
-@z-index-header: 700;
-@z-index-footer: 600;
+@z-index-header: 500;
+@z-index-logo: 510;
+@z-index-footer: 500;
+
+@section: 'false';

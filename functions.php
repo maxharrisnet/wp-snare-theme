@@ -107,6 +107,7 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 10 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 10 );
 
 /**
@@ -206,7 +207,7 @@ add_filter( 'woocommerce_quantity_input_max', 'woocommerce_quantity_input_max_ca
 
 function firstlady_widgets_init() {
     register_sidebar(array(
-      'name' => __( 'Left Sidebar', 'sidebar-left' ),
+      'name' => __( 'Left Sidebar', 'left' ),
       'id' => 'sidebar-left',
       'before_widget' => '<aside id="%1$s" class="widget %2$s">',
       'after_widget' => "</aside>",
@@ -215,8 +216,17 @@ function firstlady_widgets_init() {
     ));
 
     register_sidebar(array(
-        'name' => __( 'Right Sidebar', 'sidebar-right' ),
+        'name' => __( 'Right Sidebar', 'right' ),
         'id' => 'sidebar-right',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => "</aside>",
+        'before_title' => '<h4>',
+        'after_title' => '</h4>',
+    ));
+
+    register_sidebar(array(
+        'name' => __( 'Header Sidebar', 'header' ),
+        'id' => 'sidebar-header',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => "</aside>",
         'before_title' => '<h4>',
@@ -235,17 +245,14 @@ function firstlady_widgets_init() {
 
 add_action( 'init', 'firstlady_widgets_init' );
 
-
-add_filter('avf_which_archive_output','avf_change_which_archive', 10, 3);
-function avf_change_which_archive($output)
-{
-  if(is_category())
-  {
+function avf_change_which_archive($output) {
+  if(is_category()) {
     $output = single_cat_title('',false);
   }
 
   return $output;
 }
+add_filter('avf_which_archive_output','avf_change_which_archive', 10, 3);
 
 // FONT MENU
 

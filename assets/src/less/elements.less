@@ -1,4 +1,8 @@
 html body {
+  a img {
+    .hover-fade();
+  }
+
 	// Buttons
   .button {
     background-color: @button-background-color;
@@ -13,8 +17,8 @@ html body {
     padding: 20px 30px;
     text-transform: uppercase;
 
-    i {
-      &,
+    i,
+    .btn-zoomsounds {
       &:before,
       &:after {
         color: @button-text-color;
@@ -41,10 +45,20 @@ html body {
   .icon-button {
   	position: relative;
   }
+  
+  // iframes
+  iframe {
+    margin: auto;
+  }
+
+  // Icons
+  .fa::before {
+    color: @white;
+  }
 }
 
 // WooCommerce Buttons
-html body.woocommerce {
+html .woocommerce {
   a.button {
     background-color: @button-background-color;
     color: @button-text-color;

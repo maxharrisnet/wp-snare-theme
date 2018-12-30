@@ -1,64 +1,73 @@
 /* Forms */
-input[type=text], input[type=email], input[type=tel], select, textarea {
-	border: @border;
-  box-sizing: border-box;
-  clear: both;
-  color: @black;
-  float: left;
-  font-size: @font-size-md;
-  margin-bottom: @baseSpacing;
-  margin-left: auto;
-  margin-right: auto; 
-  margin-top: @baseSpacing / 2;
-  max-width: 600px;
-  padding: @baseSpacing / 2;
-}
 
-textarea {
-  background-color: @grey-light;
-  display: block;
-  min-height: 200px;
-  width: 100%;
-}
+html body form {
+  p {
+    text-align: left;
+    clear: both;
+    margin-bottom: 0;
+  }
 
-::-webkit-input-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder,
-:-moz-placeholder { /* Chrome/Opera/Safari */
-  // font-size: 1.2em;
-}
+  input[type=text], input[type=email], input[type=tel], select, textarea {
+  	border: @border;
+    box-sizing: border-box;
+    clear: both;
+    color: @black;
+    float: left;
+    font-size: @font-size-md;
+    margin-bottom: @baseSpacing;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: @baseSpacing / 2;
+    max-width: 600px;
+    padding: @baseSpacing / 2;
+  }
 
-input[type=submit] {
-  background-color: @button-background-color;
-  border: none;
-  border-radius: @borderRadius;
-  color: @button-text-color;
-  cursor: pointer;
-  float: left;
-  font-weight: @font-weight-heavy;
-  text-transform: uppercase;
-}
+  textarea {
+    background-color: @grey-lighter;
+    display: block;
+    min-height: 200px;
+    width: 100%;
+  }
 
-/* Placeholders */
+  ::-webkit-input-placeholder,
+  ::-moz-placeholder,
+  :-ms-input-placeholder,
+  :-moz-placeholder { /* Chrome/Opera/Safari */
+    // font-size: 1.2em;
+  }
 
-::-webkit-input-placeholder { /* WebKit browsers */
-  color: #fff !important;
-  opacity: 1;
-}
+  input[type=submit] {
+    background-color: @button-background-color;
+    border: none;
+    border-radius: @borderRadius;
+    color: @button-text-color;
+    cursor: pointer;
+    float: left;
+    font-weight: @font-weight-heavy;
+    padding: @baseSpacing / 3;
+    text-transform: uppercase;
+  }
 
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: #fff !important;
-  opacity: 1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: #fff !important;
-  opacity: 1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-  color: #fff !important;
-  opacity: 1;
-}
+  /* Placeholders */
 
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    color: #fff !important;
+    opacity: 1;
+  }
+
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #fff !important;
+    opacity: 1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #fff !important;
+    opacity: 1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #fff !important;
+    opacity: 1;
+  }
+}
 /* MailChimp */
 
 .mc4wp-form {

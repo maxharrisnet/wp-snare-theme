@@ -14,7 +14,9 @@
   width: 100%;
 }
 
-.make-col(@columns; @padding:@baseSpacing) {
+//  Responsive Columns
+.make-col(@columns, @padding:@baseSpacing, @section:@section) {
+  box-sizing: border-box;
   float: left;
   min-height: 1px;
   overflow: hidden;
@@ -22,12 +24,50 @@
   width: 100%*(@columns / @baseColumnCount);
 }
 
-.make-col-sm(@columns; @padding:@baseSpacing) {
-  .make-col(@columns; @baseSpacing);
+.make-col(@columns, @padding:@baseSpacing, @section:@section) when (@section = section) {
+  .make-col(@columns, @padding:@baseSpacing * 2);
+  background-color: @black; //
+  color: @text-color-alt;
+  margin-bottom: @baseSpacing * 2;
 }
 
 .push(@columns) {
   margin-left: 100%*(@columns / @baseColumnCount);
+}
+
+.make-col-xl(@columns, @padding) {
+  @media @minDesktopLg { 
+    .make-col(@columns; @padding);
+    .push(0);
+  }
+}
+
+.make-col-lg(@columns, @padding) {
+  @media @maxDesktop { 
+    .make-col(@columns; @padding);
+    .push(0);
+  }
+}
+
+.make-col-md(@columns, @padding) {
+  @media @maxTablet { 
+    .make-col(@columns; @padding);
+    .push(0);
+  }
+}
+
+.make-col-sm(@columns, @padding:(@baseSpacing / 2 )) {
+  @media @maxPhone { 
+    .make-col(@columns; @padding);
+    .push(0);
+  }
+}
+
+.make-col-xs(@columns, @padding:(@baseSpacing / 2 )) {
+  @media @maxPhoneSm { 
+    .make-col(@columns; @padding);
+    .push(0);
+  }
 }
 
 .flex-wrap(@padding:(@baseSpacing)) {
@@ -35,6 +75,14 @@
   flex-flow: row;
   overflow: hidden;
   padding: @padding;
+}
+
+.section(@padding:(@baseSpacing * 2); @color:@black) {
+  // background-color: @color;
+  // color: @white;
+  // margin-bottom: @baseSpacing * 2;
+  // overflow: hidden;
+  // padding: @padding;
 }
 
 // Typography
@@ -108,6 +156,6 @@
   opacity: 1;
 
   &:hover {
-    opacity: 0.8;
+    opacity: @hover-opacity;
   }
 }
