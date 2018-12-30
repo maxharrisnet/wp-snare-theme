@@ -156,6 +156,7 @@ function child_manage_woocommerce_styles() {
  
  //first check that woo exists to prevent fatal errors
  if ( function_exists( 'is_woocommerce' ) ) {
+
    //dequeue scripts and styles
    if ( ! is_realy_woocommerce_page() ) {
      wp_dequeue_style( 'woocommerce_frontend_styles' );
@@ -178,11 +179,6 @@ function child_manage_woocommerce_styles() {
      wp_dequeue_script( 'jquery-placeholder' );
      wp_dequeue_script( 'fancybox' );
      wp_dequeue_script( 'jqueryui' );
-   }
-
-   else {
-    wp_register_style( 'woo-style', THEME_DIR . '/css/shop.css', array(), '1', 'all' );
-    wp_enqueue_style( 'woo-style' );
    }
  }
 }

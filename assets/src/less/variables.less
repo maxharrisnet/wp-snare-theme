@@ -19,15 +19,14 @@
 @grey: #AAAAAA;
 @grey-light: #D3CED2;
 @grey-lighter: lighten(@grey-light, 10%);
-@grey-dark: darken(@grey, 52%);
+@grey-dark: darken(@grey, 52%); // TODO: Consolidate Greys (2)
 @white: #FFFFFF;
 
 @blue: #241392;
 @green: #41CF41;
 @purple: #510A8E;
 @red: #D30000;
-@yellow: #D3A700;
-@yellow-light: #FACC1E;
+@yellow: #FACC1E;
 
 @brand-color: @yellow;
 
@@ -38,15 +37,15 @@
 @hover-color: @brand-color;
 
 @button-text-color: @text-color;
-@button-background-color: @yellow-light;
+@button-background-color: @yellow;
 @button-hover-background-color: darken(@button-background-color, 20%);
 @button-hover-text-color: @button-text-color;
 @button-buy-color: @purple;
 @button-buy-hover-color: darken(@button-buy-color, 20%);
 
-//  Transparency
-@hover-opacity: 0.7;
-@semi-transparent-color: rgba(0,0,0,0.7);
+//  Opacity
+@hover-opacity: 0.6;
+@semi-transparent-color: rgba(0,0,0,0.8);
 
 // Text Base
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500,500i|Raleway:700,700i,900,900i');
@@ -78,7 +77,7 @@
 @letter-spacing-title: 0.14rem;
 @letter-spacing-heading: 0.12rem;
 
-@line-height-title: 3rem;
+@line-height-title: 2.45rem;
 @line-height-heading: 1.86rem;
 @line-height-body: 1.6rem;
 @line-height-sm: 1.14rem;
@@ -86,10 +85,12 @@
 @line-height-btn: @line-height-body;
 
 // Borders
-@border: 1px solid @grey-dark;
-@border-dark: 1px solid @grey-dark;
-@border-light: 1px solid @grey-light;
-@borderRadius: 5px;
+@border-weight: 1px;
+@border-weight-thick: 5px;
+@border: @border-weight solid @grey;
+@border-dark: @border-weight solid @grey-dark;
+@border-thick: @border-weight-thick solid @grey-lighter; // TODO: Consider making these a mixin
+@border-radius-small: 5px;
 @border-radius-large: 30px;
 @border-radius-small: 5px;
 
@@ -104,6 +105,8 @@
 @z-index-header: 500;
 @z-index-logo: 510;
 @z-index-footer: 500;
+
+@z-index-audio-player: 600;
 
 // Element Sizes
 @element-large-width: 700px;

@@ -1,0 +1,86 @@
+@media @minTablet {
+  html body #header .container .menu-toggle {
+    display: none;
+  }
+}
+
+html body #header {
+  .menu-toggle {
+    background: transparent;
+    border: 0 solid;
+    cursor: pointer;
+    display: block;
+    padding: 0;
+    position: absolute;
+    right: @baseSpacing;
+    top: @baseSpacing;
+    width: 30px;
+    z-index: @z-index-logo; // TODO: Give this its own z-index
+
+    .bars {
+      border: 0 solid;
+      display: block;
+      height: 20px;
+      position: relative;
+
+      span {
+        left: 0;
+        right: 0;
+        position: absolute;
+    
+        &::after {
+          border: 2px solid @black;
+          content: " ";
+          display: block;
+          margin: 4px auto;
+          opacity: 1;
+          position: absolute;
+          transition: transform 0.5s, opacity 0.2s ease-in; // TODO: Use mixin;
+          width: 100%;
+        }
+
+          &:nth-child(1) { top: 0;}
+          &:nth-child(2) { top: 9px;}
+          &:nth-child(3) { top: 18px;}
+        }
+      }
+    }
+
+    &.open {
+      margin-top: 30px;
+
+      span {
+        top:  auto;
+      
+        &:nth-child(1):after {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2):after {
+        display: none;
+        opacity: 0;
+      }
+
+      &:nth-child(3):after {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }      
+    }
+  }
+}
+
+// Menu Styles
+@media @maxTablet {
+  html body #header {
+      .nav-wrap {
+      
+    }
+  }
+}

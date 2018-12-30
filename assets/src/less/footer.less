@@ -1,8 +1,7 @@
 /* Footer */
 html body footer {
   background-color: @black;
-  bottom: 0;
-  color: @grey-light;
+  color: @grey-lighter;
   text-align: center;
   width: 100%;
   z-index: @z-index-footer;
@@ -11,31 +10,30 @@ html body footer {
     padding: @baseSpacing (@baseSpacing * 2);
     
     span {
-      font-size: 0.7em;
-      font-weight: 400;
+      font-size: @font-size-sm;
       line-height: 1.3em;
-      text-transform: uppercase;
+      text-transform: uppercase; //
 
       a {
         color: @white;
       }
     }
+
+    .widget {
+      float: left;
+
+      ul li a {
+        padding: (@baseSpacing / 2) 0;
+      }
+
+      &.widget.widget_nav_menu ul li {
+        display: inline;
+        margin: @baseSpacing;
+      }
+    } 
   }
 }
 
-footer .widget {
-  float: left;
-
-  h4 {
-    font-weight: 600;
-    letter-spacing: 0.25em;
-    margin-bottom: 15px;
-  }
-}
-
-footer .widget ul li a {
-  padding: 10px 0;
-}
 
 footer .widget.widget_nav_menu ul li {
   display: inline;

@@ -1,28 +1,68 @@
 // Product – Globals
-html body {
+html body #primary { // TODO: Use a better selector
 	&,
-	.woocommerce {
+	&.woocommerce {
 		div.product,
 		ul.products {
+			float: left;
 			margin-bottom: 0;
 
+			img {
+				border-radius: @border-radius-small;
+				margin: 0 auto;
+				width: auto;
+			}
+
 			li.product {
+				.make-col-xs(12);
 				margin-bottom: 0;
 				text-align: center;
 
 				img,
 				a img {
-					border-radius: @borderRadius;
 					margin-bottom: @baseSpacing / 3;
 				}
 
 				.woocommerce-loop-product__title {
 					padding: (@baseSpacing / 3) 0;
 				}
-				
-				.price {
-	        color: @green;
-	      }
+			}
+
+			.price {
+        color: @green;
+      }
+
+			#reviews {
+				#comments,
+				#review_form_wrapper {
+					.make-col(6);
+					.make-col-sm(12);
+					float: right;
+
+					.stars a {
+						color: @yellow;
+					}
+
+					.woocommerce .star-rating {
+						color: @yellow;
+					}
+				}
+
+				#comments {
+					ol.commentlist li {
+
+						.comment-text {
+							.make-col(10, @baseSpacing);
+							.push(2);
+							border-radius: 0;
+						}
+
+						img.avatar {
+							.make-col(1, 0);
+							border-radius: 50%;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -49,6 +89,10 @@ html body.woocommerce.single-product {
 				td	{
 					clear: both;
 					float: left;
+
+					.reset_variations {
+						.button-small();
+					}
 
 					select {
 						margin: 0;
@@ -116,37 +160,35 @@ html body.woocommerce.single-product {
 			}
 
 			.panel {
-				.make-col(12, @baseSpacing * 2);
-				background-color: @black;
-
-				#reviews {
-					#comments,
-					#review_form_wrapper {
-						.make-col(6);
-						float: right;
-
-						.stars a {
-							color: @yellow;
-						}
-
-						.woocommerce .star-rating {
-							color: @yellow;
-						}
-					}
-
-					#comments {
-						ol.commentlist li img.avatar {
-							border-radius: 50%;
-							padding: 0;
-						}
-					}
-				}
-
-				.product-playlist {
-					overflow: hidden;
-					padding: 0;
-				}
+				.make-col(12, @baseSpacing * 2, section);
 			}
 		}
+	}
+}
+
+@media @maxPhone {
+	html body #primary {
+		//  PDP
+		div.product {
+			> .summary div.images {
+				margin-bottom: @baseSpacing / 2;
+				padding-right: 0;
+			}
+
+			.woocommerce-tabs ul.tabs li {
+				width: 100%;
+			}
+		}
+
+		// Product Lists
+		ul.products li.product {
+			margin-bottom: @baseSpacing;
+
+			a img {
+				height: auto;
+				margin-bottom: 0;
+				max-width: 160px;
+			}
+		}	
 	}
 }

@@ -1,4 +1,8 @@
 html body {
+  .sr-only {
+    .sr-only();
+  }
+
   //  Images
   img,
   iframe,
@@ -17,6 +21,7 @@ html body {
   // iframes
   .fluid-width-video-wrapper {
     // .element-large();
+    border: @border-thick;
   }
 
   i,
@@ -26,6 +31,13 @@ html body {
     &::after {
       color: @button-text-color;
     }
+  }
+
+  .extra-html .btn-zoomsounds {
+    &::before,
+    &::after {
+      color: @grey-lighter;
+    }    
   }
 }
 
@@ -39,7 +51,8 @@ html body {
       button.button {
         .button();
 
-        &.product_type_variable {
+        &.product_type_variable,
+        &.buy {
           .button(@button-buy-color, @white);
         }
 

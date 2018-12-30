@@ -30,6 +30,10 @@
   color: @text-color-alt;
   margin-bottom: @baseSpacing * 2;
   padding: @baseSpacing * 2;
+
+  @media @maxTablet {
+    padding: @baseSpacing;
+  }
 }
 
 .push(@columns) {
@@ -72,10 +76,18 @@
 }
 
 .flex-wrap(@padding:(@baseSpacing)) {
+  align-items: flex-start;
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   overflow: hidden;
   padding: @padding;
+}
+
+.flex-center() {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
 }
 
 .element-large() {
@@ -112,7 +124,7 @@
   .hover-fade();
   background-color: @bg;
   border: 2px solid @bg;
-  border-radius: @borderRadius;
+  border-radius: @border-radius-small;
   color: @color;
   cursor: pointer;
   display: inline-block;
@@ -125,10 +137,15 @@
   position: relative;
   text-align: center;
   text-transform: uppercase;
+
+  i,
+  .fa::before {
+    color: @color;
+  }
 }
 
-.button-small() {
-  .button();
+.button-small(@bg:@button-background-color; @color:@button-text-color) {
+  .button(@bg, @color);
   font-size: @font-size-icon;
   padding: (@baseSpacing / 3) (@baseSpacing / 2);
 }
@@ -163,4 +180,13 @@
   &:hover {
     opacity: 1;
   }
+}
+
+.sr-only() {
+  clip: rect(1px,1px,1px,1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute!important;
+  width: 1px;
+  word-wrap: normal!important;
 }
