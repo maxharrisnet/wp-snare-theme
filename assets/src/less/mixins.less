@@ -24,11 +24,12 @@
   width: 100%*(@columns / @baseColumnCount);
 }
 
-.make-col(@columns, @padding:@baseSpacing, @section:@section) when (@section = section) {
-  .make-col(@columns, @padding:@baseSpacing * 2);
+.make-col(@columns, @padding:@baseSpacing * 2, @section:@section) when (@section = section) {
+  .make-col(@columns, @padding);
   background-color: @black; //
   color: @text-color-alt;
   margin-bottom: @baseSpacing * 2;
+  padding: @baseSpacing * 2;
 }
 
 .push(@columns) {
@@ -77,12 +78,9 @@
   padding: @padding;
 }
 
-.section(@padding:(@baseSpacing * 2); @color:@black) {
-  // background-color: @color;
-  // color: @white;
-  // margin-bottom: @baseSpacing * 2;
-  // overflow: hidden;
-  // padding: @padding;
+.element-large() {
+  margin: 0 auto @baseSpacing;
+  max-width: @element-large-width;
 }
 
 // Typography
@@ -110,30 +108,29 @@
   text-transform: uppercase;
 }
 
-.button(@color:@white) {
-  background-color: @teal;
-  border: 2px solid @teal;
-  border-radius: 30px;
+.button(@bg:@button-background-color; @color:@button-text-color) {
+  .hover-fade();
+  background-color: @bg;
+  border: 2px solid @bg;
+  border-radius: @borderRadius;
   color: @color;
   cursor: pointer;
   display: inline-block;
   font: @font-size-button @font-family-button;
-  font-weight: @font-weight-light;
+  font-weight: @font-weight-heavy;
   letter-spacing: @letter-spacing-title;
   line-height: @line-height-btn;
-  margin: @baseSpacing (@baseSpacing / 2);
-  padding: (@baseSpacing / 3) @baseSpacing;
+  margin: (@baseSpacing / 4) 0;
+  padding: (@baseSpacing / 3) (@baseSpacing);
   position: relative;
   text-align: center;
   text-transform: uppercase;
-  transition: background-color @transition-speed, border-color @transition-speed;
+}
 
-  &:hover,
-  &:active {
-    background-color: @blue-dark;
-    border-color: @blue-dark;
-    color: @white;
-  }
+.button-small() {
+  .button();
+  font-size: @font-size-icon;
+  padding: (@baseSpacing / 3) (@baseSpacing / 2);
 }
 
 // Effects
@@ -151,11 +148,19 @@
 	}
 }
 
-.hover-fade() {
+.hover-fade(@reverse:@reverse) {
   .transition(opacity);
   opacity: 1;
 
   &:hover {
     opacity: @hover-opacity;
+  }
+}
+
+.hover-fade(@reverse:@reverse) when (@reverse = reverse) {
+  opacity: @hover-opacity;
+
+  &:hover {
+    opacity: 1;
   }
 }

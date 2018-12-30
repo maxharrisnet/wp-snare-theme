@@ -1,12 +1,9 @@
 // Product Lists
-html body.woocommerce .product-playlist {
+html body .product-playlist {
 	.make-col(12, @baseSpacing, section);
 	margin: 0;
 
 	ul.products {
-		margin: @baseSpacing auto;
-		padding: 0 @baseSpacing;
-
 		li.product {
 			.make-col(12,0);
 			.flex-wrap(0);
@@ -33,6 +30,9 @@ html body.woocommerce .product-playlist {
 					.make-col(3,0 @baseSpacing);
 					h2 {
 						color: @grey;
+						display: inline;
+						font-size: @font-size-md;
+						line-height: @line-height-sm;
 					}
 				}
 
@@ -41,7 +41,7 @@ html body.woocommerce .product-playlist {
 					text-align: center;
 
 					.price {
-						color: @green;
+						font-size: @font-size-sm;
 						margin-bottom: 0;
 					}
 				}
@@ -68,6 +68,7 @@ html body.woocommerce .product-playlist {
 					text-align: center;
 
 					.button {
+						.button-small();
 						float: right;
 						margin: 0;
 					}
@@ -81,7 +82,7 @@ html body.woocommerce .product-playlist {
 	}
 
 	.woocommerce-loop-product__title {
-		line-height: 2rem;
+		line-height: 2rem; // TODO: use variable;
 	}
 
 	.price {
@@ -92,7 +93,6 @@ html body.woocommerce .product-playlist {
 		margin-top: 0;
 	}
 }
-
 
 //  Responsive
 @media @maxTablet {

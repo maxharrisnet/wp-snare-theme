@@ -1,23 +1,34 @@
-// Product
-html body.woocommerce div.product {	
-	p.price,
-	.woocommerce div.product span.price {
-		color: @green;
-		width: auto;
-	}
-}
-
+// Product – Globals
 html body {
-	.product {
-		text-align: center;
+	&,
+	.woocommerce {
+		div.product,
+		ul.products {
+			margin-bottom: 0;
 
-		img {
-			border-radius: @borderRadius;
+			li.product {
+				margin-bottom: 0;
+				text-align: center;
+
+				img,
+				a img {
+					border-radius: @borderRadius;
+					margin-bottom: @baseSpacing / 3;
+				}
+
+				.woocommerce-loop-product__title {
+					padding: (@baseSpacing / 3) 0;
+				}
+				
+				.price {
+	        color: @green;
+	      }
+			}
 		}
 	}
 }
 
-//  PDP
+//  Product – Page (Single)
 html body.woocommerce.single-product {
 	div.product {
 		display: flex;
@@ -44,15 +55,10 @@ html body.woocommerce.single-product {
 					}
 				}	
 			}
-
-			.button {
-				clear: both;
-				margin-top: @baseSpacing;
-			}
 		}
 
 		> .summary {
-			.make-col(12, @baseSpacing, section);
+			.make-col(12, @baseSpacing * 3, section);
 
 			div.images {
 				margin-bottom: @baseSpacing;
@@ -62,11 +68,10 @@ html body.woocommerce.single-product {
 
 			.extra-btns-con {
 				position: absolute;
-				right: @baseSpacing / 2;
-				top: @baseSpacing / 3;
+				right: @baseSpacing;
+				top: @baseSpacing / 2;
 			}
 		}
-
 
 		.woocommerce-tabs {
 			color: @grey;

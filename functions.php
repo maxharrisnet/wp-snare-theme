@@ -55,6 +55,7 @@ add_filter( 'getarchives_where','custom_post_type_archive',10,2);
 function woocommerce_support() {
   add_theme_support( 'woocommerce' ); 
 }
+
 add_action( 'after_setup_theme', 'woocommerce_support' );
 
 /**

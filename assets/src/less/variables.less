@@ -30,16 +30,22 @@
 @yellow-light: #FACC1E;
 
 @brand-color: @yellow;
+
 @text-color: @black;
 @text-color-alt: @white;
 @link-color: @brand-color;
 @link-color-alt: @purple;
+@hover-color: @brand-color;
+
 @button-text-color: @text-color;
 @button-background-color: @yellow-light;
+@button-hover-background-color: darken(@button-background-color, 20%);
+@button-hover-text-color: @button-text-color;
+@button-buy-color: @purple;
+@button-buy-hover-color: darken(@button-buy-color, 20%);
 
-@hover-color: @brand-color;
+//  Transparency
 @hover-opacity: 0.7;
-
 @semi-transparent-color: rgba(0,0,0,0.7);
 
 // Text Base
@@ -58,19 +64,19 @@
 
 // Buttons
 @font-size-title: @font-size-xxl;
-@font-size-icon: 36px;
+@font-size-icon: @font-size-base;
 @font-size-button: @font-size-sm;
 
 @font-weight-medium: 400;
-@font-weight-heavy: 600;
+@font-weight-heavy: 700;
 
 // Text Styles
 @font-family-body: @font-family-sans;
 @font-family-button: @font-family-sans;
 
 @letter-spacing-body: 0.046rem;
-@letter-spacing-heading: 0.12rem;
 @letter-spacing-title: 0.14rem;
+@letter-spacing-heading: 0.12rem;
 
 @line-height-title: 3rem;
 @line-height-heading: 1.86rem;
@@ -88,7 +94,7 @@
 @border-radius-small: 5px;
 
 // Transitions
-@transition-speed: 0.3s;
+@transition-speed: 0.22s;
 @transition-speed-fast: 0.1s;
 
 @box-shadow: 0 0 6px -1px @grey;
@@ -99,4 +105,9 @@
 @z-index-logo: 510;
 @z-index-footer: 500;
 
-@section: 'false';
+// Element Sizes
+@element-large-width: 700px;
+
+// Mixin Variables
+@section: false;
+@reverse: false;

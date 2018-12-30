@@ -1,10 +1,32 @@
-html body {
+//  Sidebar – Globals
+html body .sidebar {
+  .widget {
+    .make-col(12, @baseSpacing * 2, section);
+    float: left;
+    padding: @baseSpacing; // TODO: Reconfigure .make-col() mixin / section variable;
+  }
+
+  &#sidebar-header {
+  	.make-col(12, 0);
+
+  	.widget {
+  		.make-col(12, (@baseSpacing * 3) (@baseSpacing * 2));
+  	}
+  }
+}
+
+// Sidebar – Page
+html body.sidebar {
+	.container#primary #main {
+		.make-col(8);
+	}
+
   .sidebar {
-    .make-col(12,0);
-    float: none;
-    
-    .widget {
-      .make-col(12, @baseSpacing, section);
-    }
+		&#sidebar-left,
+  	&#sidebar-right {
+	    .make-col(4, @baseSpacing 0);
+	    .make-col-sm(12);
+	    float: none;
+	  }
   }
 }

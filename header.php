@@ -34,12 +34,19 @@
 
 <body 
 	<?php 
-		if (is_front_page()) {
-			// body_class('sidebar sidebar-right');
+
+		$body_classes = array();
+
+		if (is_page_template( 'page-templates/template-sidebar-right.php' )) {
+			array_push($body_classes, 'sidebar', 'sidebar-right');
 		}
-		else {
-			body_class();
+
+		if (is_page_template( 'page-templates/template-sidebar-left.php' )) {
+			array_push($body_classes, 'sidebar', 'sidebar-left');
 		}
+
+		body_class($body_classes);
+
 	?>
 >
 <?php // include_once("analytics.php") ?>

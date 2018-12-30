@@ -138,10 +138,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-img,
-iframe {
-  max-width: 100%;
-}
 html body .container {
   margin: 0 auto;
   max-width: 100%;
@@ -179,7 +175,7 @@ html body p {
   line-height: 1.6em;
 }
 html body strong {
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -204,19 +200,21 @@ html body h2,
 html body h3,
 html body h4 {
   font-family: "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
 }
 html body h1 {
   color: #ffffff;
-  font-size: 2.2rem;
+  font-size: 36px;
   letter-spacing: 0.14rem;
-  line-height: 2.3rem;
-  margin: 0 0 10px;
+  line-height: 3rem;
+  margin: 0;
   text-transform: uppercase;
 }
 html body h2 {
-  font-size: 2.2rem;
-  line-height: 2.3em;
+  font-size: 30px;
+  letter-spacing: 0.12rem;
+  line-height: 1.86rem;
+  margin-bottom: 20px;
   text-transform: uppercase;
 }
 html body h3 {
@@ -280,15 +278,27 @@ html body form :-moz-placeholder {
   /* Chrome/Opera/Safari */
 }
 html body form input[type=submit] {
+  transition: opacity 0.22s ease-in;
+  will-change: opacity;
+  opacity: 1;
   background-color: #facc1e;
-  border: none;
+  border: 2px solid #facc1e;
   border-radius: 5px;
   color: #000000;
   cursor: pointer;
-  float: left;
-  font-weight: 600;
-  padding: 6.66666667px;
+  display: inline-block;
+  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  line-height: 1.6rem;
+  margin: 5px 0;
+  padding: 6.66666667px 20px;
+  position: relative;
+  text-align: center;
   text-transform: uppercase;
+}
+html body form input[type=submit]:hover {
+  opacity: 0.7;
 }
 html body form ::-webkit-input-placeholder {
   /* WebKit browsers */
@@ -347,15 +357,16 @@ html body .searchform input[type=text] {
 html body .searchform .icon-button {
   background-color: #d3a700;
   display: flex;
-  margin-top: 5px;
-  padding: 6.66666667px;
+  margin-top: 6.66666667px;
   position: absolute;
   right: 6.66666667px;
   top: 0;
 }
 html body .searchform .icon-button input[type=submit] {
   background-color: transparent;
-  position: absolute;
+  border-color: transparent;
+  margin: 0;
+  padding: 0;
 }
 html body .taxonomy-list {
   display: inline-block;
@@ -375,7 +386,7 @@ html body .taxonomy-list li a {
   color: #000000;
   display: inline-block;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.1;
   margin: 0;
   padding: 10px;
@@ -390,58 +401,200 @@ html body .taxonomy-list li:hover {
 html body .taxonomy-list li:hover a {
   color: #d3a700;
 }
+html body img,
+html body iframe,
+html body svg {
+  max-width: 100%;
+}
 html body a img {
-  transition: opacity 0.3s ease-in;
+  transition: opacity 0.22s ease-in;
   will-change: opacity;
   opacity: 1;
 }
 html body a img:hover {
   opacity: 0.7;
 }
-html body .button {
-  background-color: #facc1e;
-  border-radius: 3px;
-  color: #000000;
-  display: inline-block;
-  font-size: 1.2em;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  margin: 30px auto 0;
-  max-width: 420px;
-  padding: 20px 30px;
-  text-transform: uppercase;
-}
-html body .button i:before,
-html body .button .btn-zoomsounds:before,
-html body .button i:after,
-html body .button .btn-zoomsounds:after {
-  color: #000000;
-}
-html body .button:hover,
-html body .button:focus {
-  background-color: #333;
-  color: #111;
-}
-html body .button:focus {
-  outline: none;
-}
-html body .button-alt,
-html body a.button-alt {
-  background-color: #000000;
-  color: #ffffff;
-}
 html body .icon-button {
   position: relative;
 }
-html body iframe {
-  margin: auto;
-}
-html body .fa::before {
-  color: #ffffff;
-}
-html .woocommerce a.button {
-  background-color: #facc1e;
+html body i::before,
+html body .fa::before,
+html body .btn-zoomsounds::before,
+html body i::after,
+html body .fa::after,
+html body .btn-zoomsounds::after {
   color: #000000;
+}
+html body ul.products li.product a.button,
+html body.woocommerce ul.products li.product a.button,
+html body div.product a.button,
+html body.woocommerce div.product a.button,
+html body ul.products li.product button.button,
+html body.woocommerce ul.products li.product button.button,
+html body div.product button.button,
+html body.woocommerce div.product button.button {
+  transition: opacity 0.22s ease-in;
+  will-change: opacity;
+  opacity: 1;
+  background-color: #facc1e;
+  border: 2px solid #facc1e;
+  border-radius: 5px;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  line-height: 1.6rem;
+  margin: 5px 0;
+  padding: 6.66666667px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+html body ul.products li.product a.button:hover,
+html body.woocommerce ul.products li.product a.button:hover,
+html body div.product a.button:hover,
+html body.woocommerce div.product a.button:hover,
+html body ul.products li.product button.button:hover,
+html body.woocommerce ul.products li.product button.button:hover,
+html body div.product button.button:hover,
+html body.woocommerce div.product button.button:hover {
+  opacity: 0.7;
+}
+html body ul.products li.product a.button.product_type_variable,
+html body.woocommerce ul.products li.product a.button.product_type_variable,
+html body div.product a.button.product_type_variable,
+html body.woocommerce div.product a.button.product_type_variable,
+html body ul.products li.product button.button.product_type_variable,
+html body.woocommerce ul.products li.product button.button.product_type_variable,
+html body div.product button.button.product_type_variable,
+html body.woocommerce div.product button.button.product_type_variable {
+  transition: opacity 0.22s ease-in;
+  will-change: opacity;
+  opacity: 1;
+  background-color: #510a8e;
+  border: 2px solid #510a8e;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  line-height: 1.6rem;
+  margin: 5px 0;
+  padding: 6.66666667px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+html body ul.products li.product a.button.product_type_variable:hover,
+html body.woocommerce ul.products li.product a.button.product_type_variable:hover,
+html body div.product a.button.product_type_variable:hover,
+html body.woocommerce div.product a.button.product_type_variable:hover,
+html body ul.products li.product button.button.product_type_variable:hover,
+html body.woocommerce ul.products li.product button.button.product_type_variable:hover,
+html body div.product button.button.product_type_variable:hover,
+html body.woocommerce div.product button.button.product_type_variable:hover {
+  opacity: 0.7;
+}
+html body ul.products li.product a.button.single_add_to_cart_button,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button,
+html body div.product a.button.single_add_to_cart_button,
+html body.woocommerce div.product a.button.single_add_to_cart_button,
+html body ul.products li.product button.button.single_add_to_cart_button,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button,
+html body div.product button.button.single_add_to_cart_button,
+html body.woocommerce div.product button.button.single_add_to_cart_button {
+  transition: opacity 0.22s ease-in;
+  will-change: opacity;
+  opacity: 1;
+  background-color: #510a8e;
+  border: 2px solid #510a8e;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  line-height: 1.6rem;
+  margin: 5px 0;
+  padding: 6.66666667px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+html body ul.products li.product a.button.single_add_to_cart_button:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button:hover,
+html body div.product a.button.single_add_to_cart_button:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button:hover,
+html body ul.products li.product button.button.single_add_to_cart_button:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button:hover,
+html body div.product button.button.single_add_to_cart_button:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button:hover {
+  opacity: 0.7;
+}
+html body ul.products li.product a.button.single_add_to_cart_button.alt.disabled,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button.alt.disabled,
+html body div.product a.button.single_add_to_cart_button.alt.disabled,
+html body.woocommerce div.product a.button.single_add_to_cart_button.alt.disabled,
+html body ul.products li.product button.button.single_add_to_cart_button.alt.disabled,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button.alt.disabled,
+html body div.product button.button.single_add_to_cart_button.alt.disabled,
+html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled {
+  background-color: #510a8e;
+  border: 2px solid #510a8e;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  line-height: 1.6rem;
+  margin: 5px 0;
+  padding: 6.66666667px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  transition: opacity 0.22s ease-in;
+  will-change: opacity;
+  opacity: 1;
+  opacity: 0.7;
+  margin: 10px 0;
+}
+html body ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body div.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body div.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled:hover {
+  opacity: 0.7;
+}
+html body ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body div.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body div.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled:hover {
+  opacity: 0.7;
+}
+html body ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body div.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body div.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled:hover {
+  opacity: 1;
 }
 /* Header */
 #header {
@@ -549,7 +702,7 @@ html .woocommerce a.button {
 #header .container .nav-wrap ul li a {
   color: #000000;
   display: inline-block;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0 10px;
   text-transform: uppercase;
 }
@@ -620,67 +773,62 @@ footer .fa:hover::before {
   background-color: #ffffff;
   color: #111;
 }
-html body .sidebar {
+html body .sidebar .widget {
+  box-sizing: border-box;
+  min-height: 1px;
+  overflow: hidden;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  margin-bottom: 40px;
+  padding: 40px;
+  float: left;
+  padding: 20px;
+}
+html body .sidebar#sidebar-header {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
   overflow: hidden;
   padding: 0;
   width: 100%;
+}
+html body .sidebar#sidebar-header .widget {
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 60px 40px;
+  width: 100%;
+}
+html body.sidebar .container#primary #main {
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 20px;
+  width: 66.66666667%;
+}
+html body.sidebar .sidebar#sidebar-left,
+html body.sidebar .sidebar#sidebar-right {
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 20px 0;
+  width: 33.33333333%;
   float: none;
 }
-html body .sidebar .widget {
-  padding: 20px;
-  box-sizing: border-box;
-  float: left;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 40px;
-  width: 100%;
-  background-color: #000000;
-  color: #ffffff;
-  margin-bottom: 40px;
-}
-html body {
-  background-color: #252525;
-  position: relative;
-}
-html body .container#primary {
-  padding: 40px;
-}
-html body .container#primary #main {
-  box-sizing: border-box;
-  float: left;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 20px;
-  width: 100%;
-}
-html body .container#primary #main .entry-content-page {
-  padding: 20px;
-  box-sizing: border-box;
-  float: left;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 40px;
-  width: 100%;
-  background-color: #000000;
-  color: #ffffff;
-  margin-bottom: 40px;
-}
-/* Tablet */
-@media only screen and (max-width: 1199px) {
-  html body .container#primary {
-    padding: 10px;
-  }
-  html body .container#primary #main,
-  html body .container#primary .sidebar {
+@media only screen and (max-width: 899px) {
+  html body.sidebar .sidebar#sidebar-left,
+  html body.sidebar .sidebar#sidebar-right {
     box-sizing: border-box;
     float: left;
     min-height: 1px;
     overflow: hidden;
-    padding: 0;
+    padding: 10px;
     width: 100%;
+    margin-left: 0%;
   }
 }
 /* Audio Player */
@@ -749,16 +897,83 @@ html body .audioplayer.skin-aria .ap-controls .ap-controls-left .con-playpause .
 html body .audioplayer.skin-aria .ap-controls .ap-controls-left .con-playpause .pausebtn path {
   background-color: #00ff00;
 }
-html body.woocommerce div.product p.price,
-html body.woocommerce div.product .woocommerce div.product span.price {
-  color: #41cf41;
-  width: auto;
+html body {
+  background-color: #252525;
+  position: relative;
 }
-html body .product {
+html body .container#primary #main {
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 20px;
+  width: 100%;
+}
+html body .container#primary #main .entry-content-page {
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 20px;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  margin-bottom: 40px;
+  padding: 40px;
+}
+/* Tablet */
+@media only screen and (max-width: 1199px) {
+  html body .container#primary {
+    padding: 10px;
+  }
+  html body .container#primary #main,
+  html body .container#primary .sidebar {
+    box-sizing: border-box;
+    float: left;
+    min-height: 1px;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+  }
+}
+html body.page .container#primary #main .entry-content-page {
+  padding: 40px 60px;
+}
+html body div.product,
+html body .woocommerce div.product,
+html body ul.products,
+html body .woocommerce ul.products {
+  margin-bottom: 0;
+}
+html body div.product li.product,
+html body .woocommerce div.product li.product,
+html body ul.products li.product,
+html body .woocommerce ul.products li.product {
+  margin-bottom: 0;
   text-align: center;
 }
-html body .product img {
+html body div.product li.product img,
+html body .woocommerce div.product li.product img,
+html body ul.products li.product img,
+html body .woocommerce ul.products li.product img,
+html body div.product li.product a img,
+html body .woocommerce div.product li.product a img,
+html body ul.products li.product a img,
+html body .woocommerce ul.products li.product a img {
   border-radius: 5px;
+  margin-bottom: 6.66666667px;
+}
+html body div.product li.product .woocommerce-loop-product__title,
+html body .woocommerce div.product li.product .woocommerce-loop-product__title,
+html body ul.products li.product .woocommerce-loop-product__title,
+html body .woocommerce ul.products li.product .woocommerce-loop-product__title {
+  padding: 6.66666667px 0;
+}
+html body div.product li.product .price,
+html body .woocommerce div.product li.product .price,
+html body ul.products li.product .price,
+html body .woocommerce ul.products li.product .price {
+  color: #41cf41;
 }
 html body.woocommerce.single-product div.product {
   display: flex;
@@ -782,21 +997,17 @@ html body.woocommerce.single-product div.product form.cart .variations td {
 html body.woocommerce.single-product div.product form.cart .variations td select {
   margin: 0;
 }
-html body.woocommerce.single-product div.product form.cart .button {
-  clear: both;
-  margin-top: 20px;
-}
 html body.woocommerce.single-product div.product > .summary {
-  padding: 20px;
   box-sizing: border-box;
   float: left;
   min-height: 1px;
   overflow: hidden;
-  padding: 40px;
+  padding: 60px;
   width: 100%;
   background-color: #000000;
   color: #ffffff;
   margin-bottom: 40px;
+  padding: 40px;
 }
 html body.woocommerce.single-product div.product > .summary div.images {
   margin-bottom: 20px;
@@ -805,8 +1016,8 @@ html body.woocommerce.single-product div.product > .summary div.images {
 }
 html body.woocommerce.single-product div.product > .summary .extra-btns-con {
   position: absolute;
-  right: 10px;
-  top: 6.66666667px;
+  right: 20px;
+  top: 10px;
 }
 html body.woocommerce.single-product div.product .woocommerce-tabs {
   color: #aaaaaa;
@@ -878,39 +1089,35 @@ html body.woocommerce.single-product div.product .woocommerce-tabs .panel .produ
   padding: 0;
 }
 html body.post-type-archive-product .woocommerce-products-header {
-  padding: 20px;
   box-sizing: border-box;
   float: left;
   min-height: 1px;
   overflow: hidden;
-  padding: 40px;
+  padding: 20px;
   width: 100%;
   background-color: #000000;
   color: #ffffff;
   margin-bottom: 40px;
+  padding: 40px;
 }
 html body.post-type-archive-product .woocommerce-products-header .woocommerce-ordering,
 html body.post-type-archive-product .woocommerce-products-header .woocommerce-ordering select {
   margin: 0;
 }
-html body.woocommerce .product-playlist {
-  padding: 20px;
+html body .product-playlist {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
   overflow: hidden;
-  padding: 40px;
+  padding: 20px;
   width: 100%;
   background-color: #000000;
   color: #ffffff;
   margin-bottom: 40px;
+  padding: 40px;
   margin: 0;
 }
-html body.woocommerce .product-playlist ul.products {
-  margin: 20px auto;
-  padding: 0 20px;
-}
-html body.woocommerce .product-playlist ul.products li.product {
+html body .product-playlist ul.products li.product {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -925,10 +1132,10 @@ html body.woocommerce .product-playlist ul.products li.product {
   margin: 0;
   text-align: center;
 }
-html body.woocommerce .product-playlist ul.products li.product > div {
+html body .product-playlist ul.products li.product > div {
   text-align: left;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.image-cell {
+html body .product-playlist ul.products li.product > div.image-cell {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -936,11 +1143,11 @@ html body.woocommerce .product-playlist ul.products li.product > div.image-cell 
   padding: 0;
   width: 8.33333333%;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.image-cell img {
+html body .product-playlist ul.products li.product > div.image-cell img {
   border-radius: 0;
   margin-bottom: 0;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.title-cell {
+html body .product-playlist ul.products li.product > div.title-cell {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -948,10 +1155,13 @@ html body.woocommerce .product-playlist ul.products li.product > div.title-cell 
   padding: 0 20px;
   width: 25%;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.title-cell h2 {
+html body .product-playlist ul.products li.product > div.title-cell h2 {
   color: #aaaaaa;
+  display: inline;
+  font-size: 16px;
+  line-height: 1.14rem;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.price-cell {
+html body .product-playlist ul.products li.product > div.price-cell {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -960,11 +1170,11 @@ html body.woocommerce .product-playlist ul.products li.product > div.price-cell 
   width: 16.66666667%;
   text-align: center;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.price-cell .price {
-  color: #41cf41;
+html body .product-playlist ul.products li.product > div.price-cell .price {
+  font-size: 13px;
   margin-bottom: 0;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.tax-cell {
+html body .product-playlist ul.products li.product > div.tax-cell {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -972,18 +1182,18 @@ html body.woocommerce .product-playlist ul.products li.product > div.tax-cell {
   padding: 0 10px;
   width: 33.33333333%;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list {
+html body .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list {
   margin-bottom: 0;
   padding: 0;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list li {
+html body .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list li {
   margin: 4px;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list li a {
+html body .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list li a {
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.button-cell {
+html body .product-playlist ul.products li.product > div.button-cell {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -992,20 +1202,43 @@ html body.woocommerce .product-playlist ul.products li.product > div.button-cell
   width: 25%;
   text-align: center;
 }
-html body.woocommerce .product-playlist ul.products li.product > div.button-cell .button {
+html body .product-playlist ul.products li.product > div.button-cell .button {
+  transition: opacity 0.22s ease-in;
+  will-change: opacity;
+  opacity: 1;
+  background-color: #facc1e;
+  border: 2px solid #facc1e;
+  border-radius: 5px;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  line-height: 1.6rem;
+  margin: 5px 0;
+  padding: 6.66666667px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 6.66666667px 10px;
   float: right;
   margin: 0;
 }
-html body.woocommerce .product-playlist ul.products li.product:first-of-type {
+html body .product-playlist ul.products li.product > div.button-cell .button:hover {
+  opacity: 0.7;
+}
+html body .product-playlist ul.products li.product:first-of-type {
   border-top: 1px solid #252525;
 }
-html body.woocommerce .product-playlist .woocommerce-loop-product__title {
+html body .product-playlist .woocommerce-loop-product__title {
   line-height: 2rem;
 }
-html body.woocommerce .product-playlist .price {
+html body .product-playlist .price {
   margin-bottom: 0;
 }
-html body.woocommerce .product-playlist .button {
+html body .product-playlist .button {
   margin-top: 0;
 }
 @media only screen and (max-width: 1199px) {
@@ -1043,19 +1276,4 @@ html body.woocommerce .product-playlist .button {
     order: 99;
     padding: 0;
   }
-}
-html body.woocommerce.single-product div.product > .summary {
-  margin-bottom: 40px;
-  padding: 10px;
-}
-html body.woocommerce.single-product div.product > .summary div.images {
-  float: left;
-  height: auto;
-  width: 150px;
-}
-html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li {
-  width: 100%;
-}
-html body.woocommerce.single-product div.product .woocommerce-tabs .panel {
-  padding: 0;
 }

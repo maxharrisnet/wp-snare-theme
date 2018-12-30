@@ -25,7 +25,17 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <li <?php wc_product_class(); ?>>
+	<?php
+		/**
+		 * Hook: woocommerce_before_shop_loop_item.
+		 *
+		 * @hooked woocommerce_template_loop_product_link_open - 10
+		 */
+		// do_action( 'woocommerce_before_shop_loop_item' );
+	?>
+
 	<div class="image-cell">
+
 		<?php
 			/**
 			 * Hook: woocommerce_before_shop_loop_item_title.
@@ -41,8 +51,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			echo woocommerce_get_product_thumbnail( $thumbnail_size, true );
 			woocommerce_template_loop_product_link_close();
 		?>
+
 	</div>
 	<div class="title-cell">
+
 		<?php
 			/**
 			 * Hook: woocommerce_shop_loop_item_title.
@@ -53,8 +65,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			do_action( 'woocommerce_shop_loop_item_title' );
 			woocommerce_template_loop_product_link_close();
 		?>
+
 	</div>
 	<div class="price-cell">
+
 		<?php
 			/**
 			 * Hook: woocommerce_after_shop_loop_item_title.
@@ -64,9 +78,14 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			 */
 			do_action( 'woocommerce_after_shop_loop_item_title' );
 		?>
+
 	</div>
 	<div class="tax-cell">
-		<?php woocommerce_template_single_meta(); ?>
+
+		<?php
+			woocommerce_template_single_meta();
+		?>
+		
 	</div>
 	<div class="button-cell">
 

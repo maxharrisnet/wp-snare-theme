@@ -1,20 +1,14 @@
-<?php include_once("header.php") ?>
+<?php get_header(); ?>
   
 <div id="primary" class="container">
   <main id="main">
-    <aside id="sidebar" class="sidebar">
+    <aside id="sidebar-header" class="sidebar">
       <?php dynamic_sidebar( 'sidebar-header' ); ?>
     </aside>
-    <?php
-     while ( have_posts() ) : the_post(); ?>
       <div class="entry-content-page">
-        <?php the_content(); ?>
+        <?php get_template_part( 'partials/woocommerce-product', 'loop' ); ?>
       </div>
-      <?php
-      endwhile;
-      wp_reset_query();
-    ?>
   </main>
 </div>
 
-<?php include_once("footer.php") ?>
+<?php get_footer(); ?>

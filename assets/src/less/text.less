@@ -43,16 +43,18 @@ html body {
 
   h1 {
     color: @white;
-  	font-size: 2.2rem;
+  	font-size: @font-size-xl;
     letter-spacing: @letter-spacing-title;
-    line-height: 2.3rem;
-  	margin: 0 0 (@baseSpacing / 2);
+    line-height: @line-height-title;
+  	margin: 0;
     text-transform: uppercase;
   }
 
   h2 {
-    font-size: 2.2rem;
-    line-height: 2.3em;
+    font-size: @font-size-lg;
+    letter-spacing: @letter-spacing-heading;
+    line-height: @line-height-heading;
+    margin-bottom: @baseSpacing;
     text-transform: uppercase;
   }
     
