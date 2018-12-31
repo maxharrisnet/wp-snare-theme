@@ -1,9 +1,9 @@
 // Product Lists
 html body #primary .product-playlist {
 	.make-col(12, 0, section);
-	margin: 0;
-	margin-bottom: 0;
-	
+	// margin: 0;
+	// margin-bottom: 0;
+
 	ul.products {
 		li.product {
 			.make-col(12,0);
@@ -30,8 +30,12 @@ html body #primary .product-playlist {
 						width: 100%;
 					}
 
-					.audioplayer.skin-minimal .ap-controls .con-controls {
-						margin: 0;
+					.audioplayer.skin-minimal {
+						.hover-fade(reverse);
+
+						.ap-controls .con-controls {
+							margin: 0;
+						}
 					}
 				}
 
@@ -52,7 +56,6 @@ html body #primary .product-playlist {
 					text-align: center;
 
 					.price {
-						font-size: @font-size-sm;
 						margin-bottom: 0;
 					}
 				}
@@ -82,6 +85,10 @@ html body #primary .product-playlist {
           	.button-small(@button-buy-color, @white);
 						float: right;
 						margin: 0;
+
+						.fa {
+							margin: 0;
+						}
 					}
 				}
 			}
@@ -159,6 +166,21 @@ html body .extra-btns-con {
 					img {
 						max-width: 100%;
 					}
+
+					.audioplayer {
+						.flex-center();
+
+						* {
+							border-radius: 50%;
+							max-height: 80px;
+							max-width: 80px;
+
+							&.ap-controls .con-playpause>*>svg path {
+								height: 40px;
+								width: 40px;
+							}
+						}
+					}
 				}
 
 				&.title-cell {
@@ -182,7 +204,6 @@ html body .extra-btns-con {
 				}
 
 				&.button-cell {
-					// flex: 0 1 100%;
 					width: 100%;
 
 					.button {

@@ -2,9 +2,9 @@
   
 <div id="primary" class="container">
   <main id="main">
-    <aside id="sidebar-header" class="sidebar">
-      <?php dynamic_sidebar( 'sidebar-header' ); ?>
-    </aside>
+    
+      <?php get_template_part( 'partials/woocommerce-featured-product-loop', 'loop', 'featured' ); ?>
+
       <div class="entry-content-page">
         <?php get_template_part( 'partials/woocommerce-product', 'loop' ); ?>
       </div>

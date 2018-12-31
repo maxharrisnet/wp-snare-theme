@@ -3,6 +3,10 @@ html body {
     .sr-only();
   }
 
+  .clearfix {
+    .clearfix();
+  }
+
   //  Images
   img,
   iframe,
@@ -16,12 +20,13 @@ html body {
 
   .icon-button {
   	position: relative;
+
   }
 
   // iframes
   .fluid-width-video-wrapper {
-    // .element-large();
     border: @border-thick;
+    margin-bottom: @baseSpacing * 2;
   }
 
   i,
@@ -78,6 +83,10 @@ html body {
             .hover-fade(reverse);
             margin: (@baseSpacing / 2) 0;
           }
+        }
+
+        .fa {
+          margin-right: @baseSpacing / 3;
         }
       }
     }

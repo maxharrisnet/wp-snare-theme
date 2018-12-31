@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-//  Responsive Columns
+//  Responsive Columnssec
 .make-col(@columns, @padding:@baseSpacing, @section:@section) {
   box-sizing: border-box;
   float: left;
@@ -30,6 +30,7 @@
   color: @text-color-alt;
   margin-bottom: @baseSpacing * 2;
   padding: @baseSpacing * 2;
+  position: relative;
 
   @media @maxTablet {
     padding: @baseSpacing;
@@ -93,6 +94,15 @@
 
 .flex-center(@flow: 'row') when (@flow = 'column') {
   flex-flow: column wrap;
+}
+
+.absolute-center() {
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
 }
 
 .element-large() {

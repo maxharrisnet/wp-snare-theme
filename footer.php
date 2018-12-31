@@ -1,4 +1,6 @@
-<div class="clearfix"></div>
+<aside id="sidebar-bottom" class="sidebar">
+  <?php dynamic_sidebar( 'sidebar-bottom' ); ?>
+</aside>
 <footer>
   <div class="container">
     <span class="copyright">
