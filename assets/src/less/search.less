@@ -1,10 +1,12 @@
 // Search Form
-html body .searchform {
+html body .searchform,
+.woocommerce-product-search {
 	overflow: hidden;
 	position: relative;
 	width: 100%;
 
-	input[type=text] {
+	input[type=text],
+	input[type=search] {
 		background-color: transparent;
 		border: @border;
 		margin: 0;
@@ -20,6 +22,7 @@ html body .searchform {
 		right: @baseSpacing / 3;
 		top: 0;
 
+		button,
 		input[type=submit] {
 			background-color: transparent;
 			border-color: transparent;
@@ -28,6 +31,5 @@ html body .searchform {
 		}
 	}
 }
-
 
 // Search Results

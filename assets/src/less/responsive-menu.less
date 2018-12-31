@@ -19,68 +19,140 @@ html body #header {
 
     .bars {
       border: 0 solid;
-      display: block;
-      height: 20px;
+      // display: block;
+      height: 30px;
       position: relative;
 
-      span {
-        left: 0;
-        right: 0;
-        position: absolute;
-    
-        &::after {
-          border: 2px solid @black;
-          content: " ";
-          display: block;
-          margin: 4px auto;
-          opacity: 1;
+        span {
+          left: 0;
+          right: 0;
           position: absolute;
-          transition: transform 0.5s, opacity 0.2s ease-in; // TODO: Use mixin;
           width: 100%;
-        }
 
           &:nth-child(1) { top: 0;}
           &:nth-child(2) { top: 9px;}
           &:nth-child(3) { top: 18px;}
+
+          &::after {
+            border: 2px solid @black;
+            border-right: none;
+            border-left: none;
+            content: " ";
+            display: block;
+            margin: 4px auto;
+            opacity: 1;
+            position: absolute;
+            transition: transform @transition-speed ease-in; // TODO: Use mixin;
+            width: 100%;
+          }
         }
       }
-    }
 
-    &.open {
-      margin-top: 30px;
+      &.open .bars {
+        margin-top: 6px;
 
-      span {
-        top:  auto;
-      
-        &:nth-child(1):after {
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-      }
+        span {
+          top: auto;
+        
+          &:nth-child(1)::after {
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
 
-      &:nth-child(2):after {
-        display: none;
-        opacity: 0;
-      }
+        &:nth-child(2)::after {
+          display: none;
+          opacity: 0;
+        }
 
-      &:nth-child(3):after {
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        transform: rotate(-45deg);
+        &:nth-child(3)::after {
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
       }      
     }
   }
 }
 
 // Menu Styles
-@media @maxTablet {
-  html body #header {
-      .nav-wrap {
-      
+@media @maxPhone {
+  html body {
+    #header {
+      height: @mobile-header-height;
+      position: fixed;
+
+      .container {
+        display: block;
+
+        .logo-wrap img {
+          max-height: 70px;
+        }
+
+        .nav-wrap {
+          .make-col(9, @baseSpacing, section);
+          .transition(right);
+          border-left: @border-dark;
+          bottom: 0;
+          padding: @baseSpacing / 2;
+          position: fixed;
+          right: -100%;
+          top: @mobile-header-height;
+
+          .menu-main-navigation-container {
+            margin-top: @baseSpacing;
+            padding: @baseSpacing;
+            position: absolute;
+            top: 0;
+            width: 100%;
+
+            ul {
+              .flex-center('column');
+
+              li {
+                text-align: center;
+                width: 100%;
+
+                a {
+                  border: @border-dark;
+                  color: @link-color;
+                  margin-bottom: @baseSpacing;
+                  padding: @baseSpacing / 2;
+                  width: 100%;
+
+                  &:hover {
+
+                  }
+                }
+
+                &.wpmenucartli {
+                  order: -1;
+
+                  i:before {
+                    color: @link-color;
+                  }
+                }
+              }
+            }
+          }
+
+          &.open {
+            right: 0;
+          }
+        }
+      }
+
+      .search-wrap {
+        display: none; // TODO: Move search to mobile header, create mobile search styles
+      }
+    }
+
+    #main {
+      margin-top: @mobile-header-height;
     }
   }
 }

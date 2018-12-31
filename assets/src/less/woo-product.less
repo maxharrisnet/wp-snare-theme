@@ -6,15 +6,16 @@ html body #primary { // TODO: Use a better selector
 		ul.products {
 			float: left;
 			margin-bottom: 0;
+			width: 100%;
 
 			img {
-				border-radius: @border-radius-small;
-				margin: 0 auto;
+				border-radius: @border-radius-sm;
+				margin: 0;
 				width: auto;
 			}
 
 			li.product {
-				.make-col-xs(12);
+				// .make-col-xs(12);
 				margin-bottom: 0;
 				text-align: center;
 
@@ -69,7 +70,7 @@ html body #primary { // TODO: Use a better selector
 }
 
 //  Product – Page (Single)
-html body.woocommerce.single-product {
+html body.woocommerce.single-product #primary {
 	div.product {
 		display: flex;
 		flex-flow: row wrap;
@@ -91,7 +92,8 @@ html body.woocommerce.single-product {
 					float: left;
 
 					.reset_variations {
-						.button-small();
+						// .button-small();
+						display: none !important; //
 					}
 
 					select {
@@ -108,6 +110,16 @@ html body.woocommerce.single-product {
 				margin-bottom: @baseSpacing;
 				padding-right: @baseSpacing;
 				width: auto;
+			}
+
+			.product_meta {
+				display: inline-block;
+				padding: @baseSpacing (@baseSpacing * 2);
+			}
+
+			button.button.single_add_to_cart_button {
+				margin-top: @baseSpacing;
+				width: 100%;
 			}
 
 			.extra-btns-con {

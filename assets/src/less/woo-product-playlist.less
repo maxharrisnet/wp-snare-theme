@@ -1,8 +1,8 @@
 // Product Lists
-html body .product-playlist {
+html body #primary .product-playlist {
 	.make-col(12, 0, section);
 	margin: 0;
-	padding: 0;
+	// padding: 0;
 
 	ul.products {
 		li.product {
@@ -20,10 +20,13 @@ html body .product-playlist {
 
 				&.image-cell {
 					.make-col(1,0);
+					.make-col-sm(2,0);
 
 					img {
+						height: auto;
 						border-radius: 0;
 						margin-bottom: 0;
+						width: 100%;
 					}
 				}
 
@@ -65,7 +68,7 @@ html body .product-playlist {
 				}
 
 				&.button-cell {
-					.make-col(3, 0);
+					.make-col(1, 0);
 					text-align: center;
 
 					.button {
@@ -96,21 +99,34 @@ html body .product-playlist {
 }
 
 //  Responsive Product Playlist
-@media @maxTablet {
+
+@media @maxPhone{
+	html body #primary .product-playlist {
+			ul.products li.product {
+				> div.tax-cell {
+					display: none;
+			}
+		}
+	}
+}
+
+@media @maxPhoneSm {
 	html body #primary .product-playlist {
 		padding: 0;
 
 		ul.products li.product {
-			.flex-wrap();
-			flex-flow: row wrap;
-			padding: (@baseSpacing / 2) 0;
+			min-height: 92px;
+			padding-left: 100px;
 
 			> div {
-    		flex: 0 1 50%;
+    		float: left;
 
 				&.image-cell {
-    			// flex: 0 1 50%;
+					padding: 0;
 					padding-right: (@baseSpacing / 2);
+					position: absolute;
+					left: 0;
+					width: 100px;
 
 					img {
 						max-width: 100%;
@@ -118,32 +134,32 @@ html body .product-playlist {
 				}
 
 				&.title-cell {
-    			// flex: 0 1 50%;
-					padding: 0 (@baseSpacing / 2) 0;
+					margin-top: (@baseSpacing / 3);
+					padding: 0;
+    			width: auto;
 
 					h2 {
+						display: block;
 						padding: 0;
 					}
 				}
 
 				&.price-cell {
-    			flex: 0 1 50%;
-					display: inline;
-					float: left;
+    			padding: 0;
+    			width: auto;
 
 					.price {
 						display: inline;
 					}
 				}
 
-				&.tax-cell,
 				&.button-cell {
-					flex: 0 1 100%;
-				}
+					// flex: 0 1 100%;
+					width: 100%;
 
-				&.tax-cell {
-					order: 99;
-					padding: 0;
+					.button {
+						margin-bottom: (@baseSpacing / 3);
+					}
 				}
 			}
 		}
@@ -155,7 +171,7 @@ html body .product-playlist {
 		//  Generic
 		// .dzsap-sticktobottom,
 		.wc-dzsap-wrapper {
-			background-color: @semi-transparent-color; //	TODO: Gradient!
+			.transparency-gradient-bg();
 			border-top: @border-dark;
 			bottom: 0;
 			left: 0;

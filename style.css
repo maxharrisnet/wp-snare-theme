@@ -324,6 +324,12 @@ html body form :-ms-input-placeholder {
   color: #fff !important;
   opacity: 1;
 }
+span.wpcf7-not-valid-tip {
+  clear: both;
+}
+div.wpcf7-validation-errors {
+  border-color: #d30000;
+}
 .mc4wp-form {
   margin: 0 auto;
   max-width: 600px;
@@ -345,19 +351,24 @@ html body form :-ms-input-placeholder {
   color: #E41A5C;
   border-color: #E41A5C;
 }
-html body .searchform {
+html body .searchform,
+.woocommerce-product-search {
   overflow: hidden;
   position: relative;
   width: 100%;
 }
-html body .searchform input[type=text] {
+html body .searchform input[type=text],
+.woocommerce-product-search input[type=text],
+html body .searchform input[type=search],
+.woocommerce-product-search input[type=search] {
   background-color: transparent;
   border: 1px solid #aaaaaa;
   margin: 0;
   padding: 10px 20px;
   width: 100%;
 }
-html body .searchform .icon-button {
+html body .searchform .icon-button,
+.woocommerce-product-search .icon-button {
   background-color: #facc1e;
   display: flex;
   margin-top: 6.66666667px;
@@ -365,7 +376,10 @@ html body .searchform .icon-button {
   right: 6.66666667px;
   top: 0;
 }
-html body .searchform .icon-button input[type=submit] {
+html body .searchform .icon-button button,
+.woocommerce-product-search .icon-button button,
+html body .searchform .icon-button input[type=submit],
+.woocommerce-product-search .icon-button input[type=submit] {
   background-color: transparent;
   border-color: transparent;
   margin: 0;
@@ -447,10 +461,14 @@ html body ul.products li.product a.button,
 html body.woocommerce ul.products li.product a.button,
 html body div.product a.button,
 html body.woocommerce div.product a.button,
+html body td a.button,
+html body.woocommerce td a.button,
 html body ul.products li.product button.button,
 html body.woocommerce ul.products li.product button.button,
 html body div.product button.button,
-html body.woocommerce div.product button.button {
+html body.woocommerce div.product button.button,
+html body td button.button,
+html body.woocommerce td button.button {
   transition: opacity 0.22s ease-in;
   will-change: opacity;
   opacity: 1;
@@ -474,46 +492,66 @@ html body ul.products li.product a.button:hover,
 html body.woocommerce ul.products li.product a.button:hover,
 html body div.product a.button:hover,
 html body.woocommerce div.product a.button:hover,
+html body td a.button:hover,
+html body.woocommerce td a.button:hover,
 html body ul.products li.product button.button:hover,
 html body.woocommerce ul.products li.product button.button:hover,
 html body div.product button.button:hover,
-html body.woocommerce div.product button.button:hover {
+html body.woocommerce div.product button.button:hover,
+html body td button.button:hover,
+html body.woocommerce td button.button:hover {
   opacity: 0.6;
 }
 html body ul.products li.product a.button i,
 html body.woocommerce ul.products li.product a.button i,
 html body div.product a.button i,
 html body.woocommerce div.product a.button i,
+html body td a.button i,
+html body.woocommerce td a.button i,
 html body ul.products li.product button.button i,
 html body.woocommerce ul.products li.product button.button i,
 html body div.product button.button i,
 html body.woocommerce div.product button.button i,
+html body td button.button i,
+html body.woocommerce td button.button i,
 html body ul.products li.product a.button .fa::before,
 html body.woocommerce ul.products li.product a.button .fa::before,
 html body div.product a.button .fa::before,
 html body.woocommerce div.product a.button .fa::before,
+html body td a.button .fa::before,
+html body.woocommerce td a.button .fa::before,
 html body ul.products li.product button.button .fa::before,
 html body.woocommerce ul.products li.product button.button .fa::before,
 html body div.product button.button .fa::before,
-html body.woocommerce div.product button.button .fa::before {
+html body.woocommerce div.product button.button .fa::before,
+html body td button.button .fa::before,
+html body.woocommerce td button.button .fa::before {
   color: #000000;
 }
 html body ul.products li.product a.button.product_type_variable,
 html body.woocommerce ul.products li.product a.button.product_type_variable,
 html body div.product a.button.product_type_variable,
 html body.woocommerce div.product a.button.product_type_variable,
+html body td a.button.product_type_variable,
+html body.woocommerce td a.button.product_type_variable,
 html body ul.products li.product button.button.product_type_variable,
 html body.woocommerce ul.products li.product button.button.product_type_variable,
 html body div.product button.button.product_type_variable,
 html body.woocommerce div.product button.button.product_type_variable,
+html body td button.button.product_type_variable,
+html body.woocommerce td button.button.product_type_variable,
 html body ul.products li.product a.button.buy,
 html body.woocommerce ul.products li.product a.button.buy,
 html body div.product a.button.buy,
 html body.woocommerce div.product a.button.buy,
+html body td a.button.buy,
+html body.woocommerce td a.button.buy,
 html body ul.products li.product button.button.buy,
 html body.woocommerce ul.products li.product button.button.buy,
 html body div.product button.button.buy,
-html body.woocommerce div.product button.button.buy {
+html body.woocommerce div.product button.button.buy,
+html body td button.button.buy,
+html body.woocommerce td button.button.buy {
   transition: opacity 0.22s ease-in;
   will-change: opacity;
   opacity: 1;
@@ -537,62 +575,90 @@ html body ul.products li.product a.button.product_type_variable:hover,
 html body.woocommerce ul.products li.product a.button.product_type_variable:hover,
 html body div.product a.button.product_type_variable:hover,
 html body.woocommerce div.product a.button.product_type_variable:hover,
+html body td a.button.product_type_variable:hover,
+html body.woocommerce td a.button.product_type_variable:hover,
 html body ul.products li.product button.button.product_type_variable:hover,
 html body.woocommerce ul.products li.product button.button.product_type_variable:hover,
 html body div.product button.button.product_type_variable:hover,
 html body.woocommerce div.product button.button.product_type_variable:hover,
+html body td button.button.product_type_variable:hover,
+html body.woocommerce td button.button.product_type_variable:hover,
 html body ul.products li.product a.button.buy:hover,
 html body.woocommerce ul.products li.product a.button.buy:hover,
 html body div.product a.button.buy:hover,
 html body.woocommerce div.product a.button.buy:hover,
+html body td a.button.buy:hover,
+html body.woocommerce td a.button.buy:hover,
 html body ul.products li.product button.button.buy:hover,
 html body.woocommerce ul.products li.product button.button.buy:hover,
 html body div.product button.button.buy:hover,
-html body.woocommerce div.product button.button.buy:hover {
+html body.woocommerce div.product button.button.buy:hover,
+html body td button.button.buy:hover,
+html body.woocommerce td button.button.buy:hover {
   opacity: 0.6;
 }
 html body ul.products li.product a.button.product_type_variable i,
 html body.woocommerce ul.products li.product a.button.product_type_variable i,
 html body div.product a.button.product_type_variable i,
 html body.woocommerce div.product a.button.product_type_variable i,
+html body td a.button.product_type_variable i,
+html body.woocommerce td a.button.product_type_variable i,
 html body ul.products li.product button.button.product_type_variable i,
 html body.woocommerce ul.products li.product button.button.product_type_variable i,
 html body div.product button.button.product_type_variable i,
 html body.woocommerce div.product button.button.product_type_variable i,
+html body td button.button.product_type_variable i,
+html body.woocommerce td button.button.product_type_variable i,
 html body ul.products li.product a.button.buy i,
 html body.woocommerce ul.products li.product a.button.buy i,
 html body div.product a.button.buy i,
 html body.woocommerce div.product a.button.buy i,
+html body td a.button.buy i,
+html body.woocommerce td a.button.buy i,
 html body ul.products li.product button.button.buy i,
 html body.woocommerce ul.products li.product button.button.buy i,
 html body div.product button.button.buy i,
 html body.woocommerce div.product button.button.buy i,
+html body td button.button.buy i,
+html body.woocommerce td button.button.buy i,
 html body ul.products li.product a.button.product_type_variable .fa::before,
 html body.woocommerce ul.products li.product a.button.product_type_variable .fa::before,
 html body div.product a.button.product_type_variable .fa::before,
 html body.woocommerce div.product a.button.product_type_variable .fa::before,
+html body td a.button.product_type_variable .fa::before,
+html body.woocommerce td a.button.product_type_variable .fa::before,
 html body ul.products li.product button.button.product_type_variable .fa::before,
 html body.woocommerce ul.products li.product button.button.product_type_variable .fa::before,
 html body div.product button.button.product_type_variable .fa::before,
 html body.woocommerce div.product button.button.product_type_variable .fa::before,
+html body td button.button.product_type_variable .fa::before,
+html body.woocommerce td button.button.product_type_variable .fa::before,
 html body ul.products li.product a.button.buy .fa::before,
 html body.woocommerce ul.products li.product a.button.buy .fa::before,
 html body div.product a.button.buy .fa::before,
 html body.woocommerce div.product a.button.buy .fa::before,
+html body td a.button.buy .fa::before,
+html body.woocommerce td a.button.buy .fa::before,
 html body ul.products li.product button.button.buy .fa::before,
 html body.woocommerce ul.products li.product button.button.buy .fa::before,
 html body div.product button.button.buy .fa::before,
-html body.woocommerce div.product button.button.buy .fa::before {
+html body.woocommerce div.product button.button.buy .fa::before,
+html body td button.button.buy .fa::before,
+html body.woocommerce td button.button.buy .fa::before {
   color: #ffffff;
 }
 html body ul.products li.product a.button.single_add_to_cart_button,
 html body.woocommerce ul.products li.product a.button.single_add_to_cart_button,
 html body div.product a.button.single_add_to_cart_button,
 html body.woocommerce div.product a.button.single_add_to_cart_button,
+html body td a.button.single_add_to_cart_button,
+html body.woocommerce td a.button.single_add_to_cart_button,
 html body ul.products li.product button.button.single_add_to_cart_button,
 html body.woocommerce ul.products li.product button.button.single_add_to_cart_button,
 html body div.product button.button.single_add_to_cart_button,
-html body.woocommerce div.product button.button.single_add_to_cart_button {
+html body.woocommerce div.product button.button.single_add_to_cart_button,
+html body td button.button.single_add_to_cart_button,
+html body.woocommerce td button.button.single_add_to_cart_button {
   transition: opacity 0.22s ease-in;
   will-change: opacity;
   opacity: 1;
@@ -617,38 +683,198 @@ html body ul.products li.product a.button.single_add_to_cart_button:hover,
 html body.woocommerce ul.products li.product a.button.single_add_to_cart_button:hover,
 html body div.product a.button.single_add_to_cart_button:hover,
 html body.woocommerce div.product a.button.single_add_to_cart_button:hover,
+html body td a.button.single_add_to_cart_button:hover,
+html body.woocommerce td a.button.single_add_to_cart_button:hover,
 html body ul.products li.product button.button.single_add_to_cart_button:hover,
 html body.woocommerce ul.products li.product button.button.single_add_to_cart_button:hover,
 html body div.product button.button.single_add_to_cart_button:hover,
-html body.woocommerce div.product button.button.single_add_to_cart_button:hover {
+html body.woocommerce div.product button.button.single_add_to_cart_button:hover,
+html body td button.button.single_add_to_cart_button:hover,
+html body.woocommerce td button.button.single_add_to_cart_button:hover {
   opacity: 0.6;
 }
 html body ul.products li.product a.button.single_add_to_cart_button i,
 html body.woocommerce ul.products li.product a.button.single_add_to_cart_button i,
 html body div.product a.button.single_add_to_cart_button i,
 html body.woocommerce div.product a.button.single_add_to_cart_button i,
+html body td a.button.single_add_to_cart_button i,
+html body.woocommerce td a.button.single_add_to_cart_button i,
 html body ul.products li.product button.button.single_add_to_cart_button i,
 html body.woocommerce ul.products li.product button.button.single_add_to_cart_button i,
 html body div.product button.button.single_add_to_cart_button i,
 html body.woocommerce div.product button.button.single_add_to_cart_button i,
+html body td button.button.single_add_to_cart_button i,
+html body.woocommerce td button.button.single_add_to_cart_button i,
 html body ul.products li.product a.button.single_add_to_cart_button .fa::before,
 html body.woocommerce ul.products li.product a.button.single_add_to_cart_button .fa::before,
 html body div.product a.button.single_add_to_cart_button .fa::before,
 html body.woocommerce div.product a.button.single_add_to_cart_button .fa::before,
+html body td a.button.single_add_to_cart_button .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button .fa::before,
 html body ul.products li.product button.button.single_add_to_cart_button .fa::before,
 html body.woocommerce ul.products li.product button.button.single_add_to_cart_button .fa::before,
 html body div.product button.button.single_add_to_cart_button .fa::before,
-html body.woocommerce div.product button.button.single_add_to_cart_button .fa::before {
+html body.woocommerce div.product button.button.single_add_to_cart_button .fa::before,
+html body td button.button.single_add_to_cart_button .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button .fa::before {
   color: #ffffff;
 }
 html body ul.products li.product a.button.single_add_to_cart_button.alt.disabled,
 html body.woocommerce ul.products li.product a.button.single_add_to_cart_button.alt.disabled,
 html body div.product a.button.single_add_to_cart_button.alt.disabled,
 html body.woocommerce div.product a.button.single_add_to_cart_button.alt.disabled,
+html body td a.button.single_add_to_cart_button.alt.disabled,
+html body.woocommerce td a.button.single_add_to_cart_button.alt.disabled,
 html body ul.products li.product button.button.single_add_to_cart_button.alt.disabled,
 html body.woocommerce ul.products li.product button.button.single_add_to_cart_button.alt.disabled,
 html body div.product button.button.single_add_to_cart_button.alt.disabled,
-html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled {
+html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled,
+html body td button.button.single_add_to_cart_button.alt.disabled,
+html body.woocommerce td button.button.single_add_to_cart_button.alt.disabled,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled,
+html body div.product a.button.single_add_to_cart_button #respond input#submit.disabled,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit.disabled,
+html body td a.button.single_add_to_cart_button #respond input#submit.disabled,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit.disabled,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled,
+html body div.product button.button.single_add_to_cart_button #respond input#submit.disabled,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit.disabled,
+html body td button.button.single_add_to_cart_button #respond input#submit.disabled,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit.disabled,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled],
+html body ul.products li.product a.button.single_add_to_cart_button a.button.disabled,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button.disabled,
+html body div.product a.button.single_add_to_cart_button a.button.disabled,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button.disabled,
+html body td a.button.single_add_to_cart_button a.button.disabled,
+html body.woocommerce td a.button.single_add_to_cart_button a.button.disabled,
+html body ul.products li.product button.button.single_add_to_cart_button a.button.disabled,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button.disabled,
+html body div.product button.button.single_add_to_cart_button a.button.disabled,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button.disabled,
+html body td button.button.single_add_to_cart_button a.button.disabled,
+html body.woocommerce td button.button.single_add_to_cart_button a.button.disabled,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled,
+html body div.product a.button.single_add_to_cart_button a.button:disabled,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled,
+html body td a.button.single_add_to_cart_button a.button:disabled,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled,
+html body div.product button.button.single_add_to_cart_button a.button:disabled,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled,
+html body td button.button.single_add_to_cart_button a.button:disabled,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled],
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled],
+html body div.product a.button.single_add_to_cart_button a.button:disabled[disabled],
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled[disabled],
+html body td a.button.single_add_to_cart_button a.button:disabled[disabled],
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled[disabled],
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled],
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled],
+html body div.product button.button.single_add_to_cart_button a.button:disabled[disabled],
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled[disabled],
+html body td button.button.single_add_to_cart_button a.button:disabled[disabled],
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled[disabled],
+html body ul.products li.product a.button.single_add_to_cart_button button.button.disabled,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button.disabled,
+html body div.product a.button.single_add_to_cart_button button.button.disabled,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button.disabled,
+html body td a.button.single_add_to_cart_button button.button.disabled,
+html body.woocommerce td a.button.single_add_to_cart_button button.button.disabled,
+html body ul.products li.product button.button.single_add_to_cart_button button.button.disabled,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button.disabled,
+html body div.product button.button.single_add_to_cart_button button.button.disabled,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button.disabled,
+html body td button.button.single_add_to_cart_button button.button.disabled,
+html body.woocommerce td button.button.single_add_to_cart_button button.button.disabled,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled,
+html body div.product a.button.single_add_to_cart_button button.button:disabled,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled,
+html body td a.button.single_add_to_cart_button button.button:disabled,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled,
+html body div.product button.button.single_add_to_cart_button button.button:disabled,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled,
+html body td button.button.single_add_to_cart_button button.button:disabled,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled],
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled],
+html body div.product a.button.single_add_to_cart_button button.button:disabled[disabled],
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled[disabled],
+html body td a.button.single_add_to_cart_button button.button:disabled[disabled],
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled[disabled],
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled],
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled],
+html body div.product button.button.single_add_to_cart_button button.button:disabled[disabled],
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled[disabled],
+html body td button.button.single_add_to_cart_button button.button:disabled[disabled],
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled[disabled],
+html body ul.products li.product a.button.single_add_to_cart_button input.button.disabled,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button.disabled,
+html body div.product a.button.single_add_to_cart_button input.button.disabled,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button.disabled,
+html body td a.button.single_add_to_cart_button input.button.disabled,
+html body.woocommerce td a.button.single_add_to_cart_button input.button.disabled,
+html body ul.products li.product button.button.single_add_to_cart_button input.button.disabled,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button.disabled,
+html body div.product button.button.single_add_to_cart_button input.button.disabled,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button.disabled,
+html body td button.button.single_add_to_cart_button input.button.disabled,
+html body.woocommerce td button.button.single_add_to_cart_button input.button.disabled,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled,
+html body div.product a.button.single_add_to_cart_button input.button:disabled,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled,
+html body td a.button.single_add_to_cart_button input.button:disabled,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled,
+html body div.product button.button.single_add_to_cart_button input.button:disabled,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled,
+html body td button.button.single_add_to_cart_button input.button:disabled,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled],
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled],
+html body div.product a.button.single_add_to_cart_button input.button:disabled[disabled],
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled[disabled],
+html body td a.button.single_add_to_cart_button input.button:disabled[disabled],
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled[disabled],
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled],
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled],
+html body div.product button.button.single_add_to_cart_button input.button:disabled[disabled],
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled[disabled],
+html body td button.button.single_add_to_cart_button input.button:disabled[disabled],
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled[disabled] {
   background-color: #510a8e;
   border: 2px solid #510a8e;
   border-radius: 5px;
@@ -674,52 +900,792 @@ html body ul.products li.product a.button.single_add_to_cart_button.alt.disabled
 html body.woocommerce ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
 html body div.product a.button.single_add_to_cart_button.alt.disabled:hover,
 html body.woocommerce div.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body td a.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button.alt.disabled:hover,
 html body ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
 html body.woocommerce ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
 html body div.product button.button.single_add_to_cart_button.alt.disabled:hover,
-html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled:hover {
+html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body td button.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button.alt.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body div.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body td a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body div.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body td button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body ul.products li.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body div.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body td a.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button a.button.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body div.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body td button.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button a.button.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body div.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body td a.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body div.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body td button.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body ul.products li.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body div.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body td a.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button button.button.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body div.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body td button.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button button.button.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body div.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body td a.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body div.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body td button.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body ul.products li.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body div.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body td a.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button input.button.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body div.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body td button.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button input.button.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body div.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body td a.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body div.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body td button.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled[disabled]:hover {
   opacity: 0.6;
 }
 html body ul.products li.product a.button.single_add_to_cart_button.alt.disabled i,
 html body.woocommerce ul.products li.product a.button.single_add_to_cart_button.alt.disabled i,
 html body div.product a.button.single_add_to_cart_button.alt.disabled i,
 html body.woocommerce div.product a.button.single_add_to_cart_button.alt.disabled i,
+html body td a.button.single_add_to_cart_button.alt.disabled i,
+html body.woocommerce td a.button.single_add_to_cart_button.alt.disabled i,
 html body ul.products li.product button.button.single_add_to_cart_button.alt.disabled i,
 html body.woocommerce ul.products li.product button.button.single_add_to_cart_button.alt.disabled i,
 html body div.product button.button.single_add_to_cart_button.alt.disabled i,
 html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled i,
+html body td button.button.single_add_to_cart_button.alt.disabled i,
+html body.woocommerce td button.button.single_add_to_cart_button.alt.disabled i,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body div.product a.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body td a.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body div.product button.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body td button.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit.disabled i,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled i,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] i,
+html body ul.products li.product a.button.single_add_to_cart_button a.button.disabled i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button.disabled i,
+html body div.product a.button.single_add_to_cart_button a.button.disabled i,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button.disabled i,
+html body td a.button.single_add_to_cart_button a.button.disabled i,
+html body.woocommerce td a.button.single_add_to_cart_button a.button.disabled i,
+html body ul.products li.product button.button.single_add_to_cart_button a.button.disabled i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button.disabled i,
+html body div.product button.button.single_add_to_cart_button a.button.disabled i,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button.disabled i,
+html body td button.button.single_add_to_cart_button a.button.disabled i,
+html body.woocommerce td button.button.single_add_to_cart_button a.button.disabled i,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled i,
+html body div.product a.button.single_add_to_cart_button a.button:disabled i,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled i,
+html body td a.button.single_add_to_cart_button a.button:disabled i,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled i,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled i,
+html body div.product button.button.single_add_to_cart_button a.button:disabled i,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled i,
+html body td button.button.single_add_to_cart_button a.button:disabled i,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled i,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body div.product a.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body td a.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body div.product button.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body td button.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled[disabled] i,
+html body ul.products li.product a.button.single_add_to_cart_button button.button.disabled i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button.disabled i,
+html body div.product a.button.single_add_to_cart_button button.button.disabled i,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button.disabled i,
+html body td a.button.single_add_to_cart_button button.button.disabled i,
+html body.woocommerce td a.button.single_add_to_cart_button button.button.disabled i,
+html body ul.products li.product button.button.single_add_to_cart_button button.button.disabled i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button.disabled i,
+html body div.product button.button.single_add_to_cart_button button.button.disabled i,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button.disabled i,
+html body td button.button.single_add_to_cart_button button.button.disabled i,
+html body.woocommerce td button.button.single_add_to_cart_button button.button.disabled i,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled i,
+html body div.product a.button.single_add_to_cart_button button.button:disabled i,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled i,
+html body td a.button.single_add_to_cart_button button.button:disabled i,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled i,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled i,
+html body div.product button.button.single_add_to_cart_button button.button:disabled i,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled i,
+html body td button.button.single_add_to_cart_button button.button:disabled i,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled i,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body div.product a.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body td a.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body div.product button.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body td button.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled[disabled] i,
+html body ul.products li.product a.button.single_add_to_cart_button input.button.disabled i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button.disabled i,
+html body div.product a.button.single_add_to_cart_button input.button.disabled i,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button.disabled i,
+html body td a.button.single_add_to_cart_button input.button.disabled i,
+html body.woocommerce td a.button.single_add_to_cart_button input.button.disabled i,
+html body ul.products li.product button.button.single_add_to_cart_button input.button.disabled i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button.disabled i,
+html body div.product button.button.single_add_to_cart_button input.button.disabled i,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button.disabled i,
+html body td button.button.single_add_to_cart_button input.button.disabled i,
+html body.woocommerce td button.button.single_add_to_cart_button input.button.disabled i,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled i,
+html body div.product a.button.single_add_to_cart_button input.button:disabled i,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled i,
+html body td a.button.single_add_to_cart_button input.button:disabled i,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled i,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled i,
+html body div.product button.button.single_add_to_cart_button input.button:disabled i,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled i,
+html body td button.button.single_add_to_cart_button input.button:disabled i,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled i,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body div.product a.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body td a.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body div.product button.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body td button.button.single_add_to_cart_button input.button:disabled[disabled] i,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled[disabled] i,
 html body ul.products li.product a.button.single_add_to_cart_button.alt.disabled .fa::before,
 html body.woocommerce ul.products li.product a.button.single_add_to_cart_button.alt.disabled .fa::before,
 html body div.product a.button.single_add_to_cart_button.alt.disabled .fa::before,
 html body.woocommerce div.product a.button.single_add_to_cart_button.alt.disabled .fa::before,
+html body td a.button.single_add_to_cart_button.alt.disabled .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button.alt.disabled .fa::before,
 html body ul.products li.product button.button.single_add_to_cart_button.alt.disabled .fa::before,
 html body.woocommerce ul.products li.product button.button.single_add_to_cart_button.alt.disabled .fa::before,
 html body div.product button.button.single_add_to_cart_button.alt.disabled .fa::before,
-html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled .fa::before {
+html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled .fa::before,
+html body td button.button.single_add_to_cart_button.alt.disabled .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button.alt.disabled .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body div.product a.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body td a.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body div.product button.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body td button.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit.disabled .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled] .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body div.product a.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body td a.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body div.product button.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body td button.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button a.button.disabled .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body div.product a.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body td a.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body div.product button.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body td button.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body div.product a.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body td a.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body div.product button.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body td button.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled[disabled] .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body div.product a.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body td a.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body div.product button.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body td button.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button button.button.disabled .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body div.product a.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body td a.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body div.product button.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body td button.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body div.product a.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body td a.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body div.product button.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body td button.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled[disabled] .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body div.product a.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body td a.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body div.product button.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body td button.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button input.button.disabled .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body div.product a.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body td a.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body div.product button.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body td button.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled .fa::before,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body div.product a.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body td a.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body div.product button.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body td button.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled[disabled] .fa::before {
   color: #ffffff;
 }
 html body ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
 html body.woocommerce ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
 html body div.product a.button.single_add_to_cart_button.alt.disabled:hover,
 html body.woocommerce div.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body td a.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button.alt.disabled:hover,
 html body ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
 html body.woocommerce ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
 html body div.product button.button.single_add_to_cart_button.alt.disabled:hover,
-html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled:hover {
+html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body td button.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button.alt.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body div.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body td a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body div.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body td button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body ul.products li.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body div.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body td a.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button a.button.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body div.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body td button.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button a.button.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body div.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body td a.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body div.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body td button.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body ul.products li.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body div.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body td a.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button button.button.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body div.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body td button.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button button.button.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body div.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body td a.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body div.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body td button.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body ul.products li.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body div.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body td a.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button input.button.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body div.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body td button.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button input.button.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body div.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body td a.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body div.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body td button.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled[disabled]:hover {
   opacity: 0.6;
 }
 html body ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
 html body.woocommerce ul.products li.product a.button.single_add_to_cart_button.alt.disabled:hover,
 html body div.product a.button.single_add_to_cart_button.alt.disabled:hover,
 html body.woocommerce div.product a.button.single_add_to_cart_button.alt.disabled:hover,
+html body td a.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button.alt.disabled:hover,
 html body ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
 html body.woocommerce ul.products li.product button.button.single_add_to_cart_button.alt.disabled:hover,
 html body div.product button.button.single_add_to_cart_button.alt.disabled:hover,
-html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled:hover {
+html body.woocommerce div.product button.button.single_add_to_cart_button.alt.disabled:hover,
+html body td button.button.single_add_to_cart_button.alt.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button.alt.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body div.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body td a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body div.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body td button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button #respond input#submit:disabled[disabled]:hover,
+html body ul.products li.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body div.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button.disabled:hover,
+html body td a.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button a.button.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body div.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button.disabled:hover,
+html body td button.button.single_add_to_cart_button a.button.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button a.button.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body div.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled:hover,
+html body td a.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body div.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled:hover,
+html body td button.button.single_add_to_cart_button a.button:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button a.button:disabled[disabled]:hover,
+html body ul.products li.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body div.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button.disabled:hover,
+html body td a.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button button.button.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body div.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button.disabled:hover,
+html body td button.button.single_add_to_cart_button button.button.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button button.button.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body div.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled:hover,
+html body td a.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body div.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled:hover,
+html body td button.button.single_add_to_cart_button button.button:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button button.button:disabled[disabled]:hover,
+html body ul.products li.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body div.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button.disabled:hover,
+html body td a.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button input.button.disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body div.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button.disabled:hover,
+html body td button.button.single_add_to_cart_button input.button.disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button input.button.disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body div.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled:hover,
+html body td a.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled:hover,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body div.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled:hover,
+html body td button.button.single_add_to_cart_button input.button:disabled:hover,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled:hover,
+html body ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body div.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce div.product a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body td a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce td a.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce ul.products li.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body div.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce div.product button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body td button.button.single_add_to_cart_button input.button:disabled[disabled]:hover,
+html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled[disabled]:hover {
   opacity: 1;
 }
 /* Header */
-#header {
+html body #header {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -728,29 +1694,33 @@ html body.woocommerce div.product button.button.single_add_to_cart_button.alt.di
   width: 100%;
   background: #facc1e;
   border-bottom: 1px solid #facc1e;
-  height: 120px;
+  height: auto;
   z-index: 500;
 }
-#header .container {
-  padding: 10px;
-}
-#header .container > div {
+html body #header .container {
   align-items: center;
   display: flex;
+  flex-flow: row wrap;
   height: 100%;
   justify-content: center;
+  padding: 10px;
 }
-#header .container .logo-wrap {
+html body #header .container .logo-wrap {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
   overflow: hidden;
   padding: 10px;
   width: 8.33333333%;
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  justify-content: center;
   z-index: 510;
 }
 @media only screen and (max-width: 899px) {
-  #header .container .logo-wrap {
+  html body #header .container .logo-wrap {
     box-sizing: border-box;
     float: left;
     min-height: 1px;
@@ -760,31 +1730,20 @@ html body.woocommerce div.product button.button.single_add_to_cart_button.alt.di
     margin-left: 0%;
   }
 }
-@media only screen and (max-width: 599px) {
-  #header .container .logo-wrap {
-    box-sizing: border-box;
-    float: left;
-    min-height: 1px;
-    overflow: hidden;
-    padding: 0;
-    width: 16.66666667%;
-    margin-left: 0%;
-  }
-}
-#header .container .logo-wrap .custom-logo-link img {
+html body #header .container .logo-wrap img {
   display: block;
   height: auto;
   max-height: 80px;
   opacity: 1;
   width: auto;
 }
-#header .container .logo-wrap .logo h1 {
+html body #header .container .logo-wrap .logo h1 {
   color: #ffffff;
   line-height: 1em;
   margin: 18px 0 20px 30px;
   text-shadow: 0px 0px 1px #000;
 }
-#header .container .search-wrap {
+html body #header .container .search-wrap {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -793,17 +1752,21 @@ html body.woocommerce div.product button.button.single_add_to_cart_button.alt.di
   width: 16.66666667%;
   margin-left: 8.33333333%;
 }
-#header .container .search-wrap .searchform input[type=text] {
+html body #header .container .search-wrap .searchform input[type=text],
+html body #header .container .search-wrap .woocommerce-product-search input[type=text],
+html body #header .container .search-wrap .searchform input[type=search],
+html body #header .container .search-wrap .woocommerce-product-search input[type=search] {
   background-color: transparent;
   border: none;
   border-bottom: 3px solid #000000;
   color: #000000;
   padding-left: 10px;
 }
-#header .container .search-wrap .searchform .fa::before {
+html body #header .container .search-wrap .searchform .fa::before,
+html body #header .container .search-wrap .woocommerce-product-search .fa::before {
   color: #000000;
 }
-#header .container .nav-wrap {
+html body #header .container .nav-wrap {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -817,7 +1780,7 @@ html body.woocommerce div.product button.button.single_add_to_cart_button.alt.di
   justify-content: center;
 }
 @media only screen and (max-width: 899px) {
-  #header .container .nav-wrap {
+  html body #header .container .nav-wrap {
     box-sizing: border-box;
     float: left;
     min-height: 1px;
@@ -827,33 +1790,24 @@ html body.woocommerce div.product button.button.single_add_to_cart_button.alt.di
     margin-left: 0%;
   }
 }
-#header .container .nav-wrap ul {
+html body #header .container .nav-wrap ul {
   margin: 0;
   text-align: right;
 }
-#header .container .nav-wrap ul li {
+html body #header .container .nav-wrap ul li {
   display: inline-block;
   margin-bottom: 0;
 }
-#header .container .nav-wrap ul li a {
+html body #header .container .nav-wrap ul li a {
   color: #000000;
   display: inline-block;
   font-weight: 700;
   padding: 0 10px;
   text-transform: uppercase;
 }
-#header .container .nav-wrap ul li a:hover,
-#header .container .nav-wrap ul li a.active {
+html body #header .container .nav-wrap ul li a:hover,
+html body #header .container .nav-wrap ul li a.active {
   color: #252525;
-}
-@media only screen and (max-width: 1199px) {
-  html body #header {
-    height: 90px;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-  }
 }
 @media only screen and (min-width: 900px) {
   html body #header .container .menu-toggle {
@@ -874,23 +1828,13 @@ html body #header .menu-toggle {
 }
 html body #header .menu-toggle .bars {
   border: 0 solid;
-  display: block;
-  height: 20px;
+  height: 30px;
   position: relative;
 }
 html body #header .menu-toggle .bars span {
   left: 0;
   right: 0;
   position: absolute;
-}
-html body #header .menu-toggle .bars span::after {
-  border: 2px solid #000000;
-  content: " ";
-  display: block;
-  margin: 4px auto;
-  opacity: 1;
-  position: absolute;
-  transition: transform 0.5s, opacity 0.2s ease-in;
   width: 100%;
 }
 html body #header .menu-toggle .bars span:nth-child(1) {
@@ -902,29 +1846,119 @@ html body #header .menu-toggle .bars span:nth-child(2) {
 html body #header .menu-toggle .bars span:nth-child(3) {
   top: 18px;
 }
-html body #header.open {
-  margin-top: 30px;
+html body #header .menu-toggle .bars span::after {
+  border: 2px solid #000000;
+  border-right: none;
+  border-left: none;
+  content: " ";
+  display: block;
+  margin: 4px auto;
+  opacity: 1;
+  position: absolute;
+  transition: transform 0.22s ease-in;
+  width: 100%;
 }
-html body #header.open span {
+html body #header .menu-toggle.open .bars {
+  margin-top: 6px;
+}
+html body #header .menu-toggle.open .bars span {
   top: auto;
 }
-html body #header.open span:nth-child(1):after {
+html body #header .menu-toggle.open .bars span:nth-child(1)::after {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-html body #header.open span:nth-child(2):after {
+html body #header .menu-toggle.open .bars span:nth-child(2)::after {
   display: none;
   opacity: 0;
 }
-html body #header.open span:nth-child(3):after {
+html body #header .menu-toggle.open .bars span:nth-child(3)::after {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
+}
+@media only screen and (max-width: 899px) {
+  html body #header {
+    height: 90px;
+    position: fixed;
+  }
+  html body #header .container {
+    display: block;
+  }
+  html body #header .container .logo-wrap img {
+    max-height: 70px;
+  }
+  html body #header .container .nav-wrap {
+    box-sizing: border-box;
+    float: left;
+    min-height: 1px;
+    overflow: hidden;
+    padding: 20px;
+    width: 75%;
+    background-color: #000000;
+    color: #ffffff;
+    margin-bottom: 40px;
+    padding: 40px;
+    transition: right 0.22s ease-in;
+    will-change: right;
+    border-left: 1px solid #252525;
+    bottom: 0;
+    padding: 10px;
+    position: fixed;
+    right: -100%;
+    top: 90px;
+  }
+  html body #header .container .nav-wrap .menu-main-navigation-container {
+    margin-top: 20px;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  html body #header .container .nav-wrap .menu-main-navigation-container ul {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    justify-content: center;
+    flex-flow: column wrap;
+  }
+  html body #header .container .nav-wrap .menu-main-navigation-container ul li {
+    text-align: center;
+    width: 100%;
+  }
+  html body #header .container .nav-wrap .menu-main-navigation-container ul li a {
+    border: 1px solid #252525;
+    color: #facc1e;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+  }
+  html body #header .container .nav-wrap .menu-main-navigation-container ul li.wpmenucartli {
+    order: -1;
+  }
+  html body #header .container .nav-wrap .menu-main-navigation-container ul li.wpmenucartli i:before {
+    color: #facc1e;
+  }
+  html body #header .container .nav-wrap.open {
+    right: 0;
+  }
+  html body #header .search-wrap {
+    display: none;
+  }
+  html body #main {
+    margin-top: 90px;
+  }
+}
+@media only screen and (max-width: 899px) and only screen and (max-width: 1199px) {
+  html body #header .container .nav-wrap {
+    padding: 20px;
+  }
 }
 /* Footer */
 html body footer {
@@ -1048,19 +2082,11 @@ html body.sidebar .sidebar#sidebar-right {
   }
 }
 /* Audio Player */
-html body .audiogallery {
-  box-sizing: border-box;
-  float: left;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 0;
-  width: 100%;
-  margin: 40px auto;
-}
-html body .audiogallery .nav-main {
-  background-color: #ffffff;
-  height: auto !important;
-  padding: 20px;
+html body .audioplayer.skin-wave .button-aspect-noir.button-aspect-noir--filled .playbtn .the-icon-bg,
+html body .audioplayer.skin-wave .button-aspect-noir.button-aspect-noir--filled .pausebtn .the-icon-bg,
+html body .audioplayer.skin-wave .button-aspect-noir.button-aspect-noir--filled .player-but .the-icon-bg {
+  background-color: #d30000;
+  border-color: #d30000;
 }
 html body .wc-dzsap-wrapper {
   box-sizing: border-box;
@@ -1137,7 +2163,7 @@ html body .container#primary #main .entry-content-page {
   }
 }
 /* Tablet */
-@media only screen and (max-width: 1199px) {
+@media only screen and (max-width: 899px) {
   html body .container#primary {
     padding: 10px;
   }
@@ -1157,13 +2183,14 @@ html body #primary ul.products,
 html body #primary.woocommerce ul.products {
   float: left;
   margin-bottom: 0;
+  width: 100%;
 }
 html body #primary div.product img,
 html body #primary.woocommerce div.product img,
 html body #primary ul.products img,
 html body #primary.woocommerce ul.products img {
   border-radius: 5px;
-  margin: 0 auto;
+  margin: 0;
   width: auto;
 }
 html body #primary div.product li.product,
@@ -1172,20 +2199,6 @@ html body #primary ul.products li.product,
 html body #primary.woocommerce ul.products li.product {
   margin-bottom: 0;
   text-align: center;
-}
-@media only screen and (max-width: 599px) {
-  html body #primary div.product li.product,
-  html body #primary.woocommerce div.product li.product,
-  html body #primary ul.products li.product,
-  html body #primary.woocommerce ul.products li.product {
-    box-sizing: border-box;
-    float: left;
-    min-height: 1px;
-    overflow: hidden;
-    padding: 10px;
-    width: 100%;
-    margin-left: 0%;
-  }
 }
 html body #primary div.product li.product img,
 html body #primary.woocommerce div.product li.product img,
@@ -1288,58 +2301,32 @@ html body #primary.woocommerce ul.products #reviews #comments ol.commentlist li 
   width: 8.33333333%;
   border-radius: 50%;
 }
-html body.woocommerce.single-product div.product {
+html body.woocommerce.single-product #primary div.product {
   display: flex;
   flex-flow: row wrap;
   text-align: left;
 }
-html body.woocommerce.single-product div.product .audioplayer.skin-wave .audioplayer-inner {
+html body.woocommerce.single-product #primary div.product .audioplayer.skin-wave .audioplayer-inner {
   margin-top: 20px;
 }
-html body.woocommerce.single-product div.product form.cart {
+html body.woocommerce.single-product #primary div.product form.cart {
   float: left;
   margin-bottom: 0;
 }
-html body.woocommerce.single-product div.product form.cart .variations {
+html body.woocommerce.single-product #primary div.product form.cart .variations {
   margin-bottom: 0;
 }
-html body.woocommerce.single-product div.product form.cart .variations td {
+html body.woocommerce.single-product #primary div.product form.cart .variations td {
   clear: both;
   float: left;
 }
-html body.woocommerce.single-product div.product form.cart .variations td .reset_variations {
-  transition: opacity 0.22s ease-in;
-  will-change: opacity;
-  opacity: 1;
-  background-color: #facc1e;
-  border: 2px solid #facc1e;
-  border-radius: 5px;
-  color: #000000;
-  cursor: pointer;
-  display: inline-block;
-  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.14rem;
-  line-height: 1.6rem;
-  margin: 5px 0;
-  padding: 6.66666667px 20px;
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 16px;
-  padding: 6.66666667px 10px;
+html body.woocommerce.single-product #primary div.product form.cart .variations td .reset_variations {
+  display: none !important;
 }
-html body.woocommerce.single-product div.product form.cart .variations td .reset_variations:hover {
-  opacity: 0.6;
-}
-html body.woocommerce.single-product div.product form.cart .variations td .reset_variations i,
-html body.woocommerce.single-product div.product form.cart .variations td .reset_variations .fa::before {
-  color: #000000;
-}
-html body.woocommerce.single-product div.product form.cart .variations td select {
+html body.woocommerce.single-product #primary div.product form.cart .variations td select {
   margin: 0;
 }
-html body.woocommerce.single-product div.product > .summary {
+html body.woocommerce.single-product #primary div.product > .summary {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -1352,55 +2339,63 @@ html body.woocommerce.single-product div.product > .summary {
   padding: 40px;
 }
 @media only screen and (max-width: 1199px) {
-  html body.woocommerce.single-product div.product > .summary {
+  html body.woocommerce.single-product #primary div.product > .summary {
     padding: 20px;
   }
 }
-html body.woocommerce.single-product div.product > .summary div.images {
+html body.woocommerce.single-product #primary div.product > .summary div.images {
   margin-bottom: 20px;
   padding-right: 20px;
   width: auto;
 }
-html body.woocommerce.single-product div.product > .summary .extra-btns-con {
+html body.woocommerce.single-product #primary div.product > .summary .product_meta {
+  display: inline-block;
+  padding: 20px 40px;
+}
+html body.woocommerce.single-product #primary div.product > .summary button.button.single_add_to_cart_button {
+  margin-top: 20px;
+  width: 100%;
+}
+html body.woocommerce.single-product #primary div.product > .summary .extra-btns-con {
   position: absolute;
   right: 20px;
   top: 10px;
 }
-html body.woocommerce.single-product div.product .woocommerce-tabs {
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs {
   color: #aaaaaa;
   width: 100%;
 }
-html body.woocommerce.single-product div.product .woocommerce-tabs a {
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs a {
   color: #000000;
 }
-html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs {
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs ul.tabs {
   margin-bottom: 0;
   padding-left: 0;
   text-align: center;
 }
-html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs:before {
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs ul.tabs:before {
   display: none;
 }
-html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li {
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs ul.tabs li {
   background-color: transparent;
   border: none;
   border-bottom: 5px solid transparent;
   border-radius: 0;
 }
-html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li > a {
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs ul.tabs li > a {
   color: #aaaaaa;
 }
-html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li.active {
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs ul.tabs li.active {
   border-color: #d30000;
 }
-html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li.active a {
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs ul.tabs li.active a {
   color: #ffffff;
 }
-html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li::before,
-html body.woocommerce.single-product div.product .woocommerce-tabs ul.tabs li::after {
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs ul.tabs li::before,
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs ul.tabs li::after {
   display: none;
 }
-html body.woocommerce.single-product div.product .woocommerce-tabs .panel {
+html body.woocommerce.single-product #primary div.product .woocommerce-tabs .panel {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -1412,7 +2407,7 @@ html body.woocommerce.single-product div.product .woocommerce-tabs .panel {
   padding: 40px;
 }
 @media only screen and (max-width: 1199px) {
-  html body.woocommerce.single-product div.product .woocommerce-tabs .panel {
+  html body.woocommerce.single-product #primary div.product .woocommerce-tabs .panel {
     padding: 20px;
   }
 }
@@ -1454,25 +2449,25 @@ html body.post-type-archive-product .woocommerce-products-header .woocommerce-or
 html body.post-type-archive-product .woocommerce-products-header .woocommerce-ordering select {
   margin: 0;
 }
-html body .product-playlist {
+html body #primary .product-playlist {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
   overflow: hidden;
+  padding: 0;
   width: 100%;
   background-color: #000000;
   color: #ffffff;
   margin-bottom: 40px;
   padding: 40px;
   margin: 0;
-  padding: 0;
 }
 @media only screen and (max-width: 1199px) {
-  html body .product-playlist {
+  html body #primary .product-playlist {
     padding: 20px;
   }
 }
-html body .product-playlist ul.products li.product {
+html body #primary .product-playlist ul.products li.product {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -1488,10 +2483,10 @@ html body .product-playlist ul.products li.product {
   margin: 0;
   text-align: center;
 }
-html body .product-playlist ul.products li.product > div {
+html body #primary .product-playlist ul.products li.product > div {
   text-align: left;
 }
-html body .product-playlist ul.products li.product > div.image-cell {
+html body #primary .product-playlist ul.products li.product > div.image-cell {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -1499,11 +2494,24 @@ html body .product-playlist ul.products li.product > div.image-cell {
   padding: 0;
   width: 8.33333333%;
 }
-html body .product-playlist ul.products li.product > div.image-cell img {
+@media only screen and (max-width: 899px) {
+  html body #primary .product-playlist ul.products li.product > div.image-cell {
+    box-sizing: border-box;
+    float: left;
+    min-height: 1px;
+    overflow: hidden;
+    padding: 0;
+    width: 16.66666667%;
+    margin-left: 0%;
+  }
+}
+html body #primary .product-playlist ul.products li.product > div.image-cell img {
+  height: auto;
   border-radius: 0;
   margin-bottom: 0;
+  width: 100%;
 }
-html body .product-playlist ul.products li.product > div.title-cell {
+html body #primary .product-playlist ul.products li.product > div.title-cell {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -1511,13 +2519,13 @@ html body .product-playlist ul.products li.product > div.title-cell {
   padding: 0 20px;
   width: 25%;
 }
-html body .product-playlist ul.products li.product > div.title-cell h2 {
+html body #primary .product-playlist ul.products li.product > div.title-cell h2 {
   color: #aaaaaa;
   display: inline;
   font-size: 16px;
-  line-height: 1.14rem;
+  line-height: 1.2rem;
 }
-html body .product-playlist ul.products li.product > div.price-cell {
+html body #primary .product-playlist ul.products li.product > div.price-cell {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -1526,11 +2534,11 @@ html body .product-playlist ul.products li.product > div.price-cell {
   width: 16.66666667%;
   text-align: center;
 }
-html body .product-playlist ul.products li.product > div.price-cell .price {
+html body #primary .product-playlist ul.products li.product > div.price-cell .price {
   font-size: 13px;
   margin-bottom: 0;
 }
-html body .product-playlist ul.products li.product > div.tax-cell {
+html body #primary .product-playlist ul.products li.product > div.tax-cell {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
@@ -1538,27 +2546,27 @@ html body .product-playlist ul.products li.product > div.tax-cell {
   padding: 0 10px;
   width: 33.33333333%;
 }
-html body .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list {
+html body #primary .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list {
   margin-bottom: 0;
   padding: 0;
 }
-html body .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list li {
+html body #primary .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list li {
   margin: 4px;
 }
-html body .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list li a {
+html body #primary .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list li a {
   font-size: 10px;
   font-weight: 700;
 }
-html body .product-playlist ul.products li.product > div.button-cell {
+html body #primary .product-playlist ul.products li.product > div.button-cell {
   box-sizing: border-box;
   float: left;
   min-height: 1px;
   overflow: hidden;
   padding: 0;
-  width: 25%;
+  width: 8.33333333%;
   text-align: center;
 }
-html body .product-playlist ul.products li.product > div.button-cell .button {
+html body #primary .product-playlist ul.products li.product > div.button-cell .button {
   transition: opacity 0.22s ease-in;
   will-change: opacity;
   opacity: 1;
@@ -1582,72 +2590,84 @@ html body .product-playlist ul.products li.product > div.button-cell .button {
   float: right;
   margin: 0;
 }
-html body .product-playlist ul.products li.product > div.button-cell .button:hover {
+html body #primary .product-playlist ul.products li.product > div.button-cell .button:hover {
   opacity: 0.6;
 }
-html body .product-playlist ul.products li.product > div.button-cell .button i,
-html body .product-playlist ul.products li.product > div.button-cell .button .fa::before {
+html body #primary .product-playlist ul.products li.product > div.button-cell .button i,
+html body #primary .product-playlist ul.products li.product > div.button-cell .button .fa::before {
   color: #ffffff;
 }
-html body .product-playlist ul.products li.product:first-of-type {
+html body #primary .product-playlist ul.products li.product:first-of-type {
   border-top: 1px solid #252525;
 }
-html body .product-playlist .woocommerce-loop-product__title {
+html body #primary .product-playlist .woocommerce-loop-product__title {
   line-height: 2rem;
 }
-html body .product-playlist .price {
+html body #primary .product-playlist .price {
   margin-bottom: 0;
 }
-html body .product-playlist .button {
+html body #primary .product-playlist .button {
   margin-top: 0;
 }
-@media only screen and (max-width: 1199px) {
+@media only screen and (max-width: 899px) {
+  html body #primary .product-playlist ul.products li.product > div.tax-cell {
+    display: none;
+  }
+}
+@media only screen and (max-width: 599px) {
   html body #primary .product-playlist {
     padding: 0;
   }
   html body #primary .product-playlist ul.products li.product {
-    align-items: flex-start;
-    display: flex;
-    overflow: hidden;
-    padding: 20px;
-    flex-flow: row wrap;
-    padding: 10px 0;
+    min-height: 92px;
+    padding-left: 100px;
   }
   html body #primary .product-playlist ul.products li.product > div {
-    flex: 0 1 50%;
+    float: left;
   }
   html body #primary .product-playlist ul.products li.product > div.image-cell {
+    padding: 0;
     padding-right: 10px;
+    position: absolute;
+    left: 0;
+    width: 100px;
   }
   html body #primary .product-playlist ul.products li.product > div.image-cell img {
     max-width: 100%;
   }
   html body #primary .product-playlist ul.products li.product > div.title-cell {
-    padding: 0 10px 0;
+    margin-top: 6.66666667px;
+    padding: 0;
+    width: auto;
   }
   html body #primary .product-playlist ul.products li.product > div.title-cell h2 {
+    display: block;
     padding: 0;
   }
   html body #primary .product-playlist ul.products li.product > div.price-cell {
-    flex: 0 1 50%;
-    display: inline;
-    float: left;
+    padding: 0;
+    width: auto;
   }
   html body #primary .product-playlist ul.products li.product > div.price-cell .price {
     display: inline;
   }
-  html body #primary .product-playlist ul.products li.product > div.tax-cell,
   html body #primary .product-playlist ul.products li.product > div.button-cell {
-    flex: 0 1 100%;
+    width: 100%;
   }
-  html body #primary .product-playlist ul.products li.product > div.tax-cell {
-    order: 99;
-    padding: 0;
+  html body #primary .product-playlist ul.products li.product > div.button-cell .button {
+    margin-bottom: 6.66666667px;
   }
 }
 @media only screen and (max-width: 899px) {
   html body #primary .wc-dzsap-wrapper {
-    background-color: rgba(0, 0, 0, 0.8);
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a000000', endColorstr='#000000', GradientType=0);
+    /* IE6-9 */
     border-top: 1px solid #252525;
     bottom: 0;
     left: 0;
@@ -1656,5 +2676,180 @@ html body .product-playlist .button {
     right: 0;
     width: 100%;
     z-index: 600;
+  }
+}
+html body.woocommerce #primary form p,
+html body.woocommerce-cart #primary form p,
+html body.woocommerce-checkout #primary form p {
+  clear: none;
+}
+html body.woocommerce #primary .woocommerce-info,
+html body.woocommerce-cart #primary .woocommerce-info,
+html body.woocommerce-checkout #primary .woocommerce-info,
+html body.woocommerce #primary .woocommerce-message,
+html body.woocommerce-cart #primary .woocommerce-message,
+html body.woocommerce-checkout #primary .woocommerce-message {
+  background-color: #252525;
+  border-color: #facc1e;
+  color: #ffffff;
+}
+html body.woocommerce #primary .woocommerce-info,
+html body.woocommerce-cart #primary .woocommerce-info,
+html body.woocommerce-checkout #primary .woocommerce-info,
+html body.woocommerce #primary .woocommerce-message,
+html body.woocommerce-cart #primary .woocommerce-message,
+html body.woocommerce-checkout #primary .woocommerce-message,
+html body.woocommerce #primary .woocommerce-info::before,
+html body.woocommerce-cart #primary .woocommerce-info::before,
+html body.woocommerce-checkout #primary .woocommerce-info::before,
+html body.woocommerce #primary .woocommerce-message::before,
+html body.woocommerce-cart #primary .woocommerce-message::before,
+html body.woocommerce-checkout #primary .woocommerce-message::before {
+  border-color: #facc1e;
+}
+html body.woocommerce #primary .woocommerce-info::before,
+html body.woocommerce-cart #primary .woocommerce-info::before,
+html body.woocommerce-checkout #primary .woocommerce-info::before {
+  color: #ffffff;
+}
+html body.woocommerce #primary table.shop_table td,
+html body.woocommerce-cart #primary table.shop_table td,
+html body.woocommerce-checkout #primary table.shop_table td {
+  border-color: #252525;
+}
+html body.woocommerce #primary table.cart td.actions .coupon .input-text,
+html body.woocommerce-cart #primary table.cart td.actions .coupon .input-text,
+html body.woocommerce-checkout #primary table.cart td.actions .coupon .input-text {
+  height: 36px;
+  margin-right: 20px;
+  width: 200px;
+}
+html body.woocommerce #primary a img,
+html body.woocommerce-cart #primary a img,
+html body.woocommerce-checkout #primary a img {
+  border-radius: 5px;
+  width: 100px;
+}
+html body.woocommerce #primary #payment,
+html body.woocommerce-cart #primary #payment,
+html body.woocommerce-checkout #primary #payment,
+html body.woocommerce #primary #add_payment_method #payment,
+html body.woocommerce-cart #primary #add_payment_method #payment,
+html body.woocommerce-checkout #primary #add_payment_method #payment {
+  background-color: #252525;
+  padding: 20px;
+}
+html body.woocommerce #primary #payment #place_order,
+html body.woocommerce-cart #primary #payment #place_order,
+html body.woocommerce-checkout #primary #payment #place_order,
+html body.woocommerce #primary .wc-proceed-to-checkout a.checkout-button,
+html body.woocommerce-cart #primary .wc-proceed-to-checkout a.checkout-button,
+html body.woocommerce-checkout #primary .wc-proceed-to-checkout a.checkout-button {
+  transition: opacity 0.22s ease-in;
+  will-change: opacity;
+  opacity: 1;
+  background-color: #510a8e;
+  border: 2px solid #510a8e;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  line-height: 1.6rem;
+  margin: 5px 0;
+  padding: 6.66666667px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  float: right;
+  margin-right: 10px;
+}
+html body.woocommerce #primary #payment #place_order:hover,
+html body.woocommerce-cart #primary #payment #place_order:hover,
+html body.woocommerce-checkout #primary #payment #place_order:hover,
+html body.woocommerce #primary .wc-proceed-to-checkout a.checkout-button:hover,
+html body.woocommerce-cart #primary .wc-proceed-to-checkout a.checkout-button:hover,
+html body.woocommerce-checkout #primary .wc-proceed-to-checkout a.checkout-button:hover {
+  opacity: 0.6;
+}
+html body.woocommerce #primary #payment #place_order i,
+html body.woocommerce-cart #primary #payment #place_order i,
+html body.woocommerce-checkout #primary #payment #place_order i,
+html body.woocommerce #primary .wc-proceed-to-checkout a.checkout-button i,
+html body.woocommerce-cart #primary .wc-proceed-to-checkout a.checkout-button i,
+html body.woocommerce-checkout #primary .wc-proceed-to-checkout a.checkout-button i,
+html body.woocommerce #primary #payment #place_order .fa::before,
+html body.woocommerce-cart #primary #payment #place_order .fa::before,
+html body.woocommerce-checkout #primary #payment #place_order .fa::before,
+html body.woocommerce #primary .wc-proceed-to-checkout a.checkout-button .fa::before,
+html body.woocommerce-cart #primary .wc-proceed-to-checkout a.checkout-button .fa::before,
+html body.woocommerce-checkout #primary .wc-proceed-to-checkout a.checkout-button .fa::before {
+  color: #ffffff;
+}
+html body.woocommerce .woocommerce-error::before,
+html body.woocommerce-cart .woocommerce-error::before,
+html body.woocommerce-checkout .woocommerce-error::before,
+html body.woocommerce form .form-row .required,
+html body.woocommerce-cart form .form-row .required,
+html body.woocommerce-checkout form .form-row .required,
+html body.woocommerce form .form-row.woocommerce-invalid label,
+html body.woocommerce-cart form .form-row.woocommerce-invalid label,
+html body.woocommerce-checkout form .form-row.woocommerce-invalid label {
+  border-top-color: #d30000;
+  color: #d30000;
+}
+@media only screen and (max-width: 899px) {
+  html body.woocommerce #primary table.cart td.actions .coupon .input-text,
+  html body.woocommerce-cart #primary table.cart td.actions .coupon .input-text,
+  html body.woocommerce-checkout #primary table.cart td.actions .coupon .input-text,
+  html body.woocommerce #primary table.cart td.actions .coupon .input-text + .button,
+  html body.woocommerce-cart #primary table.cart td.actions .coupon .input-text + .button,
+  html body.woocommerce-checkout #primary table.cart td.actions .coupon .input-text + .button,
+  html body.woocommerce #primary .wc-proceed-to-checkout a.checkout-button,
+  html body.woocommerce-cart #primary .wc-proceed-to-checkout a.checkout-button,
+  html body.woocommerce-checkout #primary .wc-proceed-to-checkout a.checkout-button,
+  html body.woocommerce #primary #payment #place_order,
+  html body.woocommerce-cart #primary #payment #place_order,
+  html body.woocommerce-checkout #primary #payment #place_order {
+    margin: 6.66666667px auto;
+    width: 100%;
+  }
+  html body.woocommerce #primary form .form-row-first,
+  html body.woocommerce-cart #primary form .form-row-first,
+  html body.woocommerce-checkout #primary form .form-row-first,
+  html body.woocommerce #primary form .form-row-last,
+  html body.woocommerce-cart #primary form .form-row-last,
+  html body.woocommerce-checkout #primary form .form-row-last,
+  html body.woocommerce #primary form .form-row-first,
+  html body.woocommerce-cart #primary form .form-row-first,
+  html body.woocommerce-checkout #primary form .form-row-first,
+  html body.woocommerce #primary form .form-row-last,
+  html body.woocommerce-cart #primary form .form-row-last,
+  html body.woocommerce-checkout #primary form .form-row-last {
+    width: 100%;
+  }
+  html body.woocommerce #primary table.shop_table_responsive tr td::before,
+  html body.woocommerce-cart #primary table.shop_table_responsive tr td::before,
+  html body.woocommerce-checkout #primary table.shop_table_responsive tr td::before {
+    text-align: left;
+    width: 100%;
+  }
+  html body.woocommerce #primary #payment,
+  html body.woocommerce-cart #primary #payment,
+  html body.woocommerce-checkout #primary #payment,
+  html body.woocommerce #primary #add_payment_method #payment,
+  html body.woocommerce-cart #primary #add_payment_method #payment,
+  html body.woocommerce-checkout #primary #add_payment_method #payment {
+    padding: 6.66666667px;
+  }
+  html body.woocommerce #primary #payment ul.payment_methods,
+  html body.woocommerce-cart #primary #payment ul.payment_methods,
+  html body.woocommerce-checkout #primary #payment ul.payment_methods,
+  html body.woocommerce #primary #add_payment_method #payment ul.payment_methods,
+  html body.woocommerce-cart #primary #add_payment_method #payment ul.payment_methods,
+  html body.woocommerce-checkout #primary #add_payment_method #payment ul.payment_methods {
+    padding: 6.66666667px;
   }
 }

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title><?php bloginfo('title'); ?></title>
+	
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 	<meta name="msapplication-TileColor" content="#990100">
 	<meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
@@ -25,19 +26,23 @@
 
 	<?php wp_head(); ?>
 </head>
-<body<?php 
-	$body_classes = array();
+<body 
+	<?php 
 
-	if (is_page_template( 'page-templates/template-sidebar-right.php' )) {
-		array_push($body_classes, 'sidebar', 'sidebar-right');
-	}
+		$body_classes = array();
 
-	if (is_page_template( 'page-templates/template-sidebar-left.php' )) {
-		array_push($body_classes, 'sidebar', 'sidebar-left');
-	}
+		if (is_page_template( 'page-templates/template-sidebar-right.php' )) {
+			array_push($body_classes, 'sidebar', 'sidebar-right');
+		}
 
-	body_class($body_classes);
-?>>
+		if (is_page_template( 'page-templates/template-sidebar-left.php' )) {
+			array_push($body_classes, 'sidebar', 'sidebar-left');
+		}
+
+		body_class($body_classes);
+
+	?>
+>
 	<?php // include_once("analytics.php") ?>
 	<div id="fb-root"></div>
 	<header id="header">
@@ -52,7 +57,7 @@
 				)); ?>
 			</nav>
 			<div class="search-wrap">
-				<?php get_search_form(); ?>
+				<?php get_product_search_form(); ?>
 			</div>
 			<button class="menu-toggle">
 				<div class="bars">

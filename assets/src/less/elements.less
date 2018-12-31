@@ -45,8 +45,9 @@ html body {
 html body {
   &,
   &.woocommerce {
-  ul.products li.product,
-    div.product {
+    ul.products li.product,
+    div.product,
+    td {
       a.button,
       button.button {
         .button();
@@ -60,7 +61,19 @@ html body {
           .button(@button-buy-color; @white;);
           margin: (@baseSpacing / 2) 0;
 
-          &.alt.disabled {
+          &.alt.disabled,
+          #respond input#submit.disabled, 
+          #respond input#submit:disabled, 
+          #respond input#submit:disabled[disabled], 
+          a.button.disabled, 
+          a.button:disabled, 
+          a.button:disabled[disabled], 
+          button.button.disabled, 
+          button.button:disabled, 
+          button.button:disabled[disabled], 
+          input.button.disabled, 
+          input.button:disabled, 
+          input.button:disabled[disabled] {
             .button(@button-buy-color; @white;);
             .hover-fade(reverse);
             margin: (@baseSpacing / 2) 0;

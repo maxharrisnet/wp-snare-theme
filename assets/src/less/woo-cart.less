@@ -1,0 +1,105 @@
+// TODO: Refactor
+
+html body {
+	&.woocommerce,
+	&.woocommerce-cart,
+	&.woocommerce-checkout {
+		#primary {
+
+			form p {
+				clear: none;
+			}
+
+			.woocommerce-info, 
+			.woocommerce-message {
+				background-color: @grey-dark;
+				border-color: @brand-color;
+				color: @white;
+
+				&,
+				&::before {
+					border-color: @brand-color;
+				}
+			}
+
+			.woocommerce-info::before {
+				color: @white;
+			}
+
+			table.shop_table td {
+				border-color: @grey-dark;
+			}
+
+			table.cart td.actions .coupon .input-text {
+				height: 36px;
+				margin-right: @baseSpacing;
+				width: 200px; //
+			}
+
+			a img {
+				border-radius: @border-radius-sm;
+				width: @element-width-sm;
+			}
+
+			#payment,
+			#add_payment_method #payment {
+				background-color: @grey-dark;
+				padding: @baseSpacing;
+			}
+
+			#payment #place_order, 
+			.wc-proceed-to-checkout a.checkout-button {
+        .button(@button-buy-color, @white);
+        float: right;
+				margin-right: @baseSpacing / 2;
+			}
+		}
+
+		// Errors
+		.woocommerce-error::before,
+		form .form-row .required,
+		form .form-row.woocommerce-invalid label {
+			border-top-color: @red;
+			color: @red;
+		}
+	}
+}
+
+@media @maxPhone {
+	html body {
+		&.woocommerce,
+		&.woocommerce-cart,
+		&.woocommerce-checkout {
+			#primary {
+				table.cart td.actions .coupon .input-text,
+				table.cart td.actions .coupon .input-text+.button,
+				.wc-proceed-to-checkout a.checkout-button,
+				#payment #place_order {
+					margin: (@baseSpacing / 3) auto;
+					width: 100%;
+				}
+
+				form .form-row-first, 
+				form .form-row-last, 
+				form .form-row-first, 
+				form .form-row-last {
+					width: 100%;
+				}
+
+				table.shop_table_responsive tr td::before {
+					text-align: left;
+					width: 100%;
+				}
+
+				#payment,
+				#add_payment_method #payment {
+					padding: @baseSpacing / 3;
+
+					ul.payment_methods {
+						padding: @baseSpacing / 3;
+					}
+				}
+			}
+		}
+	}
+}

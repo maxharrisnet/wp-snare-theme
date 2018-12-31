@@ -1,25 +1,22 @@
 /* Header */
-#header {
+html body #header {
   .make-col(12,0);
   background: @brand-color;
   border-bottom: 1px solid @brand-color; //
-  height: 120px;
+  height: auto;
   z-index: @z-index-header;
 
   .container {
+    .flex-center(column);
     padding: @baseSpacing / 2;
-
-    > div {
-      .flex-center();
-    }
 
     .logo-wrap {
       .make-col(1, (@baseSpacing / 2));
       .make-col-sm(3,0);
-      .make-col-xs(2,0);
+      .flex-center(column);      
       z-index: @z-index-logo;
 
-      .custom-logo-link img {
+      img {
         display: block;
         height: auto;
         max-height: 80px;
@@ -39,8 +36,10 @@
       .make-col(2, (@baseSpacing / 2));
       .push(1);
 
-      .searchform {
-        input[type=text] {
+      .searchform,
+      .woocommerce-product-search {
+        input[type=text],
+        input[type=search] {
           background-color: transparent;
           border: none;
           border-bottom: 3px solid @black;
@@ -84,22 +83,6 @@
             }
           }
         }
-      }
-    }
-  }
-}
-
-@media @maxTablet {
-  html body #header {
-    height: 90px;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-
-    .container {
-      .logo-wrap .custom-logo-link img {
-
       }
     }
   }
