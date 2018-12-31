@@ -2,8 +2,8 @@
 html body #primary .product-playlist {
 	.make-col(12, 0, section);
 	margin: 0;
-	// padding: 0;
-
+	margin-bottom: 0;
+	
 	ul.products {
 		li.product {
 			.make-col(12,0);
@@ -19,19 +19,25 @@ html body #primary .product-playlist {
 				text-align: left;
 
 				&.image-cell {
-					.make-col(1,0);
-					.make-col-sm(2,0);
+					.make-col(2,0);
+					position: relative;
 
 					img {
+						display: block;
 						height: auto;
 						border-radius: 0;
 						margin-bottom: 0;
 						width: 100%;
 					}
+
+					.audioplayer.skin-minimal .ap-controls .con-controls {
+						margin: 0;
+					}
 				}
 
 				&.title-cell {
 					.make-col(3,0 @baseSpacing);
+					.make-col-sm(4,0 @baseSpacing);
 					h2 {
 						color: @grey;
 						display: inline;
@@ -42,6 +48,7 @@ html body #primary .product-playlist {
 
 				&.price-cell {
 					.make-col(2,0 (@baseSpacing / 2));
+					.make-col-sm(4,0 (@baseSpacing / 2));
 					text-align: center;
 
 					.price {
@@ -86,7 +93,7 @@ html body #primary .product-playlist {
 	}
 
 	.woocommerce-loop-product__title {
-		line-height: 2rem; // TODO: use variable;
+		line-height: @line-height-sm;
 	}
 
 	.price {
@@ -98,8 +105,30 @@ html body #primary .product-playlist {
 	}
 }
 
-//  Responsive Product Playlist
+//  TODO: Trife
+html body .wc-dzsap-wrapper {
+	&.wc-dzsap-wrapper.go-to-thumboverlay {
+		background-color: transparent;
+	}
 
+	.audioplayer.skin-minimal .ap-controls {
+		.con-controls {
+			margin-top: -80%; //
+		}
+	}
+}
+
+html body .dzsap-sticktobottom {
+	.transparency-gradient-bg();
+}
+
+html body .extra-btns-con {
+	left: @baseSpacing / 3;
+	position: absolute;
+	top: 0;
+} 
+
+//  Responsive Product Playlist
 @media @maxPhone{
 	html body #primary .product-playlist {
 			ul.products li.product {
@@ -116,14 +145,13 @@ html body #primary .product-playlist {
 
 		ul.products li.product {
 			min-height: 92px;
-			padding-left: 100px;
+			padding-left: 110px;
+			position: relative;
 
 			> div {
     		float: left;
 
 				&.image-cell {
-					padding: 0;
-					padding-right: (@baseSpacing / 2);
 					position: absolute;
 					left: 0;
 					width: 100px;
@@ -134,12 +162,12 @@ html body #primary .product-playlist {
 				}
 
 				&.title-cell {
-					margin-top: (@baseSpacing / 3);
-					padding: 0;
+					padding: (@baseSpacing / 3) 0 0 0;
     			width: auto;
 
 					h2 {
 						display: block;
+						margin: 0;
 						padding: 0;
 					}
 				}
@@ -162,24 +190,6 @@ html body #primary .product-playlist {
 					}
 				}
 			}
-		}
-	}
-}
-
-@media @maxPhone {
-	html body #primary {
-		//  Generic
-		// .dzsap-sticktobottom,
-		.wc-dzsap-wrapper {
-			.transparency-gradient-bg();
-			border-top: @border-dark;
-			bottom: 0;
-			left: 0;
-			padding: @baseSpacing;
-			position: fixed;
-			right: 0;
-			width: 100%;
-			z-index: @z-index-audio-player;
 		}
 	}
 }

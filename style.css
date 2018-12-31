@@ -262,7 +262,7 @@ html body form textarea {
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-  max-width: 600px;
+  max-width: 100%;
   padding: 10px;
 }
 html body form textarea {
@@ -290,7 +290,7 @@ html body form input[type=submit] {
   font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 0.14rem;
-  line-height: 1.6rem;
+  line-height: 1.2rem;
   margin: 5px 0;
   padding: 6.66666667px 20px;
   position: relative;
@@ -332,7 +332,7 @@ div.wpcf7-validation-errors {
 }
 .mc4wp-form {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 100%;
   padding: 0;
   padding-right: 175px;
   position: relative;
@@ -481,7 +481,7 @@ html body.woocommerce td button.button {
   font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 0.14rem;
-  line-height: 1.6rem;
+  line-height: 1.2rem;
   margin: 5px 0;
   padding: 6.66666667px 20px;
   position: relative;
@@ -564,7 +564,7 @@ html body.woocommerce td button.button.buy {
   font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 0.14rem;
-  line-height: 1.6rem;
+  line-height: 1.2rem;
   margin: 5px 0;
   padding: 6.66666667px 20px;
   position: relative;
@@ -671,7 +671,7 @@ html body.woocommerce td button.button.single_add_to_cart_button {
   font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 0.14rem;
-  line-height: 1.6rem;
+  line-height: 1.2rem;
   margin: 5px 0;
   padding: 6.66666667px 20px;
   position: relative;
@@ -884,7 +884,7 @@ html body.woocommerce td button.button.single_add_to_cart_button input.button:di
   font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 0.14rem;
-  line-height: 1.6rem;
+  line-height: 1.2rem;
   margin: 5px 0;
   padding: 6.66666667px 20px;
   position: relative;
@@ -2059,6 +2059,17 @@ html body.sidebar .container#primary #main {
   padding: 20px;
   width: 66.66666667%;
 }
+@media only screen and (max-width: 899px) {
+  html body.sidebar .container#primary #main {
+    box-sizing: border-box;
+    float: left;
+    min-height: 1px;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    margin-left: 0%;
+  }
+}
 html body.sidebar .sidebar#sidebar-left,
 html body.sidebar .sidebar#sidebar-right {
   box-sizing: border-box;
@@ -2210,16 +2221,29 @@ html body #primary ul.products li.product a img,
 html body #primary.woocommerce ul.products li.product a img {
   margin-bottom: 6.66666667px;
 }
+html body #primary div.product li.product a.woocommerce-loop-product__link,
+html body #primary.woocommerce div.product li.product a.woocommerce-loop-product__link,
+html body #primary ul.products li.product a.woocommerce-loop-product__link,
+html body #primary.woocommerce ul.products li.product a.woocommerce-loop-product__link {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  overflow: hidden;
+  padding: column;
+  justify-content: center;
+}
 html body #primary div.product li.product .woocommerce-loop-product__title,
 html body #primary.woocommerce div.product li.product .woocommerce-loop-product__title,
 html body #primary ul.products li.product .woocommerce-loop-product__title,
 html body #primary.woocommerce ul.products li.product .woocommerce-loop-product__title {
+  line-height: 1.2rem;
   padding: 6.66666667px 0;
 }
 html body #primary div.product .price,
 html body #primary.woocommerce div.product .price,
 html body #primary ul.products .price,
 html body #primary.woocommerce ul.products .price {
+  line-height: 1.2rem;
   color: #41cf41;
 }
 html body #primary div.product #reviews #comments,
@@ -2412,20 +2436,48 @@ html body.woocommerce.single-product #primary div.product .woocommerce-tabs .pan
   }
 }
 @media only screen and (max-width: 899px) {
-  html body #primary div.product > .summary div.images {
+  html body #primary div.product > .summary .product_meta,
+  html body.woocommerce.single-product #primary div.product > .summary .product_meta {
+    padding: 0;
+  }
+  html body #primary div.product > .summary div.images,
+  html body.woocommerce.single-product #primary div.product > .summary div.images {
     margin-bottom: 10px;
     padding-right: 0;
   }
-  html body #primary div.product .woocommerce-tabs ul.tabs li {
+  html body #primary div.product > .summary .woocommerce-tabs ul.tabs li,
+  html body.woocommerce.single-product #primary div.product > .summary .woocommerce-tabs ul.tabs li {
     width: 100%;
   }
-  html body #primary ul.products li.product {
+  html body #primary ul.products li.product,
+  html body.woocommerce.single-product #primary ul.products li.product {
     margin-bottom: 20px;
   }
-  html body #primary ul.products li.product a img {
+  html body #primary ul.products li.product a img,
+  html body.woocommerce.single-product #primary ul.products li.product a img {
     height: auto;
     margin-bottom: 0;
     max-width: 160px;
+  }
+}
+@media only screen and (max-width: 899px) {
+  html body.woocommerce.single-product #primary .summary .wc-dzsap-wrapper {
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a000000', endColorstr='#000000', GradientType=0);
+    /* IE6-9 */
+    border-top: 1px solid #252525;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    z-index: 900;
   }
 }
 html body.post-type-archive-product .woocommerce-products-header {
@@ -2461,6 +2513,7 @@ html body #primary .product-playlist {
   margin-bottom: 40px;
   padding: 40px;
   margin: 0;
+  margin-bottom: 0;
 }
 @media only screen and (max-width: 1199px) {
   html body #primary .product-playlist {
@@ -2492,24 +2545,18 @@ html body #primary .product-playlist ul.products li.product > div.image-cell {
   min-height: 1px;
   overflow: hidden;
   padding: 0;
-  width: 8.33333333%;
-}
-@media only screen and (max-width: 899px) {
-  html body #primary .product-playlist ul.products li.product > div.image-cell {
-    box-sizing: border-box;
-    float: left;
-    min-height: 1px;
-    overflow: hidden;
-    padding: 0;
-    width: 16.66666667%;
-    margin-left: 0%;
-  }
+  width: 16.66666667%;
+  position: relative;
 }
 html body #primary .product-playlist ul.products li.product > div.image-cell img {
+  display: block;
   height: auto;
   border-radius: 0;
   margin-bottom: 0;
   width: 100%;
+}
+html body #primary .product-playlist ul.products li.product > div.image-cell .audioplayer.skin-minimal .ap-controls .con-controls {
+  margin: 0;
 }
 html body #primary .product-playlist ul.products li.product > div.title-cell {
   box-sizing: border-box;
@@ -2518,6 +2565,17 @@ html body #primary .product-playlist ul.products li.product > div.title-cell {
   overflow: hidden;
   padding: 0 20px;
   width: 25%;
+}
+@media only screen and (max-width: 899px) {
+  html body #primary .product-playlist ul.products li.product > div.title-cell {
+    box-sizing: border-box;
+    float: left;
+    min-height: 1px;
+    overflow: hidden;
+    padding: 0 20px;
+    width: 33.33333333%;
+    margin-left: 0%;
+  }
 }
 html body #primary .product-playlist ul.products li.product > div.title-cell h2 {
   color: #aaaaaa;
@@ -2533,6 +2591,17 @@ html body #primary .product-playlist ul.products li.product > div.price-cell {
   padding: 0 10px;
   width: 16.66666667%;
   text-align: center;
+}
+@media only screen and (max-width: 899px) {
+  html body #primary .product-playlist ul.products li.product > div.price-cell {
+    box-sizing: border-box;
+    float: left;
+    min-height: 1px;
+    overflow: hidden;
+    padding: 0 10px;
+    width: 33.33333333%;
+    margin-left: 0%;
+  }
 }
 html body #primary .product-playlist ul.products li.product > div.price-cell .price {
   font-size: 13px;
@@ -2579,7 +2648,7 @@ html body #primary .product-playlist ul.products li.product > div.button-cell .b
   font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 0.14rem;
-  line-height: 1.6rem;
+  line-height: 1.2rem;
   margin: 5px 0;
   padding: 6.66666667px 20px;
   position: relative;
@@ -2601,13 +2670,34 @@ html body #primary .product-playlist ul.products li.product:first-of-type {
   border-top: 1px solid #252525;
 }
 html body #primary .product-playlist .woocommerce-loop-product__title {
-  line-height: 2rem;
+  line-height: 1.2rem;
 }
 html body #primary .product-playlist .price {
   margin-bottom: 0;
 }
 html body #primary .product-playlist .button {
   margin-top: 0;
+}
+html body .wc-dzsap-wrapper.wc-dzsap-wrapper.go-to-thumboverlay {
+  background-color: transparent;
+}
+html body .wc-dzsap-wrapper .audioplayer.skin-minimal .ap-controls .con-controls {
+  margin-top: -80%;
+}
+html body .dzsap-sticktobottom {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a000000', endColorstr='#000000', GradientType=0);
+  /* IE6-9 */
+}
+html body .extra-btns-con {
+  left: 6.66666667px;
+  position: absolute;
+  top: 0;
 }
 @media only screen and (max-width: 899px) {
   html body #primary .product-playlist ul.products li.product > div.tax-cell {
@@ -2620,14 +2710,13 @@ html body #primary .product-playlist .button {
   }
   html body #primary .product-playlist ul.products li.product {
     min-height: 92px;
-    padding-left: 100px;
+    padding-left: 110px;
+    position: relative;
   }
   html body #primary .product-playlist ul.products li.product > div {
     float: left;
   }
   html body #primary .product-playlist ul.products li.product > div.image-cell {
-    padding: 0;
-    padding-right: 10px;
     position: absolute;
     left: 0;
     width: 100px;
@@ -2636,12 +2725,12 @@ html body #primary .product-playlist .button {
     max-width: 100%;
   }
   html body #primary .product-playlist ul.products li.product > div.title-cell {
-    margin-top: 6.66666667px;
-    padding: 0;
+    padding: 6.66666667px 0 0 0;
     width: auto;
   }
   html body #primary .product-playlist ul.products li.product > div.title-cell h2 {
     display: block;
+    margin: 0;
     padding: 0;
   }
   html body #primary .product-playlist ul.products li.product > div.price-cell {
@@ -2656,26 +2745,6 @@ html body #primary .product-playlist .button {
   }
   html body #primary .product-playlist ul.products li.product > div.button-cell .button {
     margin-bottom: 6.66666667px;
-  }
-}
-@media only screen and (max-width: 899px) {
-  html body #primary .wc-dzsap-wrapper {
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a000000', endColorstr='#000000', GradientType=0);
-    /* IE6-9 */
-    border-top: 1px solid #252525;
-    bottom: 0;
-    left: 0;
-    padding: 20px;
-    position: fixed;
-    right: 0;
-    width: 100%;
-    z-index: 600;
   }
 }
 html body.woocommerce #primary form p,
@@ -2757,7 +2826,7 @@ html body.woocommerce-checkout #primary .wc-proceed-to-checkout a.checkout-butto
   font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 0.14rem;
-  line-height: 1.6rem;
+  line-height: 1.2rem;
   margin: 5px 0;
   padding: 6.66666667px 20px;
   position: relative;
