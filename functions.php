@@ -67,12 +67,15 @@ add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
 // Add to Cart Text
 function custom_woocommerce_product_add_to_cart_text( $text ) {
     if( 'Read more' == $text ) {
-      $text = __( 'More Info', 'woocommerce' );
+      $text = __( 'Purchase Lease', 'woocommerce' );
     }
 
     return $text;
 }
 add_filter( 'woocommerce_product_add_to_cart_text' , 'custom_woocommerce_product_add_to_cart_text' );
+
+
+
 
 
 /**
@@ -117,14 +120,9 @@ add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_m
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 
 function woo_remove_product_tabs( $tabs ) {
-
-    // unset( $tabs['description'] );        // Remove the description tab
-    // unset( $tabs['reviews'] );      // Remove the reviews tab
-    unset( $tabs['additional_information'] );   // Remove the additional information tab
-
-    return $tabs;
+  unset( $tabs['additional_information'] );   // Remove the additional information tab
+  return $tabs;
 }
-
 
 function is_realy_woocommerce_page () {
 if(  function_exists ( "is_woocommerce" ) && is_woocommerce()){
@@ -202,7 +200,7 @@ function woocommerce_quantity_input_max_callback( $max, $product ) {
 add_filter( 'woocommerce_quantity_input_max', 'woocommerce_quantity_input_max_callback', 10, 2 );
 
 
-function firstlady_widgets_init() {
+function snare_widgets_init() {
     register_sidebar(array(
       'name' => __( 'Left Sidebar', 'left' ),
       'id' => 'sidebar-left',
@@ -249,7 +247,7 @@ function firstlady_widgets_init() {
     ));
 }
 
-add_action( 'init', 'firstlady_widgets_init' );
+add_action( 'init', 'snare_widgets_init' );
 
 function avf_change_which_archive($output) {
   if(is_category()) {

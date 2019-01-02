@@ -22,6 +22,11 @@ html body form {
     padding: @baseSpacing / 2;
   }
 
+  select {
+    background-color: @black;
+    color: @white;
+  }
+
   textarea {
     background-color: @white;
     display: block;
@@ -92,4 +97,12 @@ div.wpcf7-validation-errors {
 .mc4wp-form input[type=submit]:hover {
   color: #E41A5C;
   border-color: #E41A5C;
+}
+
+@media @maxPhoneSm {
+  html body form {
+    select {
+      width: 100%;
+    }
+  }
 }

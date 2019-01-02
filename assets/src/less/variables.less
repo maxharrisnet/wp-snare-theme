@@ -40,6 +40,12 @@
 @button-background-color: @yellow;
 @button-hover-background-color: darken(@button-background-color, 20%);
 @button-hover-text-color: @button-text-color;
+@button-hover-alt-background-color: darken(@button-background-color, 20%);
+
+@button-alt-background-color: @grey;
+@button-alt-color: @black;
+@button-alt-hover-color: @grey-dark;
+
 @button-buy-color: @purple;
 @button-buy-hover-color: darken(@button-buy-color, 20%);
 
@@ -48,7 +54,7 @@
 @semi-transparent-color: rgba(0,0,0,0.8);
 
 // Text Base
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500,500i|Raleway:700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,500i,700,700i|Raleway:700,700i,900,900i');
 @font-family-title:  "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
 @font-family-sans: "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
 
@@ -90,7 +96,6 @@
 @border: @border-weight solid @grey;
 @border-dark: @border-weight solid @grey-dark;
 @border-thick: @border-weight-thick solid @grey-lighter; // TODO: Consider making these a mixin
-@border-radius-sm: 5px;
 @border-radius-lg: 30px;
 @border-radius-sm: 5px;
 

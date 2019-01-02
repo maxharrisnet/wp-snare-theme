@@ -1,38 +1,22 @@
 // Categories and Tags
 html body .taxonomy-list {
 	display: inline-block;
-	padding: (@baseSpacing / 2) 0 0;
+	overflow: visible;
+	padding: 0;
 
 	li {
 		display: inline-block;
-		margin: 0 (@baseSpacing / 2) (@baseSpacing / 2) 0;
+		margin: 0 (@baseSpacing / 3) (@baseSpacing / 3) 0;
+		overflow: visible;
 
 		&:last-of-type {
 			margin-right: 0;
 		}
 
 		a {
-			background-color: @grey-lighter;
-			border: @border;
-			border-radius: @border-radius-sm;
-			color: @black;
-			display: inline-block;
-			font-size: @font-size-sm;
-			font-weight: @font-weight-heavy;
-			line-height: 1.1;
-			margin: 0;
-			padding: (@baseSpacing / 2);
-			text-transform: uppercase;
-		}
-
-		&:hover {
-    	.transition(color, @transition-speed-fast);
-    	border-color: @hover-color;
-			color: @hover-color;
-
-			a {
-				color: @hover-color;
-			}
+			.button-small(@black, @link-color);
+			border: 1px solid @link-color;
+			overflow: visible;
 		}
 	}
 }

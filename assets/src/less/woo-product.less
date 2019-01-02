@@ -47,10 +47,15 @@ html body #primary { // TODO: Use a better selector
 
 			#reviews {
 				#comments,
-				#review_form_wrapper {
+				#review_form_wrapper #review_form {
 					.make-col(6);
 					.make-col-sm(12);
 					float: right;
+
+					#respond p {
+						clear: both;
+						margin: 0;
+					}
 
 					.stars a {
 						color: @yellow;
@@ -63,15 +68,17 @@ html body #primary { // TODO: Use a better selector
 
 				#comments {
 					ol.commentlist li {
+						overflow: hidden;
 
 						.comment-text {
 							.make-col(10, @baseSpacing);
 							.push(2);
-							border-radius: 0;
+							border-radius: @border-radius-sm;
 						}
 
 						img.avatar {
 							.make-col(1, 0);
+							border: @border;
 							border-radius: 50%;
 						}
 					}
@@ -105,7 +112,6 @@ html body #primary .featured-product-player {
 					float: left;
 
 					.reset_variations {
-						// .button-small();
 						display: none !important; //
 					}
 
@@ -133,7 +139,7 @@ html body #primary .featured-product-player {
 			}
 
 			button.button.single_add_to_cart_button {
-				margin-top: @baseSpacing;
+				margin: (@baseSpacing / 2) 0;
 				width: 100%;
 			}
 
@@ -148,10 +154,6 @@ html body #primary .featured-product-player {
 		.woocommerce-tabs {
 			color: @grey;
 			width: 100%;
-
-			a {
-				color: @black;
-			}
 
 			ul.tabs {
 				margin-bottom: 0;
@@ -194,146 +196,6 @@ html body #primary .featured-product-player {
 	}
 }
 
-//  Featured Product
-html body #primary {
-	.featured-product-player {
-		background-color: @white;
-		background-image: url('../images/bg-2.png');
-		background-size: cover;
-		margin: (@element-width-md / 2) 0 (@baseSpacing * 2);
-		overflow: visible;
-		padding-top: 0;
-		position: relative;
-
-		.product-info {
-			.make-col(12);
-			.make-col-sm(8);
-
-			.product-name,
-			.product-purchase {
-				background-color: @white;
-
-				h2 {
-					color: @text-color;
-					margin: @baseSpacing 0 0;
-				}
-			}
-		}
-
-		.product-purchase {
-			float: right;
-			text-align: right;
-
-			.price {
-				float: right;
-				font-size: @font-size-sm;
-			}
-
-			.button {
-				margin: 0;
-			}
-		}
-
-		.product-image {
-			.make-col(4);		
-			.make-col-sm(4);		
-			.absolute-center();
-			overflow: visible;
-			text-align: center;
-			top: -160px;
-			z-index: 100; //
-
-			.extra-btns-con {
-				left: -(@baseSpacing / 3);
-				top: @baseSpacing;
-			}
-		}
-
-		.audioplayer.skin-minimal .ap-controls {
-			display: none;
-		}
-
-		div.product {
-			// display: block;
-
-			&.has-default-attributes.has-children > .images{opacity:1;}
-
-			> .summary {
-				// margin-bottom: 0;
-				padding: (@baseSpacing * 3) (@baseSpacing * 2) (@baseSpacing * 2);
-
-				.wc-dzsap-wrapper {
-					position: static;
-					z-index: 200;
-
-					.extra-html.active {
-						display: none;
-					}
-
-					.audioplayer.skin-wave .audioplayer-inner .the-thumb-con {
-						display: none;
-					}
-				}
-			}
-		}
-	}
-}
-
-//  Responsive Featured Product
-@media @maxPhone {
-	html body #primary {
-		.featured-product-player {
-			margin: (@baseSpacing * 2) 0;
-			overflow: hidden;
-			padding: 0;
-
-			.product-info {
-				.product-name h2 {
-					font-size: @font-size-md;
-					line-height: @line-height-sm;
-					margin: 0;
-				}
-
-				.price {
-
-				}
-			}
-
-			.product-image {
-				order: -1;
-				position: static;
-
-				 img {
-				 		border: 1px solid @grey-light; //	TODO: Mixin
-						height: auto;
-						width: 100%;
-				 }
-			}
-
-			.product-purchase {
-				text-align: left;
-			}
-
-			div.product > .summary {
-				margin-bottom: 0;
-				padding: @baseSpacing;
-			}
-		}
-	}
-}
-
-@media @maxPhoneSm {
-	html body #primary {
-		.featured-product-player {
-			margin: @baseSpacing 0;
-
-			div.product > .summary {
-				padding: @baseSpacing / 2;
-			}
-		}
-	}
-}
-
 // Stats
 .stats-container.loaded {
 	z-index: 300; // 	TODO: Create variable
@@ -345,6 +207,7 @@ html body #primary {
 		//  PDP
 		div.product {
 			> .summary {
+				padding: @baseSpacing / 2;
 
 				.product_meta {
 					padding: 0;
@@ -354,16 +217,26 @@ html body #primary {
 					margin-bottom: @baseSpacing / 2;
 					padding-right: 0;
 				}
+			}
 
-				.woocommerce-tabs ul.tabs li {
+			.woocommerce-tabs {
+				ul.tabs li {
 					width: 100%;
+				}
+
+				.panel {
+					padding: @baseSpacing / 2;
+						
+					.product-playlist {
+						padding: 0;
+					}
 				}
 			}
 		}
 
 		// Product Lists
 		ul.products li.product {
-			margin-bottom: @baseSpacing;
+			// margin-bottom: @baseSpacing;
 
 			a img {
 				height: auto;
@@ -374,10 +247,10 @@ html body #primary {
 	}
 }
 
+//  Generic
 @media @maxPhone {
 	html body.woocommerce.single-product #primary {
-		//  Generic
-		// .dzsap-sticktobottom,
+		.dzsap-sticktobottom,
 		.summary .wc-dzsap-wrapper {
 			.transparency-gradient-bg();
 			border-top: @border-dark;

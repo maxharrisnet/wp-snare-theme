@@ -24,3 +24,17 @@ html body {
 		}
 	}
 }
+
+@media @maxPhoneSm {
+  html body .container#primary #main {
+    
+    .entry-content-page {
+      padding: @baseSpacing / 2;
+    }
+
+    #main,
+    .sidebar {
+      .make-col(12, 0);
+    }
+  }
+}

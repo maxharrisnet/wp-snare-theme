@@ -146,7 +146,6 @@ jQuery(document).ready(function( $ ){
 
       title.html(videos[$current].title);
       mp4.attr('src', stylesheetUri + '/videos/' + videos[$current].filename + '.mp4');
-// https://www.jbthefirstlady.ca/wp-content/uploads/2018/01/jb-the-first-lady-if-you-want-it.mp4
       vid[0].pause();
       vid[0].load();
       vid[0].play();

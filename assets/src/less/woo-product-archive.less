@@ -1,11 +1,36 @@
 // Product Archive
-html body.post-type-archive-product {
-	.woocommerce-products-header {
-		.make-col(12, @baseSpacing, section);
+html body {
+	&.post-type-archive-product,
+	&.tax-product_cat,
+	&.tax-product_tag {
+		.woocommerce-products-header {
+			.make-col(12, @baseSpacing, section);
 
-		.woocommerce-ordering,
-		.woocommerce-ordering select {
-			margin: 0;
+			.woocommerce-ordering,
+			.woocommerce-ordering select {
+				margin: 0;
+			}
+		}
+	}
+}
+
+@media @maxPhone {
+	html body.woocommerce {
+		&.post-type-archive-product,
+		&.tax-product_cat,
+		&.tax-product_tag {
+			.woocommerce-products-header {
+				text-align: center;
+
+				.woocommerce-result-count,
+				.woocommerce-ordering {
+					float: none;
+
+					select {
+						width: 100%;
+					}
+				}
+			}
 		}
 	}
 }

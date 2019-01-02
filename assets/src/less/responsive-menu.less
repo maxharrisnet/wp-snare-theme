@@ -12,14 +12,13 @@ html body #header {
     display: block;
     padding: 0;
     position: absolute;
-    right: @baseSpacing;
-    top: @baseSpacing;
+    right: @baseSpacing / 2;
+    top: @baseSpacing / 2;
     width: 30px;
     z-index: @z-index-logo; // TODO: Give this its own z-index
 
     .bars {
       border: 0 solid;
-      // display: block;
       height: 30px;
       position: relative;
 
@@ -89,8 +88,12 @@ html body #header {
       .container {
         display: block;
 
-        .logo-wrap img {
-          max-height: 70px;
+        .logo-wrap {
+          justify-content: flex-start;
+
+          img {
+            max-height: 70px;
+          }
         }
 
         .nav-wrap {

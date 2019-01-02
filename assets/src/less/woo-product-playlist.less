@@ -1,8 +1,6 @@
 // Product Lists
 html body #primary .product-playlist {
 	.make-col(12, 0, section);
-	// margin: 0;
-	// margin-bottom: 0;
 
 	ul.products {
 		li.product {
@@ -41,12 +39,13 @@ html body #primary .product-playlist {
 
 				&.title-cell {
 					.make-col(3,0 @baseSpacing);
-					.make-col-sm(4,0 @baseSpacing);
+					.make-col-sm(10,0 @baseSpacing);
 					h2 {
 						color: @grey;
 						display: inline;
 						font-size: @font-size-md;
 						line-height: @line-height-sm;
+						margin-bottom: 0;
 					}
 				}
 
@@ -148,7 +147,7 @@ html body .extra-btns-con {
 
 @media @maxPhoneSm {
 	html body #primary .product-playlist {
-		padding: 0;
+		padding: @baseSpacing / 2;
 
 		ul.products li.product {
 			min-height: 92px;
@@ -185,7 +184,7 @@ html body .extra-btns-con {
 
 				&.title-cell {
 					padding: (@baseSpacing / 3) 0 0 0;
-    			width: auto;
+    			// width: auto;
 
 					h2 {
 						display: block;
