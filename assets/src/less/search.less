@@ -15,12 +15,18 @@ html body .searchform,
 	}
 
 	.icon-button {
-		background-color: @brand-color;
+		background-color: transparent;
 		display: flex;
-		margin-top: @baseSpacing / 3;
+		margin-top: @baseSpacing / 2;
 		position: absolute;
 		right: @baseSpacing / 3;
 		top: 0;
+
+		i.fa {
+			&::before {
+				color: @link-color;
+			}
+		}
 
 		button,
 		input[type=submit] {
@@ -31,5 +37,3 @@ html body .searchform,
 		}
 	}
 }
-
-// Search Results

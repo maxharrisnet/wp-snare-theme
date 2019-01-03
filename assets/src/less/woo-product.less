@@ -236,7 +236,6 @@ html body #primary .featured-product-player {
 
 		// Product Lists
 		ul.products li.product {
-			// margin-bottom: @baseSpacing;
 
 			a img {
 				height: auto;
@@ -250,6 +249,8 @@ html body #primary .featured-product-player {
 //  Generic
 @media @maxPhone {
 	html body.woocommerce.single-product #primary {
+		z-index: @z-index-audio-player;
+
 		.dzsap-sticktobottom,
 		.summary .wc-dzsap-wrapper {
 			.transparency-gradient-bg();
@@ -260,7 +261,15 @@ html body #primary .featured-product-player {
 			position: fixed;
 			right: 0;
 			width: 100%;
-			z-index: @z-index-audio-player;
+		}
+	}
+}
+
+@media @maxPhoneSm {
+	html body.woocommerce.single-product #primary .product {
+
+		.summary img {
+			max-width: 50%;
 		}
 	}
 }

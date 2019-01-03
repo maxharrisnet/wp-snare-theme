@@ -26,7 +26,7 @@ html body {
 	}
 
 	// PDP Audio Player
-	&.single-product .audioplayer.skin-wave {
+	&.woocommerce.single-product .audioplayer.skin-wave {
 		display: flex;
 		flex-flow: column-reverse;
 		color: @white;
@@ -73,6 +73,28 @@ html body {
 		.ap-controls-left .con-playpause .playbtn path,
 		.ap-controls-left .con-playpause .pausebtn path{
 			// background-color: #00ff00;
+		}
+	}
+}
+
+@media @maxPhone {
+	html body.woocommerce.single-product #primary {
+		.summary .product-info-wrap .wc-dzsap-wrapper {
+			padding: 0 (@baseSpacing / 2) (@baseSpacing / 2);
+			z-index: @z-index-audio-player;
+			
+			.extra-btns-con {
+				margin: 0;
+				right: @baseSpacing / 2;
+			}
+
+			.audioplayer.skin-wave {
+				flex-flow: column;
+
+				.extra-html {
+					margin-top: @baseSpacing / 3;
+				}
+			}
 		}
 	}
 }

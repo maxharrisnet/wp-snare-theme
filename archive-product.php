@@ -100,9 +100,9 @@ get_header( 'shop' ); ?>
 		 * Hook: woocommerce_sidebar.
 		 *
 		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		// do_action( 'woocommerce_sidebar' ); ?>
+		 */ ?>
 	</main>
+	<?php do_action( 'woocommerce_sidebar' ); ?>
 </div>
 
 <?php get_footer( 'shop' ); ?>

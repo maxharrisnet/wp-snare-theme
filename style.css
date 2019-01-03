@@ -378,12 +378,16 @@ html body .searchform input[type=search],
 }
 html body .searchform .icon-button,
 .woocommerce-product-search .icon-button {
-  background-color: #facc1e;
+  background-color: transparent;
   display: flex;
-  margin-top: 6.66666667px;
+  margin-top: 10px;
   position: absolute;
   right: 6.66666667px;
   top: 0;
+}
+html body .searchform .icon-button i.fa::before,
+.woocommerce-product-search .icon-button i.fa::before {
+  color: #facc1e;
 }
 html body .searchform .icon-button button,
 .woocommerce-product-search .icon-button button,
@@ -479,6 +483,11 @@ html body i::after,
 html body .fa::after,
 html body .btn-zoomsounds::after {
   color: #000000;
+}
+html body i.fa,
+html body i.fa::before,
+html body i.fa::after {
+  font-family: "Font Awesome 5 Free";
 }
 html body .extra-html .btn-zoomsounds::before,
 html body .extra-html .btn-zoomsounds::after {
@@ -1736,7 +1745,7 @@ html body #header {
   background: #facc1e;
   border-bottom: 1px solid #facc1e;
   height: auto;
-  z-index: 500;
+  z-index: 800;
 }
 html body #header .container {
   align-items: center;
@@ -1758,7 +1767,7 @@ html body #header .container .logo-wrap {
   flex-flow: row wrap;
   height: 100%;
   justify-content: center;
-  z-index: 510;
+  z-index: 810;
 }
 @media only screen and (max-width: 899px) {
   html body #header .container .logo-wrap {
@@ -1793,6 +1802,10 @@ html body #header .container .search-wrap {
   width: 16.66666667%;
   margin-left: 8.33333333%;
 }
+html body #header .container .search-wrap .searchform,
+html body #header .container .search-wrap .woocommerce-product-search {
+  background-color: #facc1e;
+}
 html body #header .container .search-wrap .searchform input[type=text],
 html body #header .container .search-wrap .woocommerce-product-search input[type=text],
 html body #header .container .search-wrap .searchform input[type=search],
@@ -1802,6 +1815,14 @@ html body #header .container .search-wrap .woocommerce-product-search input[type
   border-bottom: 3px solid #000000;
   color: #000000;
   padding-left: 10px;
+}
+html body #header .container .search-wrap .searchform input[type=text] .icon-button,
+html body #header .container .search-wrap .woocommerce-product-search input[type=text] .icon-button,
+html body #header .container .search-wrap .searchform input[type=search] .icon-button,
+html body #header .container .search-wrap .woocommerce-product-search input[type=search] .icon-button {
+  background-color: #facc1e;
+  color: #000000;
+  margin-top: 6.66666667px;
 }
 html body #header .container .search-wrap .searchform .fa::before,
 html body #header .container .search-wrap .woocommerce-product-search .fa::before {
@@ -1865,7 +1886,7 @@ html body #header .menu-toggle {
   right: 10px;
   top: 10px;
   width: 30px;
-  z-index: 510;
+  z-index: 810;
 }
 html body #header .menu-toggle .bars {
   border: 0 solid;
@@ -1946,7 +1967,7 @@ html body #header .menu-toggle.open .bars span:nth-child(3)::after {
     width: 75%;
     background-color: #000000;
     color: #ffffff;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding: 40px;
     position: relative;
     transition: right 0.22s ease-in;
@@ -2002,7 +2023,8 @@ html body #header .menu-toggle.open .bars span:nth-child(3)::after {
 }
 @media only screen and (max-width: 899px) and only screen and (max-width: 1199px) {
   html body #header .container .nav-wrap {
-    padding: 20px;
+    margin-bottom: 20px;
+    padding: 20px 10px;
   }
 }
 /* Footer */
@@ -2059,7 +2081,7 @@ html body .sidebar .widget {
   width: 100%;
   background-color: #000000;
   color: #ffffff;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 40px;
   position: relative;
   float: left;
@@ -2067,8 +2089,46 @@ html body .sidebar .widget {
 }
 @media only screen and (max-width: 1199px) {
   html body .sidebar .widget {
-    padding: 20px;
+    margin-bottom: 20px;
+    padding: 20px 10px;
   }
+}
+html body .sidebar .widget h4 {
+  margin-bottom: 20px;
+}
+html body .sidebar .widget .fluid-width-video-wrapper {
+  margin-bottom: 0;
+}
+html body .sidebar .widget .tagcloud a {
+  transition: opacity 0.22s ease-in;
+  will-change: opacity;
+  opacity: 1;
+  background-color: #facc1e;
+  border: 2px solid #facc1e;
+  border-radius: 5px;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  line-height: 1.2rem;
+  margin: 5px 0;
+  padding: 6.66666667px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin: 0;
+  padding: 6.66666667px 10px;
+  margin: 0 6.66666667px 6.66666667px 0;
+}
+html body .sidebar .widget .tagcloud a:hover {
+  opacity: 0.6;
+}
+html body .sidebar .widget .tagcloud a i,
+html body .sidebar .widget .tagcloud a .fa::before {
+  color: #000000;
 }
 html body .sidebar#sidebar-header {
   box-sizing: border-box;
@@ -2096,6 +2156,10 @@ html body .sidebar#sidebar-header .widget {
     width: 100%;
     margin-left: 0%;
   }
+}
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+.woocommerce .widget_price_filter .ui-slider-horizontal .ui-slider-range {
+  background-color: #facc1e;
 }
 html body.sidebar .container#primary #main {
   box-sizing: border-box;
@@ -2138,6 +2202,45 @@ html body.sidebar .sidebar#sidebar-right {
     margin-left: 0%;
   }
 }
+html body.archive .container#primary #main {
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 20px;
+  width: 75%;
+  float: right;
+}
+@media only screen and (max-width: 899px) {
+  html body.archive .container#primary #main {
+    box-sizing: border-box;
+    float: left;
+    min-height: 1px;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+html body.archive #sidebar-left.sidebar {
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 20px 0;
+  width: 25%;
+}
+@media only screen and (max-width: 899px) {
+  html body.archive #sidebar-left.sidebar {
+    box-sizing: border-box;
+    float: left;
+    min-height: 1px;
+    overflow: hidden;
+    padding: 10px;
+    width: 100%;
+    margin-left: 0%;
+  }
+}
 /* Audio Player */
 html body .audioplayer.skin-wave .button-aspect-noir.button-aspect-noir--filled .playbtn .the-icon-bg,
 html body .audioplayer.skin-wave .button-aspect-noir.button-aspect-noir--filled .pausebtn .the-icon-bg,
@@ -2162,19 +2265,19 @@ html body .wc-dzsap-wrapper .extra-btns-con .stats-btn {
 html body .wc-dzsap-wrapper .player-but .the-icon-bg {
   border-color: #d3ced2;
 }
-html body.single-product .audioplayer.skin-wave {
+html body.woocommerce.single-product .audioplayer.skin-wave {
   display: flex;
   flex-flow: column-reverse;
   color: #ffffff;
 }
-html body.single-product .audioplayer.skin-wave .extra-html {
+html body.woocommerce.single-product .audioplayer.skin-wave .extra-html {
   margin-top: 0;
 }
-html body.single-product .audioplayer.skin-wave .extra-html i::before,
-html body.single-product .audioplayer.skin-wave .extra-html span.the-number {
+html body.woocommerce.single-product .audioplayer.skin-wave .extra-html i::before,
+html body.woocommerce.single-product .audioplayer.skin-wave .extra-html span.the-number {
   color: #aaaaaa;
 }
-html body.single-product .audioplayer.skin-wave .audioplayer-inner .the-thumb-con {
+html body.woocommerce.single-product .audioplayer.skin-wave .audioplayer-inner .the-thumb-con {
   display: none;
 }
 html body .audioplayer.skin-aria .ap-controls .ap-controls-left {
@@ -2189,6 +2292,22 @@ html body .audioplayer.skin-aria .ap-controls .ap-controls-right body .audioplay
 }
 html body .audioplayer.skin-aria .ap-controls .ap-controls-right .scrubbar > .scrub-prog {
   background-color: #facc1e;
+}
+@media only screen and (max-width: 899px) {
+  html body.woocommerce.single-product #primary .summary .product-info-wrap .wc-dzsap-wrapper {
+    padding: 0 10px 10px;
+    z-index: 600;
+  }
+  html body.woocommerce.single-product #primary .summary .product-info-wrap .wc-dzsap-wrapper .extra-btns-con {
+    margin: 0;
+    right: 10px;
+  }
+  html body.woocommerce.single-product #primary .summary .product-info-wrap .wc-dzsap-wrapper .audioplayer.skin-wave {
+    flex-flow: column;
+  }
+  html body.woocommerce.single-product #primary .summary .product-info-wrap .wc-dzsap-wrapper .audioplayer.skin-wave .extra-html {
+    margin-top: 6.66666667px;
+  }
 }
 html body {
   background-color: #252525;
@@ -2211,13 +2330,14 @@ html body .container#primary #main .entry-content-page {
   width: 100%;
   background-color: #000000;
   color: #ffffff;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 40px;
   position: relative;
 }
 @media only screen and (max-width: 1199px) {
   html body .container#primary #main .entry-content-page {
-    padding: 20px;
+    margin-bottom: 20px;
+    padding: 20px 10px;
   }
 }
 /* Tablet */
@@ -2236,9 +2356,6 @@ html body .container#primary #main .entry-content-page {
   }
 }
 @media only screen and (max-width: 599px) {
-  html body .container#primary #main .entry-content-page {
-    padding: 10px;
-  }
   html body .container#primary #main #main,
   html body .container#primary #main .sidebar {
     box-sizing: border-box;
@@ -2454,14 +2571,15 @@ html body #primary .featured-product-player div.product > .summary {
   width: 100%;
   background-color: #000000;
   color: #ffffff;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 40px;
   position: relative;
 }
 @media only screen and (max-width: 1199px) {
   html body.woocommerce.single-product #primary div.product > .summary,
   html body #primary .featured-product-player div.product > .summary {
-    padding: 20px;
+    margin-bottom: 20px;
+    padding: 20px 10px;
   }
 }
 html body.woocommerce.single-product #primary div.product > .summary div.images,
@@ -2554,14 +2672,15 @@ html body #primary .featured-product-player div.product .woocommerce-tabs .panel
   width: 100%;
   background-color: #000000;
   color: #ffffff;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 40px;
   position: relative;
 }
 @media only screen and (max-width: 1199px) {
   html body.woocommerce.single-product #primary div.product .woocommerce-tabs .panel,
   html body #primary .featured-product-player div.product .woocommerce-tabs .panel {
-    padding: 20px;
+    margin-bottom: 20px;
+    padding: 20px 10px;
   }
 }
 .stats-container.loaded {
@@ -2601,6 +2720,9 @@ html body #primary .featured-product-player div.product .woocommerce-tabs .panel
   }
 }
 @media only screen and (max-width: 899px) {
+  html body.woocommerce.single-product #primary {
+    z-index: 600;
+  }
   html body.woocommerce.single-product #primary .dzsap-sticktobottom,
   html body.woocommerce.single-product #primary .summary .wc-dzsap-wrapper {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 60%, #000000 100%);
@@ -2618,7 +2740,11 @@ html body #primary .featured-product-player div.product .woocommerce-tabs .panel
     position: fixed;
     right: 0;
     width: 100%;
-    z-index: 900;
+  }
+}
+@media only screen and (max-width: 599px) {
+  html body.woocommerce.single-product #primary .product .summary img {
+    max-width: 50%;
   }
 }
 html body.post-type-archive-product .woocommerce-products-header,
@@ -2632,7 +2758,7 @@ html body.tax-product_tag .woocommerce-products-header {
   width: 100%;
   background-color: #000000;
   color: #ffffff;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 40px;
   position: relative;
 }
@@ -2640,7 +2766,8 @@ html body.tax-product_tag .woocommerce-products-header {
   html body.post-type-archive-product .woocommerce-products-header,
   html body.tax-product_cat .woocommerce-products-header,
   html body.tax-product_tag .woocommerce-products-header {
-    padding: 20px;
+    margin-bottom: 20px;
+    padding: 20px 10px;
   }
 }
 html body.post-type-archive-product .woocommerce-products-header .woocommerce-ordering,
@@ -2683,13 +2810,14 @@ html body #primary .product-playlist {
   width: 100%;
   background-color: #000000;
   color: #ffffff;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 40px;
   position: relative;
 }
 @media only screen and (max-width: 1199px) {
   html body #primary .product-playlist {
-    padding: 20px;
+    margin-bottom: 20px;
+    padding: 20px 10px;
   }
 }
 html body #primary .product-playlist ul.products li.product {
@@ -2718,6 +2846,7 @@ html body #primary .product-playlist ul.products li.product > div.image-cell {
   overflow: hidden;
   padding: 0;
   width: 16.66666667%;
+  max-width: 100px;
   position: relative;
 }
 html body #primary .product-playlist ul.products li.product > div.image-cell img {

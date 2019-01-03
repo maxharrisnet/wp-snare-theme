@@ -26,14 +26,15 @@
 
 .make-col(@columns, @padding:@baseSpacing * 2, @section:@section) when (@section = section) {
   .make-col(@columns, @padding);
-  background-color: @black; //
+  background-color: @black;
   color: @text-color-alt;
-  margin-bottom: @baseSpacing * 2;
+  margin-bottom: @baseSpacing;
   padding: @baseSpacing * 2;
   position: relative;
 
   @media @maxTablet {
-    padding: @baseSpacing;
+    margin-bottom: @baseSpacing;
+    padding: @baseSpacing (@baseSpacing / 2);
   }
 }
 

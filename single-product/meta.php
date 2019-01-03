@@ -26,7 +26,7 @@ global $product;
 
 	<?php do_action( 'woocommerce_product_meta_start' ); ?>
 
-		<?php echo wc_get_product_category_list( $product->get_id(), '</li><li>', '<ul class="taxonomy-list"><li>', '</li></ul>' ); ?>
+		<?php // echo wc_get_product_terms( $product->get_id(), 'genres', array()); ?>
 
 		<?php echo wc_get_product_tag_list( $product->get_id(), '</li><li>', '<ul class="taxonomy-list"><li>', '</li></ul>' ); ?>
 

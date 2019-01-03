@@ -4,6 +4,21 @@ html body .sidebar {
     .make-col(12, @baseSpacing * 2, section);
     float: left;
     padding: @baseSpacing; // TODO: Reconfigure .make-col() mixin / section variable;
+
+    h4 {
+      margin-bottom: @baseSpacing;
+    }
+
+    .fluid-width-video-wrapper {
+      margin-bottom: 0;
+    }
+
+    .tagcloud {
+      a {
+        .button-small();
+        margin: 0 (@baseSpacing / 3) (@baseSpacing / 3) 0;
+      }
+    }
   }
 
   &#sidebar-header {
@@ -16,6 +31,11 @@ html body .sidebar {
   }
 }
 
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+.woocommerce .widget_price_filter .ui-slider-horizontal .ui-slider-range {
+  background-color: @brand-color;
+}
+
 // Sidebar – Page
 html body.sidebar {
 	.container#primary #main {
@@ -25,10 +45,24 @@ html body.sidebar {
 
   .sidebar {
 		&#sidebar-left,
-  	&#sidebar-right {
+  	&#sidebar-right, {
 	    .make-col(4, @baseSpacing 0);
 	    .make-col-sm(12);
 	    float: none;
 	  }
+  }
+}
+
+
+html body.archive {
+  .container#primary #main {
+    .make-col(9);
+    .make-col-sm(12, 0);
+    float: right;
+  }
+
+  #sidebar-left.sidebar {
+    .make-col(3, @baseSpacing 0);
+    .make-col-sm(12);
   }
 }

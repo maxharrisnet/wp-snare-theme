@@ -27,6 +27,7 @@ function register_menus() {
       'social_media_menu' => 'Social Media Menu'
     ));
 }
+
 add_action( 'after_setup_theme', 'register_menus' );
 
 // BODY CLASS
@@ -51,7 +52,6 @@ add_filter( 'getarchives_where','custom_post_type_archive',10,2);
 
 
 // WooCommerce
-
 function woocommerce_support() {
   add_theme_support( 'woocommerce' ); 
 }
@@ -72,10 +72,62 @@ function custom_woocommerce_product_add_to_cart_text( $text ) {
 
     return $text;
 }
+
 add_filter( 'woocommerce_product_add_to_cart_text' , 'custom_woocommerce_product_add_to_cart_text' );
 
 
+// Snare Taxonomies
+/**
+ * Create a taxonomy
+ *
+ * @uses  Inserts new taxonomy object into the list
+ * @uses  Adds query vars
+ *
+ * @param string  Name of taxonomy object
+ * @param array|string  Name of the object type for the taxonomy object.
+ * @param array|string  Taxonomy arguments
+ * @return null|WP_Error WP_Error if errors, otherwise null.
+ */
+function register_snare_product_genre_tax() {
 
+  $labels = array(
+    'name'                  => _x( 'Genre', 'Genres', 'snare' ),
+    'singular_name'         => _x( 'Genre', 'Genree', 'snare' ),
+    'search_items'          => __( 'Search Genres', 'snare' ),
+    'popular_items'         => __( 'Popular Genres', 'snare' ),
+    'all_items'             => __( 'All Genres', 'snare' ),
+    'parent_item'           => __( 'Parent Genre', 'snare' ),
+    'parent_item_colon'     => __( 'Parent Genre', 'snare' ),
+    'edit_item'             => __( 'Edit Genre', 'snare' ),
+    'update_item'           => __( 'Update Genre', 'snare' ),
+    'add_new_item'          => __( 'Add New Genre', 'snare' ),
+    'new_item_name'         => __( 'New Genre Name', 'snare' ),
+    'add_or_remove_items'   => __( 'Add or remove Genres', 'snare' ),
+    'choose_from_most_used' => __( 'Choose from most used Genres', 'snare' ),
+    'menu_name'             => __( 'Genres', 'snare' ),
+  );
+
+  $args = array(
+    'labels'            => $labels,
+    'public'            => true,
+    'show_in_nav_menus' => true,
+    'show_admin_column' => true,
+    'hierarchical'      => true,
+    'show_tagcloud'     => true,
+    'show_ui'           => true,
+    'query_var'         => true,
+    'rewrite'           => true,
+    'query_var'         => true,
+    'capabilities'      => array(),
+  );
+
+  register_taxonomy( 'genres', array( 'product' ), $args );
+  
+  // Remove Categories Meta
+  unregister_taxonomy_for_object_type( 'product_cat', 'product' );
+}
+
+add_action( 'init', 'register_snare_product_genre_tax' );
 
 
 /**

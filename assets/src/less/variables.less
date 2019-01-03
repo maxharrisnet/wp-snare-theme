@@ -57,6 +57,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500,500i,700,700i|Raleway:700,700i,900,900i');
 @font-family-title:  "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
 @font-family-sans: "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+@font-family-icons: "Font Awesome 5 Free";
 
 @font-size-base: 16px;
 
@@ -107,11 +108,11 @@
 @box-shadow-vertical: 0px 5px 20px -10px @grey;
 
 // Z-Indexes
-@z-index-header: 500;
-@z-index-logo: 510;
+@z-index-header: 800;
+@z-index-logo: @z-index-header + 10;
 @z-index-footer: 500;
 
-@z-index-audio-player: 900;
+@z-index-audio-player: 600;
 
 // Element Sizes
 @element-width-lg: 700px;
