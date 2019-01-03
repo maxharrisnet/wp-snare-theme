@@ -1,14 +1,11 @@
 <?php
 
-define("THEME_DIR", get_template_directory_uri());
-/*--- REMOVE GENERATOR META TAG ---*/
-remove_action('wp_head', 'wp_generator');
-
-//  Theme Supports
+// ADD THEME SUPPORTS
 add_theme_support('editor-styles');
 
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'align-wide' );
+add_theme_support( 'responsive-embeds' );
 add_theme_support( 'custom-logo', array(
   'height'      => 200,
   'width'       => 200,
@@ -19,368 +16,90 @@ add_theme_support( 'custom-logo', array(
 // Image Sizes
 add_image_size('playlist-thumbnail', 90, 90, true);
 
-// REGISTER MENUS
-function register_menus() {
-    register_nav_menus( array(
-      'header_menu' => 'Header Menu',
-        'shop_header_menu' => 'Shop Header Menu',
-      'social_media_menu' => 'Social Media Menu'
-    ));
+// REGISTER NAVIGATION MENUS
+function snare_register_menus() {
+  register_nav_menus( array(
+    'header_menu' => 'Header Menu',
+    'social_media_menu' => 'Social Media Menu'
+  ));
 }
 
-add_action( 'after_setup_theme', 'register_menus' );
+add_action( 'after_setup_theme', 'snare_register_menus' );
 
-// BODY CLASS
-function add_slug_body_class( $classes ) {
-global $post;
-if ( isset( $post ) ) {
+
+// POST SLUG BODY CLASS
+function snare_add_slug_body_class( $classes ) {
+  global $post;
+
+  if ( isset( $post ) ) {
     $classes[] = $post->post_type . '-' . $post->post_name;
   }
-    return $classes;
-  }
-  
-add_filter( 'body_class', 'add_slug_body_class' );
 
- 
-function custom_post_type_archive($where,$args){  
-    $post_type  = isset($args['post_type'])  ? $args['post_type']  : 'post';  
-    $where = "WHERE post_type = '$post_type' AND post_status = 'publish'";
-    return $where;  
+  return $classes;
 }
-
-add_filter( 'getarchives_where','custom_post_type_archive',10,2);
-
-
-// WooCommerce
-function woocommerce_support() {
-  add_theme_support( 'woocommerce' ); 
-}
-
-add_action( 'after_setup_theme', 'woocommerce_support' );
-
-/**
- * Optimize WooCommerce Scripts
- * Remove WooCommerce Generator tag, styles, and scripts from non WooCommerce pages.
- */
-add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
-
-// Add to Cart Text
-function custom_woocommerce_product_add_to_cart_text( $text ) {
-    if( 'Read more' == $text ) {
-      $text = __( 'Purchase Lease', 'woocommerce' );
-    }
-
-    return $text;
-}
-
-add_filter( 'woocommerce_product_add_to_cart_text' , 'custom_woocommerce_product_add_to_cart_text' );
-
-
-// Snare Taxonomies
-/**
- * Create a taxonomy
- *
- * @uses  Inserts new taxonomy object into the list
- * @uses  Adds query vars
- *
- * @param string  Name of taxonomy object
- * @param array|string  Name of the object type for the taxonomy object.
- * @param array|string  Taxonomy arguments
- * @return null|WP_Error WP_Error if errors, otherwise null.
- */
-function register_snare_product_genre_tax() {
-
-  $labels = array(
-    'name'                  => _x( 'Genre', 'Genres', 'snare' ),
-    'singular_name'         => _x( 'Genre', 'Genree', 'snare' ),
-    'search_items'          => __( 'Search Genres', 'snare' ),
-    'popular_items'         => __( 'Popular Genres', 'snare' ),
-    'all_items'             => __( 'All Genres', 'snare' ),
-    'parent_item'           => __( 'Parent Genre', 'snare' ),
-    'parent_item_colon'     => __( 'Parent Genre', 'snare' ),
-    'edit_item'             => __( 'Edit Genre', 'snare' ),
-    'update_item'           => __( 'Update Genre', 'snare' ),
-    'add_new_item'          => __( 'Add New Genre', 'snare' ),
-    'new_item_name'         => __( 'New Genre Name', 'snare' ),
-    'add_or_remove_items'   => __( 'Add or remove Genres', 'snare' ),
-    'choose_from_most_used' => __( 'Choose from most used Genres', 'snare' ),
-    'menu_name'             => __( 'Genres', 'snare' ),
-  );
-
-  $args = array(
-    'labels'            => $labels,
-    'public'            => true,
-    'show_in_nav_menus' => true,
-    'show_admin_column' => true,
-    'hierarchical'      => true,
-    'show_tagcloud'     => true,
-    'show_ui'           => true,
-    'query_var'         => true,
-    'rewrite'           => true,
-    'query_var'         => true,
-    'capabilities'      => array(),
-  );
-
-  register_taxonomy( 'genres', array( 'product' ), $args );
-  
-  // Remove Categories Meta
-  unregister_taxonomy_for_object_type( 'product_cat', 'product' );
-}
-
-add_action( 'init', 'register_snare_product_genre_tax' );
-
-
-/**
- * Add a custom product data tab
- */
-add_filter( 'woocommerce_product_tabs', 'snare_product_tabs' );
-function snare_product_tabs( $tabs ) {
     
-  $tabs['test_tab'] = array(
-    'title'   => __( 'Related Tracks', 'woocommerce' ),
-    'priority'  => 1,
-    'callback'  => 'woo_new_product_tab_content'
-  );
+add_filter( 'body_class', 'snare_add_slug_body_class' );
 
-  return $tabs;
-}
+   
+// function custom_post_type_archive($where,$args){  
+//   $post_type  = isset($args['post_type'])  ? $args['post_type']  : 'post';  
+//   $where = "WHERE post_type = '$post_type' AND post_status = 'publish'";
+//   return $where;
+// }
 
-function woo_new_product_tab_content() {
-  woocommerce_output_related_products();
-}
-
-// * @hooked woocommerce_template_single_title - 5
-// * @hooked woocommerce_template_single_rating - 10
-// * @hooked woocommerce_template_single_price - 10
-// * @hooked woocommerce_template_single_excerpt - 20
-// * @hooked woocommerce_template_single_add_to_cart - 30
-// * @hooked woocommerce_template_single_meta - 40
-// * @hooked woocommerce_template_single_sharing - 50
-// * @hooked WC_Structured_Data::generate_product_data() - 60
-
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
-
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 10 );
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 10 );
-
-/**
- * Remove product data tabs
- */
-add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
-
-function woo_remove_product_tabs( $tabs ) {
-  unset( $tabs['additional_information'] );   // Remove the additional information tab
-  return $tabs;
-}
-
-function is_realy_woocommerce_page () {
-if(  function_exists ( "is_woocommerce" ) && is_woocommerce()){
-        return true;
-  }
-  $woocommerce_keys = array ( "woocommerce_shop_page_id" ,
-                                  "woocommerce_terms_page_id" ,
-                                  "woocommerce_cart_page_id" ,
-                                  "woocommerce_checkout_page_id" ,
-                                  "woocommerce_pay_page_id" ,
-                                  "woocommerce_thanks_page_id" ,
-                                  "woocommerce_myaccount_page_id" ,
-                                  "woocommerce_edit_address_page_id" ,
-                                  "woocommerce_view_order_page_id" ,
-                                  "woocommerce_change_password_page_id" ,
-                                  "woocommerce_logout_page_id" ,
-                                  "woocommerce_lost_password_page_id" ) ;
-  foreach ( $woocommerce_keys as $wc_page_id ) {
-          if ( get_the_ID () == get_option ( $wc_page_id , 0 ) ) {
-                  return true ;
-          }
-  }
-  return false;
-}
-
-function child_manage_woocommerce_styles() {
- //remove generator meta tag
- // remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
- 
- //first check that woo exists to prevent fatal errors
- if ( function_exists( 'is_woocommerce' ) ) {
-
-   //dequeue scripts and styles
-   if ( ! is_realy_woocommerce_page() ) {
-     wp_dequeue_style( 'woocommerce_frontend_styles' );
-     wp_dequeue_style( 'woocommerce_fancybox_styles' );
-     wp_dequeue_style( 'woocommerce_chosen_styles' );
-     wp_dequeue_style( 'woocommerce_prettyPhoto_css' );
-     wp_dequeue_script( 'wc_price_slider' );
-     wp_dequeue_script( 'wc-single-product' );
-     wp_dequeue_script( 'wc-add-to-cart' );
-     wp_dequeue_script( 'wc-cart-fragments' );
-     wp_dequeue_script( 'wc-checkout' );
-     wp_dequeue_script( 'wc-add-to-cart-variation' );
-     wp_dequeue_script( 'wc-single-product' );
-     wp_dequeue_script( 'wc-cart' );
-     wp_dequeue_script( 'wc-chosen' );
-     wp_dequeue_script( 'woocommerce' );
-     wp_dequeue_script( 'prettyPhoto' );
-     wp_dequeue_script( 'prettyPhoto-init' );
-     wp_dequeue_script( 'jquery-blockui' );
-     wp_dequeue_script( 'jquery-placeholder' );
-     wp_dequeue_script( 'fancybox' );
-     wp_dequeue_script( 'jqueryui' );
-   }
- }
-}
-
-/*
-* Changing the minimum quantity to 2 for all the WooCommerce products
-*/
-function woocommerce_quantity_input_min_callback( $min, $product ) {
-  $min = 1;  
-  return $min;
-}
-add_filter( 'woocommerce_quantity_input_min', 'woocommerce_quantity_input_min_callback', 10, 2 );
-
-/*
-* Changing the maximum quantity to 5 for all the WooCommerce products
-*/
-function woocommerce_quantity_input_max_callback( $max, $product ) {
-  $max = 1;  
-  return $max;
-}
-add_filter( 'woocommerce_quantity_input_max', 'woocommerce_quantity_input_max_callback', 10, 2 );
+// add_filter( 'getarchives_where','custom_post_type_archive',10,2);
 
 
+// REGISTER WIDGETS
 function snare_widgets_init() {
-    register_sidebar(array(
-      'name' => __( 'Left Sidebar', 'left' ),
-      'id' => 'sidebar-left',
-      'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-      'after_widget' => "</aside>",
-      'before_title' => '<h4>',
-      'after_title' => '</h4>',
-    ));
+  register_sidebar(array(
+    'name' => __( 'Left Sidebar', 'left' ),
+    'id' => 'sidebar-left',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => "</aside>",
+    'before_title' => '<h4>',
+    'after_title' => '</h4>',
+  ));
 
-    register_sidebar(array(
-        'name' => __( 'Right Sidebar', 'right' ),
-        'id' => 'sidebar-right',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => "</aside>",
-        'before_title' => '<h4>',
-        'after_title' => '</h4>',
-    ));
+  register_sidebar(array(
+    'name' => __( 'Right Sidebar', 'right' ),
+    'id' => 'sidebar-right',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => "</aside>",
+    'before_title' => '<h4>',
+    'after_title' => '</h4>'
+  ));
 
-    register_sidebar(array(
-        'name' => __( 'Header Sidebar', 'header' ),
-        'id' => 'sidebar-header',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => "</aside>",
-        'before_title' => '<h2>',
-        'after_title' => '</h2>',
-    ));
+  register_sidebar(array(
+    'name' => __( 'Header Sidebar', 'header' ),
+    'id' => 'sidebar-header',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => "</aside>",
+    'before_title' => '<h2>',
+    'after_title' => '</h2>'
+  ));
 
-    register_sidebar(array(
-      'name' => __( 'Bottom Sidebar', 'bottom' ),
-      'id' => 'sidebar-bottom',
-      'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-      'after_widget' => "</aside>",
-      'before_title' => '<h4>',
-      'after_title' => '</h4>',
-    ));
+  register_sidebar(array(
+    'name' => __( 'Bottom Sidebar', 'bottom' ),
+    'id' => 'sidebar-bottom',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => "</aside>",
+    'before_title' => '<h4>',
+    'after_title' => '</h4>'
+  ));
 
-    register_sidebar(array(
-        'name' => __( 'WooCommerce Sidebar', 'woocommerce' ),
-        'id' => 'sidebar-woocommerce',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => "</aside>",
-        'before_title' => '<h4>',
-        'after_title' => '</h4>',
-    ));
+  register_sidebar(array(
+    'name' => __( 'WooCommerce Sidebar', 'woocommerce' ),
+    'id' => 'sidebar-woocommerce',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => "</aside>",
+    'before_title' => '<h4>',
+    'after_title' => '</h4>'
+  ));
 }
 
 add_action( 'init', 'snare_widgets_init' );
 
-function avf_change_which_archive($output) {
-  if(is_category()) {
-    $output = single_cat_title('',false);
-  }
-
-  return $output;
-}
-add_filter('avf_which_archive_output','avf_change_which_archive', 10, 3);
-
-// FONT MENU
-
-function storm_social_icons_networks( $networks ) {
- 
-    $extra_icons = array (
-        '/feed' => array(                  
-            'name' => 'RSS',
-            'class' => 'rss',
-            'icon' => 'fa-rss',
-            'icon-sign' => 'fa-rss-sign'
-        ),
-        '/apple' => array(                  
-            'name' => 'Apple',
-            'class' => 'fa fa-apple',
-            'icon' => 'fa-apple',
-            'icon-sign' => 'fa-apple'
-        ),
-        '/bandcamp' => array(                  
-            'name' => 'Bandcamp',
-            'class' => 'bandcamp',
-            'icon' => 'fa-bandcamp',
-            'icon-sign' => 'fa-bandcamp'
-        ),
-        '/facebook' => array(                  
-            'name' => 'Facebook',
-            'class' => 'facebook',
-            'icon' => 'fa-facebook',
-            'icon-sign' => 'fa-facebook'
-        ),
-        '/instagram' => array(                  
-            'name' => 'Instagram',
-            'class' => 'instagram',
-            'icon' => 'fa-instagram',
-            'icon-sign' => 'fa-instagram'
-        ),
-        '/soundcloud' => array(                  
-            'name' => 'Soundcloud',
-            'class' => 'soundcloud',
-            'icon' => 'fa-soundcloud',
-            'icon-sign' => 'fa-soundcloud'
-        ),
-        '/spotify' => array(                  
-            'name' => 'Spotify',
-            'class' => 'spotify',
-            'icon' => 'fa-spotify',
-            'icon-sign' => 'fa-spotify'
-        ),
-        '/feed' => array(                  
-            'name' => 'RSS',
-            'class' => 'rss',
-            'icon' => 'fa-rss',
-            'icon-sign' => 'fa-rss-sign'
-        ),
-        '/feed' => array(                  
-            'name' => 'RSS',
-            'class' => 'rss',
-            'icon' => 'fa-rss',
-            'icon-sign' => 'fa-rss-sign'
-        ),
-        '/twitter' => array(                  
-            'name' => 'Twitter',
-            'class' => 'twitter',
-            'icon' => 'fa-twitter',
-            'icon-sign' => 'fa-twitter'
-        ),
-    );
- 
-    $extra_icons = array_merge( $networks, $extra_icons );
-    return $extra_icons;
-}
-add_filter( 'storm_social_icons_networks', 'storm_social_icons_networks');
 
 // ENQUEUE STYLES
 function enqueue_styles() {
@@ -420,5 +139,194 @@ function enqueue_footer_scripts() {
   }
 
 add_action( 'wp_enqueue_scripts', 'enqueue_footer_scripts' );
+
+
+// WOOCOMMERCE
+function woocommerce_support() {
+  add_theme_support( 'woocommerce' ); 
+}
+
+add_action( 'after_setup_theme', 'woocommerce_support' );
+
+
+// GENRE TAXONOMY
+function snare_register_product_genre_tax() {
+
+  $labels = array(
+    'name'                  => _x( 'Genre', 'Genres', 'snare' ),
+    'singular_name'         => _x( 'Genre', 'Genree', 'snare' ),
+    'search_items'          => __( 'Search Genres', 'snare' ),
+    'popular_items'         => __( 'Popular Genres', 'snare' ),
+    'all_items'             => __( 'All Genres', 'snare' ),
+    'parent_item'           => __( 'Parent Genre', 'snare' ),
+    'parent_item_colon'     => __( 'Parent Genre', 'snare' ),
+    'edit_item'             => __( 'Edit Genre', 'snare' ),
+    'update_item'           => __( 'Update Genre', 'snare' ),
+    'add_new_item'          => __( 'Add New Genre', 'snare' ),
+    'new_item_name'         => __( 'New Genre Name', 'snare' ),
+    'add_or_remove_items'   => __( 'Add or remove Genres', 'snare' ),
+    'choose_from_most_used' => __( 'Choose from most used Genres', 'snare' ),
+    'menu_name'             => __( 'Genres', 'snare' ),
+  );
+
+  $args = array(
+    'labels'            => $labels,
+    'public'            => true,
+    'show_in_nav_menus' => true,
+    'show_admin_column' => true,
+    'hierarchical'      => true,
+    'show_tagcloud'     => true,
+    'show_ui'           => true,
+    'query_var'         => true,
+    'rewrite'           => true,
+    'query_var'         => true,
+    'capabilities'      => array(),
+  );
+
+  register_taxonomy( 'genres', array( 'product' ), $args );
+  
+  // Remove Categories from products (replaced with Genres)
+  unregister_taxonomy_for_object_type( 'product_cat', 'product' );
+}
+
+add_action( 'init', 'snare_register_product_genre_tax' );
+
+
+// PRODUCT TABS
+function snare_product_tabs( $tabs ) {
+    
+  $tabs['test_tab'] = array(
+    'title'   => __( 'Related Tracks', 'woocommerce' ),
+    'priority'  => 1,
+    'callback'  => 'woo_new_product_tab_content'
+  );
+
+  return $tabs;
+}
+
+add_filter( 'woocommerce_product_tabs', 'snare_product_tabs' );
+
+
+function woo_new_product_tab_content() {
+  woocommerce_output_related_products();
+}
+
+// * @hooked woocommerce_template_single_title - 5
+// * @hooked woocommerce_template_single_rating - 10
+// * @hooked woocommerce_template_single_price - 10
+// * @hooked woocommerce_template_single_excerpt - 20
+// * @hooked woocommerce_template_single_add_to_cart - 30
+// * @hooked woocommerce_template_single_meta - 40
+// * @hooked woocommerce_template_single_sharing - 50
+// * @hooked WC_Structured_Data::generate_product_data() - 60
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 10 );
+
+
+// Remove product data tabs
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+  unset( $tabs['additional_information'] );   // Remove the additional information tab
+  return $tabs;
+}
+
+// Limit min to 1
+function snare_woocommerce_quantity_input_min_callback( $min, $product ) {
+  $min = 1;  
+  return $min;
+}
+
+add_filter( 'woocommerce_quantity_input_min', 'snare_woocommerce_quantity_input_min_callback', 10, 2 );
+
+
+// Limit max to 1
+function snare_woocommerce_quantity_input_max_callback( $max, $product ) {
+  $max = 1;  
+  return $max;
+}
+
+add_filter( 'woocommerce_quantity_input_max', 'snare_woocommerce_quantity_input_max_callback', 10, 2 );
+
+// Remove category title prefix
+function avf_change_which_archive($output) {
+  if(is_category()) {
+    $output = single_cat_title('',false);
+  }
+
+  return $output;
+}
+
+add_filter('avf_which_archive_output','avf_change_which_archive', 10, 3);
+
+// FONT ICON MENU (MUSIC & SOCIAL NETWORKS)
+function snare_social_icons_networks( $networks ) {
+  $extra_icons = array (
+    '/apple' => array(                  
+      'name' => 'Apple',
+      'class' => 'fa fa-apple',
+      'icon' => 'fa-apple',
+      'icon-sign' => 'fa-apple'
+    ),
+    '/bandcamp' => array(                  
+      'name' => 'Bandcamp',
+      'class' => 'bandcamp',
+      'icon' => 'fa-bandcamp',
+      'icon-sign' => 'fa-bandcamp'
+    ),
+    '/facebook' => array(                  
+      'name' => 'Facebook',
+      'class' => 'facebook',
+      'icon' => 'fa-facebook',
+      'icon-sign' => 'fa-facebook'
+    ),
+    '/feed' => array(                  
+      'name' => 'RSS',
+      'class' => 'rss',
+      'icon' => 'fa-rss',
+      'icon-sign' => 'fa-rss-sign'
+    ),
+    '/instagram' => array(                  
+      'name' => 'Instagram',
+      'class' => 'instagram',
+      'icon' => 'fa-instagram',
+      'icon-sign' => 'fa-instagram'
+    ),
+    '/soundcloud' => array(                  
+      'name' => 'Soundcloud',
+      'class' => 'soundcloud',
+      'icon' => 'fa-soundcloud',
+      'icon-sign' => 'fa-soundcloud'
+    ),
+    '/spotify' => array(                  
+      'name' => 'Spotify',
+      'class' => 'spotify',
+      'icon' => 'fa-spotify',
+      'icon-sign' => 'fa-spotify'
+    ),
+    '/twitter' => array(                  
+      'name' => 'Twitter',
+      'class' => 'twitter',
+      'icon' => 'fa-twitter',
+      'icon-sign' => 'fa-twitter'
+    ),
+  );
+
+  $extra_icons = array_merge( $networks, $extra_icons );
+
+  return $extra_icons;
+}
+
+add_filter( 'snare_social_icons_networks', 'snare_social_icons_networks');
+
+
+// REMOVE GENERATOR META TAG TO CONCEAL VERSION
+remove_action('wp_head', 'wp_generator');
 
 ?>

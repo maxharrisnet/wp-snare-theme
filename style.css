@@ -2130,6 +2130,10 @@ html body .sidebar .widget .tagcloud a i,
 html body .sidebar .widget .tagcloud a .fa::before {
   color: #000000;
 }
+html body .sidebar .widget .product_list_widget img {
+  float: left;
+  margin: 0 10px 0 0;
+}
 html body .sidebar#sidebar-header {
   box-sizing: border-box;
   float: left;
