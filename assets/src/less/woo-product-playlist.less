@@ -63,11 +63,13 @@ html body #primary .product-playlist {
 				&.tax-cell {
 					.make-col(4, 0 (@baseSpacing / 2));
 					.product_meta .taxonomy-list {
+						display: inline-block;
 						margin-bottom: 0;
 						padding: 0;
 						
 						li {
-							margin: @baseSpacing / 5;
+							display: inline-block;
+							margin: 0;
 
 							a {
 								font-size: @font-size-xs;
@@ -185,7 +187,6 @@ html body .extra-btns-con {
 
 				&.title-cell {
 					padding: (@baseSpacing / 3) 0 0 0;
-    			// width: auto;
 
 					h2 {
 						display: block;

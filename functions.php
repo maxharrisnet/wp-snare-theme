@@ -13,9 +13,6 @@ add_theme_support( 'custom-logo', array(
   'header-text' => array( 'site-title', 'site-description' ),
 ) );
 
-// Image Sizes
-add_image_size('playlist-thumbnail', 90, 90, true);
-
 // REGISTER NAVIGATION MENUS
 function snare_register_menus() {
   register_nav_menus( array(
@@ -57,8 +54,8 @@ function snare_widgets_init() {
     'id' => 'sidebar-left',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' => "</aside>",
-    'before_title' => '<h4>',
-    'after_title' => '</h4>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
   ));
 
   register_sidebar(array(
@@ -66,8 +63,8 @@ function snare_widgets_init() {
     'id' => 'sidebar-right',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' => "</aside>",
-    'before_title' => '<h4>',
-    'after_title' => '</h4>'
+    'before_title' => '<h3>',
+    'after_title' => '</h3>'
   ));
 
   register_sidebar(array(
@@ -84,8 +81,8 @@ function snare_widgets_init() {
     'id' => 'sidebar-bottom',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' => "</aside>",
-    'before_title' => '<h4>',
-    'after_title' => '</h4>'
+    'before_title' => '<h3>',
+    'after_title' => '</h3>'
   ));
 
   register_sidebar(array(
@@ -93,8 +90,8 @@ function snare_widgets_init() {
     'id' => 'sidebar-woocommerce',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' => "</aside>",
-    'before_title' => '<h4>',
-    'after_title' => '</h4>'
+    'before_title' => '<h3>',
+    'after_title' => '</h3>'
   ));
 }
 

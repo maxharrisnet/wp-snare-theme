@@ -211,17 +211,17 @@ html body h1 {
   text-transform: uppercase;
 }
 html body h2 {
-  font-size: 30px;
+  font-size: 22px;
   letter-spacing: 0.12rem;
   line-height: 1.86rem;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
 html body h3 {
-  font-size: 1.5rem;
+  font-size: 22px;
   letter-spacing: 0.01rem;
-  line-height: 1.1rem;
-  margin: 20px auto;
+  line-height: 1.86rem;
+  margin: 0 0 20px;
 }
 html body ul li {
   line-height: 1.4em;
@@ -287,7 +287,8 @@ html body form input[type=submit] {
   opacity: 1;
   background-color: #facc1e;
   border: 2px solid #facc1e;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
   color: #000000;
   cursor: pointer;
   display: inline-block;
@@ -296,6 +297,7 @@ html body form input[type=submit] {
   letter-spacing: 0.14rem;
   line-height: 1.2rem;
   margin: 5px 0;
+  overflow: hidden;
   padding: 6.66666667px 20px;
   position: relative;
   text-align: center;
@@ -372,6 +374,7 @@ html body .searchform input[type=search],
 .woocommerce-product-search input[type=search] {
   background-color: transparent;
   border: 1px solid #aaaaaa;
+  border-color: #facc1e;
   margin: 0;
   padding: 10px 20px;
   width: 100%;
@@ -397,51 +400,6 @@ html body .searchform .icon-button input[type=submit],
   border-color: transparent;
   margin: 0;
   padding: 0;
-}
-html body .taxonomy-list {
-  display: inline-block;
-  overflow: visible;
-  padding: 0;
-}
-html body .taxonomy-list li {
-  display: inline-block;
-  margin: 0 6.66666667px 6.66666667px 0;
-  overflow: visible;
-}
-html body .taxonomy-list li:last-of-type {
-  margin-right: 0;
-}
-html body .taxonomy-list li a {
-  transition: opacity 0.22s ease-in;
-  will-change: opacity;
-  opacity: 1;
-  background-color: #000000;
-  border: 2px solid #000000;
-  border-radius: 5px;
-  color: #facc1e;
-  cursor: pointer;
-  display: inline-block;
-  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.14rem;
-  line-height: 1.2rem;
-  margin: 5px 0;
-  padding: 6.66666667px 20px;
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 13px;
-  margin: 0;
-  padding: 6.66666667px 10px;
-  border: 1px solid #facc1e;
-  overflow: visible;
-}
-html body .taxonomy-list li a:hover {
-  opacity: 0.6;
-}
-html body .taxonomy-list li a i,
-html body .taxonomy-list li a .fa::before {
-  color: #facc1e;
 }
 html body .sr-only {
   clip: rect(1px, 1px, 1px, 1px);
@@ -471,6 +429,45 @@ html body a img:hover {
 }
 html body .icon-button {
   position: relative;
+}
+html body .taxonomy-list a,
+html body .tagcloud a {
+  transition: opacity 0.22s ease-in;
+  will-change: opacity;
+  opacity: 1;
+  background-color: #000000;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #facc1e;
+  cursor: pointer;
+  display: inline-block;
+  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  line-height: 1.2rem;
+  margin: 5px 0;
+  overflow: hidden;
+  padding: 6.66666667px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin: 0;
+  padding: 6.66666667px 10px;
+  border: 1px solid #facc1e;
+  border-radius: 20px;
+  margin: 4px;
+}
+html body .taxonomy-list a:hover,
+html body .tagcloud a:hover {
+  opacity: 0.6;
+}
+html body .taxonomy-list a i,
+html body .tagcloud a i,
+html body .taxonomy-list a .fa::before,
+html body .tagcloud a .fa::before {
+  color: #facc1e;
 }
 html body .fluid-width-video-wrapper {
   border: 5px solid #ebe9eb;
@@ -510,7 +507,8 @@ html body.woocommerce td button.button {
   opacity: 1;
   background-color: #facc1e;
   border: 2px solid #facc1e;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
   color: #000000;
   cursor: pointer;
   display: inline-block;
@@ -519,6 +517,7 @@ html body.woocommerce td button.button {
   letter-spacing: 0.14rem;
   line-height: 1.2rem;
   margin: 5px 0;
+  overflow: hidden;
   padding: 6.66666667px 20px;
   position: relative;
   text-align: center;
@@ -593,7 +592,8 @@ html body.woocommerce td button.button.buy {
   opacity: 1;
   background-color: #510a8e;
   border: 2px solid #510a8e;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
@@ -602,6 +602,7 @@ html body.woocommerce td button.button.buy {
   letter-spacing: 0.14rem;
   line-height: 1.2rem;
   margin: 5px 0;
+  overflow: hidden;
   padding: 6.66666667px 20px;
   position: relative;
   text-align: center;
@@ -700,7 +701,8 @@ html body.woocommerce td button.button.single_add_to_cart_button {
   opacity: 1;
   background-color: #510a8e;
   border: 2px solid #510a8e;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
@@ -709,6 +711,7 @@ html body.woocommerce td button.button.single_add_to_cart_button {
   letter-spacing: 0.14rem;
   line-height: 1.2rem;
   margin: 5px 0;
+  overflow: hidden;
   padding: 6.66666667px 20px;
   position: relative;
   text-align: center;
@@ -913,7 +916,8 @@ html body td button.button.single_add_to_cart_button input.button:disabled[disab
 html body.woocommerce td button.button.single_add_to_cart_button input.button:disabled[disabled] {
   background-color: #510a8e;
   border: 2px solid #510a8e;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
@@ -922,6 +926,7 @@ html body.woocommerce td button.button.single_add_to_cart_button input.button:di
   letter-spacing: 0.14rem;
   line-height: 1.2rem;
   margin: 5px 0;
+  overflow: hidden;
   padding: 6.66666667px 20px;
   position: relative;
   text-align: center;
@@ -1764,7 +1769,7 @@ html body #header .container .logo-wrap {
   width: 8.33333333%;
   align-items: center;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
   height: 100%;
   justify-content: center;
   z-index: 810;
@@ -1989,7 +1994,7 @@ html body #header .menu-toggle.open .bars span:nth-child(3)::after {
   html body #header .container .nav-wrap .menu-main-navigation-container ul {
     align-items: center;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: 'column';
     height: 100%;
     justify-content: center;
     flex-flow: column wrap;
@@ -2099,36 +2104,13 @@ html body .sidebar .widget h4 {
 html body .sidebar .widget .fluid-width-video-wrapper {
   margin-bottom: 0;
 }
-html body .sidebar .widget .tagcloud a {
-  transition: opacity 0.22s ease-in;
-  will-change: opacity;
-  opacity: 1;
-  background-color: #facc1e;
-  border: 2px solid #facc1e;
-  border-radius: 5px;
-  color: #000000;
-  cursor: pointer;
-  display: inline-block;
-  font: 13px "Montserrat", "Franklin Gothic Medium", Tahoma, 'Open Sans', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.14rem;
-  line-height: 1.2rem;
-  margin: 5px 0;
-  padding: 6.66666667px 20px;
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 13px;
-  margin: 0;
-  padding: 6.66666667px 10px;
-  margin: 0 6.66666667px 6.66666667px 0;
-}
-html body .sidebar .widget .tagcloud a:hover {
-  opacity: 0.6;
-}
-html body .sidebar .widget .tagcloud a i,
-html body .sidebar .widget .tagcloud a .fa::before {
-  color: #000000;
+html body .sidebar .widget .tagcloud {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 html body .sidebar .widget .product_list_widget img {
   float: left;
@@ -2382,7 +2364,7 @@ html body #primary div.product img,
 html body #primary.woocommerce div.product img,
 html body #primary ul.products img,
 html body #primary.woocommerce ul.products img {
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 0;
   width: auto;
 }
@@ -2518,7 +2500,7 @@ html body #primary.woocommerce ul.products #reviews #comments ol.commentlist li 
   padding: 20px;
   width: 83.33333333%;
   margin-left: 16.66666667%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 html body #primary div.product #reviews #comments ol.commentlist li img.avatar,
 html body #primary.woocommerce div.product #reviews #comments ol.commentlist li img.avatar,
@@ -2614,6 +2596,11 @@ html body #primary .featured-product-player div.product > .summary .product_meta
     width: 100%;
     margin-left: 0%;
   }
+}
+html body.woocommerce.single-product #primary div.product > .summary .product_meta .taxonomy-list li,
+html body #primary .featured-product-player div.product > .summary .product_meta .taxonomy-list li {
+  display: inline;
+  margin: 0;
 }
 html body.woocommerce.single-product #primary div.product > .summary button.button.single_add_to_cart_button,
 html body #primary .featured-product-player div.product > .summary button.button.single_add_to_cart_button {
@@ -2933,11 +2920,13 @@ html body #primary .product-playlist ul.products li.product > div.tax-cell {
   width: 33.33333333%;
 }
 html body #primary .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list {
+  display: inline-block;
   margin-bottom: 0;
   padding: 0;
 }
 html body #primary .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list li {
-  margin: 4px;
+  display: inline-block;
+  margin: 0;
 }
 html body #primary .product-playlist ul.products li.product > div.tax-cell .product_meta .taxonomy-list li a {
   font-size: 10px;
@@ -2958,7 +2947,8 @@ html body #primary .product-playlist ul.products li.product > div.button-cell .b
   opacity: 1;
   background-color: #510a8e;
   border: 2px solid #510a8e;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
@@ -2967,6 +2957,7 @@ html body #primary .product-playlist ul.products li.product > div.button-cell .b
   letter-spacing: 0.14rem;
   line-height: 1.2rem;
   margin: 5px 0;
+  overflow: hidden;
   padding: 6.66666667px 20px;
   position: relative;
   text-align: center;
@@ -3043,6 +3034,13 @@ html body .extra-btns-con {
   }
   html body #primary .product-playlist ul.products li.product > div.image-cell img {
     max-width: 100%;
+  }
+  html body #primary .product-playlist ul.products li.product > div.image-cell .audioplayer {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    justify-content: center;
   }
   html body #primary .product-playlist ul.products li.product > div.image-cell .audioplayer * {
     border-radius: 50%;
@@ -3256,7 +3254,7 @@ html body.woocommerce-checkout #primary table.cart td.actions .coupon .input-tex
 html body.woocommerce #primary a img,
 html body.woocommerce-cart #primary a img,
 html body.woocommerce-checkout #primary a img {
-  border-radius: 5px;
+  border-radius: 10px;
   width: 100px;
 }
 html body.woocommerce #primary #payment,
@@ -3279,7 +3277,8 @@ html body.woocommerce-checkout #primary .wc-proceed-to-checkout a.checkout-butto
   opacity: 1;
   background-color: #510a8e;
   border: 2px solid #510a8e;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
@@ -3288,6 +3287,7 @@ html body.woocommerce-checkout #primary .wc-proceed-to-checkout a.checkout-butto
   letter-spacing: 0.14rem;
   line-height: 1.2rem;
   margin: 5px 0;
+  overflow: hidden;
   padding: 6.66666667px 20px;
   position: relative;
   text-align: center;
