@@ -197,7 +197,12 @@ html body #primary .featured-product-player {
 			}
 
 			.panel {
-				.make-col(12, @baseSpacing * 2, section);
+				.make-col(12, @baseSpacing, section);
+				padding: @baseSpacing;
+
+				.product-playlist {
+					padding: @baseSpacing;
+				}
 			}
 		}
 	}

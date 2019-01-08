@@ -10,6 +10,7 @@ html body #header {
     border: 0 solid;
     cursor: pointer;
     display: block;
+    margin-top: 12px;
     padding: 0;
     position: absolute;
     right: @baseSpacing / 2;
@@ -82,17 +83,17 @@ html body #header {
 @media @maxPhone {
   html body {
     #header {
-      height: @mobile-header-height;
+      height: auto;
       position: fixed;
 
       .container {
         display: block;
 
         .logo-wrap {
-          justify-content: flex-start;
+          align-items: flex-start;
 
           img {
-            max-height: 70px;
+            max-height: 50px;
           }
         }
 
